@@ -1,0 +1,11 @@
+# Only the page and deploy/ assets go to the website.
+*.xlsx
+*.docx
+*.pdf
+*.png
+*.md
+DATA
+_build
+.git
+.claude
+deploy/img/*.jpg

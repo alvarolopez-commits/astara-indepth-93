@@ -1,0 +1,22 @@
+# Whitelist: only the publishable page, its assets and the build sources are tracked.
+*
+!.gitignore
+!README.md
+!vercel.json
+!.vercelignore
+!index_92.html
+!deploy/
+deploy/*
+!deploy/img/
+!deploy/img/*.webp
+!deploy/logo*.svg
+!deploy/d3.v7.min.js
+!deploy/topojson-client.min.js
+!deploy/countries-110m.js
+!deploy/flags/
+!deploy/flags/*
+!_build/
+!_build/*
+_build/__pycache__/
+
+.vercel

@@ -1,0 +1,803 @@
+{
+ "title": "More plugs than pumps: Public charging points, fuel stations and the fleets they serve in 40 markets",
+ "paras": {
+  "sum1": "The plug network has already outgrown the pump network, but the two do not do the same job. In 23 of the 25 markets where both can be counted, there are more public charging points than fuel stations: 6,824,410 points against 546,878 stations, about 12 to 1. Only India and Brazil still have more pumps than plugs.",
+  "sum2": "Per vehicle the gap is even wider. In the median market, 13 electric cars share each public charging point, while 1,892 combustion vehicles share each fuel station. That does not mean electric drivers are over-served. A fuel station has several pumps and refills a car in minutes; a slow public point serves one car for hours. And most electric cars charge at home: the world has more than 43 million private points, six for every public one.",
+  "sum3": "The network is also extremely concentrated. China holds 4,680,000 public points, 67% of the world total, and roughly four in five of the fast ones. Outside China, the markets that build the most public points per EV are not the ones with the most EVs: Norway, where 39.1% of cars are electric, has 34.0 EVs per public point; the Netherlands has 5.8.",
+  "s1_h": "Seven million public plugs, and six times as many at home",
+  "s1p1": "The International Energy Agency counts more than 7 million public charging points worldwide at the end of 2025, after nearly 1.8 million were added in a single year, a rise of more than a third [EXT: IEA]. The IEA country table behind that headline adds up to 6.97 million, because country values are rounded; the two figures are kept apart and never averaged.",
+  "s1p2": "Public points are the visible part of the network. The IEA estimates more than 43 million private points in homes and workplaces, for about 76 million electric light-duty vehicles. On the global average, 11 electric vehicles share each public point, with 4.5 kW of public charging capacity per vehicle [EXT: IEA].",
+  "s1p3": "The latest national series move faster than the IEA table. China's National Energy Administration counted 5.16 million public points at the end of August 2026; the EU-27 reached 1,159,838 in August 2026 according to the European Alternative Fuels Observatory [EXT: source Excel].",
+  "s2_h": "Where the plugs are",
+  "s2p1": "China alone has 4,680,000 public points, 46.6% of them fast (above 22 kW). South Korea follows with 491,170, and only 10.4% of them are fast. The United States has 240,000, 29.2% fast. The Netherlands, with 207,300, has more public points than Germany or France but only 3.5% fast ones [EXT: IEA via EVS Worldwide].",
+  "s3_h": "Where the pumps are",
+  "s3p1": "No one publishes a world census of fuel stations. In the 29 of 40 markets where a defensible count exists, there are 583,047 stations. The pump network is old, dense and shrinking slowly:",
+  "s3b1": "Europe: FuelsEurope counts 138,831 stations across the EU, UK, Norway, Switzerland and Türkiye in 2025 (Finland, Norway and Germany report older years). Italy has the most (21,700), ahead of Germany (14,376) and Spain (12,746) [EXT: FuelsEurope].",
+  "s3b2": "United States: 122,620 convenience stores sold fuel at the end of 2025, the highest number in eight years. They sell about 80% of consumer fuel, so the full count of outlets is higher [EXT: NACS].",
+  "s3b3": "China: about 110,000 stations at the end of 2025, 7.5% fewer than at the 2021 peak [EXT: China Energy News, citing Oilchem].",
+  "s3b4": "India: 100,266 retail outlets at the end of November 2025, double the 50,451 of 2015 and the only large market where the pump network is still growing fast [EXT: PPAC].",
+  "s3b5": "Japan: 27,009 stations at the end of March 2025, down from 29,005 four years earlier [EXT: METI]. Canada: 11,465 at the end of 2025, the lowest since the late 1980s [EXT: Kalibrate].",
+  "s3b6": "Brazil: 45,879 stations at the end of 2025 [EXT: ANP].",
+  "s4_h": "The fleets behind them",
+  "s4p1": "Even in the leading markets, combustion cars are still most of the fleet. The electric share of the car stock (BEV plus PHEV, plug-in hybrids included) is:",
+  "s4p2": "Norway leads with 39.1%, followed by Denmark and Iceland at about 22%. China reaches 12.0% of all automobiles. The United States is at 2.3%, Japan at 1.0% and Brazil at 0.5% [EXT: Eurostat and national registries].",
+  "s4p3": "Korea and Türkiye do not split plug-in hybrids from conventional hybrids, so their EV figure is battery-electric only and PHEVs remain in the combustion column.",
+  "s5_h": "Two ratios, side by side",
+  "s5p1": "For the 23 markets with all four figures, two simple ratios can be set next to each other: electric cars per public charging point, and combustion vehicles per fuel station.",
+  "s5p2": "The median market has 13 EVs per public point and 1,892 combustion vehicles per station. Korea has the densest public network (1.7 EVs per point) and Norway the thinnest of the European leaders (34.0). On the combustion side, Norway and Denmark have the fewest vehicles per station, France and the United Kingdom the most.",
+  "s5p3": "Counted site against point, the plug network has overtaken the pump network in 23 of 25 markets. The Netherlands has 50.2 public points per fuel station and China 42.5. India (0.9) and Brazil (0.4) are the only markets where stations still outnumber public points.",
+  "s6_h": "Why a plug is not a pump",
+  "s6p1": "The two ratios measure different things, and the piece should say so plainly:",
+  "s6b1": "Unit. A charging point charges one vehicle at a time. A fuel station is a site with several pumps, each with several nozzles. No country publishes harmonised pump or nozzle counts, so no \"equivalent\" ratio can be built without estimating, and none is.",
+  "s6b2": "Time. A fast charger needs tens of minutes; a slow one, hours. A fuel stop takes minutes. Fewer vehicles per point is therefore expected, not a sign of over-supply.",
+  "s6b3": "Home charging. With more than 43 million private points, most charging never touches the public network. Where most drivers can charge at home, fewer public points per EV are needed.",
+  "s6p2": "That is why the EV share of the fleet and the density of public charging do not move together. Norway, with the highest EV share, has 34.0 EVs per public point; Korea, with a fleet share of 4.1%, has 1.7. The data show the gap; they do not explain it, and the piece should not guess a cause.",
+  "s7_h": "What to watch",
+  "s7b1": "China's NEA publishes charging-facility counts monthly; the jump from 4.68 m (IEA, end-2025) to 5.16 m (NEA, August 2026) shows how fast the national series moves.",
+  "s7b2": "The EU's AFIR regulation sets charging-power targets per registered EV; Transport & Environment says the EU as a whole exceeds the fleet-based target by more than 180% (source Excel).",
+  "s7b3": "Station closures: Japan, Canada and China all report slow, steady declines in the pump network; India is the exception.",
+  "s7b4": "The IEA publishes its Global EV Outlook every spring; the next edition will update public points and EV stock for end-2026.",
+  "src1": "IEA, Global EV Outlook 2026 (charging chapter) (May 2026). https://www.iea.org/reports/global-ev-outlook-2026/electric-vehicle-charging-chap-6-and-10",
+  "src2": "EVS Worldwide, country table reproducing the IEA Global EV Data Explorer (Published 15 Sep 2026; data end-2025). https://evsworldwide.com/blog/ev-charging-stations-by-country",
+  "src3": "IEA Global EV Outlook 2026, electric car stock by country, via Our World in Data (CC BY 4.0) (Data end-2025; OWID update 15 Jun 2026). https://ourworldindata.org/grapher/electric-car-stocks",
+  "src4": "China National Energy Administration, charging facilities to end-August 2026 (Released 23 Sep 2026 (as recorded in the source Excel)). https://www.nea.gov.cn/",
+  "src5": "Source workbook supplied by the editor: global_ev_charging_network_2026_rebuilt.xlsx (research cut-off 20 Oct 2026) (20 Oct 2026). data/source_global_ev_charging_network_2026_rebuilt.xlsx",
+  "src6": "FuelsEurope, Statistical Report 2026, Figure 54: number of service stations in Europe in 2025 (Published Jul 2026). https://www.fuelseurope.eu/uploads/files/modules/documents/file/1782986168_RQGVBy1Qy0fJWFB5jQPksPhPm3zlilPRkU4dE1Xs.pdf",
+  "src7": "Eurostat, road_eqs_carpda: passenger cars by type of motor energy (Dataset updated 20 Oct 2026). https://ec.europa.eu/eurostat/databrowser/view/road_eqs_carpda/default/table",
+  "src8": "UK Department for Transport, Vehicle licensing statistics 2025 (Published 29 Apr 2026). https://www.gov.uk/government/statistics/vehicle-licensing-statistics-2025/vehicle-licensing-statistics-united-kingdom-2025",
+  "src9": "NACS / NIQ TDLinx, U.S. convenience store count (stores selling fuel) (Count at 31 Dec 2025, released 2026). https://www.convenience.org/storecount",
+  "src10": "US FHWA, Highway Statistics 2024, table VM-1 (light-duty vehicles) (Published Jan 2026). https://www.fhwa.dot.gov/policyinformation/statistics/2024/vm1.cfm",
+  "src11": "China Ministry of Public Security, 2025 national vehicle statistics (Xinhua) (26 Jan 2026). https://www.news.cn/politics/20260126/85ac0fb013d149569de8eacbdd3020f5/c.html",
+  "src12": "China Energy News (People's Daily group), 19 Jan 2026, citing Oilchem (Longzhong) data (19 Jan 2026). https://paper.people.com.cn/zgnyb/pc/attachement/202601/19/75205937-f5ec-4a06-9b11-fdd7e016b3b7.pdf",
+  "src13": "Kalibrate, 2025 Canadian National Retail Petroleum Site Census (Count at 31 Dec 2025). https://kalibrate.com/insights/blog/canadian-2025-national-retail-petroleum-site-census-report-for-sale/",
+  "src14": "Statistics Canada, Table 23-10-0308-01, vehicle registrations by type of vehicle and fuel type (2025 reference year). https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2310030801",
+  "src15": "Japan METI / Agency for Natural Resources and Energy, number of gasoline retailers and service stations (End of FY2024 (31 Mar 2025), published 30 Jul 2025). https://www.enecho.meti.go.jp/category/resources_and_fuel/distribution/hinnkakuhou/250730.html",
+  "src16": "AIRIA (Automobile Inspection & Registration Information Association), private passenger cars incl. kei, 31 Mar 2025 (31 Mar 2025). https://www.airia.or.jp/publish/file/r5c6pv0000013g2r-att/02_sharei.pdf",
+  "src17": "Japan MLIT, next-generation vehicles in use (source: AIRIA and Light Motor Vehicle Inspection Organization) (FY2024 (to 31 Mar 2025)). https://www.mlit.go.jp/jidosha/content/002005060.pdf",
+  "src18": "Korea MOLIT, vehicle registrations at end-2025 (release of 29 Jan 2026, reproduced by Gyeonggi Transport Information Center) (29 Jan 2026). https://gits.gg.go.kr/web/newboard/3386.do?mode=view&schBcode=&schCon=&schStr=&schType=list&pageIndex=1&pageUnit=8&idx=198617804",
+  "src19": "Korea Ministry of Trade, Industry and Resources, clarification note citing Opinet-registered stations (Jul 2026). https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172076/view",
+  "src20": "India PPAC (Petroleum Planning & Analysis Cell) retail outlet count, reported by Outlook Business / PTI (End-November 2025). https://www.outlookbusiness.com/news/indias-petrol-pump-count-crosses-1-lakh-doubles-in-a-decade",
+  "src21": "Brazil ANP, Anuario Estatistico 2026, section 3 (fuel retail) (End-2025). https://www.gov.br/anp/pt-br/centrais-de-conteudo/publicacoes/anuario-estatistico/arquivos-anuario-estatistico-2026/secao-3/secao-3_2025.docx",
+  "src22": "Brazil Senatran, Frota de veiculos por tipo, DEZ/2025 (Dec 2025). https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/frota-de-veiculos-2025",
+  "src23": "NZ Ministry of Transport fleet data, as published by EHINZ (Massey University) Nov 2025 (2024). https://ehinz.ac.nz/assets/Surveillance-reports/Released_2025/NumberOfVehicles-Nov-2025.pdf",
+  "src24": "Indonesia Ministry of Energy (ESDM) Q1 2025 data, reported by GoodStats (Q1 2025). https://data.goodstats.id/statistic/berapa-jumlah-spbu-pertamina-2025-uZ2qY",
+  "src25": "Onexpo (Mexican fuel retailers association), permits in force, reported by Milenio (2025 article). https://www.milenio.com/negocios/cne-presenta-anteproyecto-simplificar-tramites-gasolineras",
+  "src26": "Chile Ministry of Energy / CNE, Bencina en Linea platform (May 2024). https://energia.gob.cl/node/24880",
+  "src27": "Fuel Retailers Association of South Africa (member forecourts), reported by Daily Investor (2025 article). https://dailyinvestor.com/?p=136872",
+  "src28": "South Africa registered vehicles (eNaTIS data), reported by TopAuto (Sep 2025). https://topauto.co.za/features/141456/nearly-40-of-all-cars-in-south-africa-are-in-one-province/",
+  "src29": "Israel Ministry of Energy station list, reported by Kipa (Jul 2025). https://www.kipa.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA/1208076-0/"
+ },
+ "tables": [
+  {
+   "section": "sum",
+   "rows": [
+    [
+     "Figure",
+     "Value",
+     "Reference",
+     "Source"
+    ],
+    [
+     "Public charging points, world",
+     ">7 million",
+     "End-2025",
+     "IEA [EXT]"
+    ],
+    [
+     "Private charging points, world",
+     ">43 million",
+     "End-2025",
+     "IEA [EXT]"
+    ],
+    [
+     "Electric light-duty vehicles, world",
+     "~76 million",
+     "End-2025",
+     "IEA [EXT]"
+    ],
+    [
+     "China share of public points",
+     "67%",
+     "End-2025",
+     "IEA via EVS Worldwide [EXT]"
+    ],
+    [
+     "Fuel stations counted in 29 of the 40 markets",
+     "583,047",
+     "2023 to 2026",
+     "National and sector sources [EXT]"
+    ],
+    [
+     "Median EVs per public point / ICE vehicles per station",
+     "13 / 1,892",
+     "23 markets",
+     "Calculated from published figures"
+    ]
+   ]
+  },
+  {
+   "section": "sum",
+   "rows": [
+    [
+     "VISUAL V01 — Key figures strip Data: Excel sheet 02_Global_Benchmarks.  Six large numbers with a one-line source under each: 7 m public points, 43 m private points, 76 m EVs, 67% in China, 13 EVs per plug, 1,892 ICE vehicles per station. Footnote: \"EV includes plug-in hybrids.\""
+    ]
+   ]
+  },
+  {
+   "section": "s2",
+   "rows": [
+    [
+     "Market",
+     "Public points",
+     "Fast (>22 kW)",
+     "Fast share",
+     "EVs per point"
+    ],
+    [
+     "China",
+     "4,680,000",
+     "2,180,000",
+     "46.6%",
+     "9.4"
+    ],
+    [
+     "South Korea",
+     "491,170",
+     "51,170",
+     "10.4%",
+     "1.7"
+    ],
+    [
+     "United States",
+     "240,000",
+     "70,000",
+     "29.2%",
+     "32.5"
+    ],
+    [
+     "Netherlands",
+     "207,300",
+     "7,300",
+     "3.5%",
+     "5.8"
+    ],
+    [
+     "Germany",
+     "199,000",
+     "49,000",
+     "24.6%",
+     "15.6"
+    ],
+    [
+     "France",
+     "190,000",
+     "40,000",
+     "21.1%",
+     "11.6"
+    ],
+    [
+     "United Kingdom",
+     "116,000",
+     "27,000",
+     "23.3%",
+     "21.2"
+    ],
+    [
+     "Belgium",
+     "95,200",
+     "7,200",
+     "7.6%",
+     "8.1"
+    ],
+    [
+     "India",
+     "88,000",
+     "33,000",
+     "37.5%",
+     "4.7"
+    ],
+    [
+     "Italy",
+     "68,500",
+     "14,500",
+     "21.2%",
+     "10.1"
+    ],
+    [
+     "Sweden",
+     "62,200",
+     "11,200",
+     "18.0%",
+     "12.9"
+    ],
+    [
+     "Spain",
+     "53,600",
+     "16,600",
+     "31.0%",
+     "11.8"
+    ]
+   ]
+  },
+  {
+   "section": "s2",
+   "rows": [
+    [
+     "VISUAL V02 — Public charging points by market, fast vs slow Data: Excel sheet 03_Charging_Points.  Horizontal bars, 30 markets, sorted. Stack fast (>22 kW) and slow. China will dwarf the rest: use a broken axis or a separate China bar. Footnote: \"End-2025, IEA, rounded.\""
+    ]
+   ]
+  },
+  {
+   "section": "s2",
+   "rows": [
+    [
+     "VISUAL V03 — China's share of the world's public points Data: Excel sheet 04_China_Share.  Donut or waffle of 100 squares: 67 China, 33 rest of the world. Caption: \"and about 82% of fast points\" (IEA)."
+    ]
+   ]
+  },
+  {
+   "section": "s3",
+   "rows": [
+    [
+     "VISUAL V04 — Fuel stations by market Data: Excel sheet 05_Fuel_Stations.  Horizontal bars, 29 markets, sorted. Mark grade C values (China, Indonesia, Mexico, South Africa, Israel) with a lighter tone and label the US bar \"c-stores selling fuel\". Print the reference year next to each bar."
+    ]
+   ]
+  },
+  {
+   "section": "s4",
+   "rows": [
+    [
+     "Market",
+     "Fleet scope",
+     "Date",
+     "Total fleet",
+     "EV (BEV+PHEV)",
+     "of which BEV",
+     "EV share",
+     "Combustion"
+    ],
+    [
+     "Norway",
+     "Passenger cars",
+     "31 Dec 2025",
+     "2,949,180",
+     "1,153,598",
+     "945,115",
+     "39.1%",
+     "1,795,582"
+    ],
+    [
+     "Denmark",
+     "Passenger cars",
+     "31 Dec 2025",
+     "3,018,026",
+     "668,833",
+     "540,979",
+     "22.2%",
+     "2,349,193"
+    ],
+    [
+     "Iceland",
+     "Passenger cars",
+     "31 Dec 2024",
+     "249,032",
+     "54,602",
+     "30,218",
+     "21.9%",
+     "194,430"
+    ],
+    [
+     "Sweden",
+     "Passenger cars",
+     "31 Dec 2025",
+     "5,039,431",
+     "806,521",
+     "432,709",
+     "16.0%",
+     "4,232,910"
+    ],
+    [
+     "Belgium",
+     "Passenger cars",
+     "31 Dec 2025",
+     "6,136,034",
+     "781,688",
+     "395,188",
+     "12.7%",
+     "5,354,346"
+    ],
+    [
+     "Netherlands",
+     "Passenger cars",
+     "31 Dec 2025",
+     "9,415,540",
+     "1,198,750",
+     "680,605",
+     "12.7%",
+     "8,216,790"
+    ],
+    [
+     "China",
+     "All automobiles (includes trucks and buses)",
+     "End-2025",
+     "366,000,000",
+     "43,970,000",
+     "30,220,000",
+     "12.0%",
+     "322,030,000"
+    ],
+    [
+     "Finland",
+     "Passenger cars",
+     "31 Dec 2025",
+     "3,792,918",
+     "363,224",
+     "169,458",
+     "9.6%",
+     "3,429,694"
+    ],
+    [
+     "Switzerland",
+     "Passenger cars",
+     "31 Dec 2025",
+     "4,954,884",
+     "344,971",
+     "249,966",
+     "7.0%",
+     "4,609,913"
+    ],
+    [
+     "Austria",
+     "Passenger cars",
+     "31 Dec 2025",
+     "5,286,101",
+     "363,098",
+     "257,717",
+     "6.9%",
+     "4,923,003"
+    ],
+    [
+     "Portugal",
+     "Passenger cars",
+     "31 Dec 2025",
+     "6,410,754",
+     "423,591",
+     "241,819",
+     "6.6%",
+     "5,987,163"
+    ],
+    [
+     "Germany",
+     "Passenger cars",
+     "31 Dec 2025",
+     "49,486,487",
+     "3,157,188",
+     "2,034,260",
+     "6.4%",
+     "46,329,299"
+    ],
+    [
+     "France",
+     "Passenger cars",
+     "31 Dec 2025",
+     "39,957,994",
+     "2,368,753",
+     "1,543,440",
+     "5.9%",
+     "37,589,241"
+    ],
+    [
+     "United Kingdom",
+     "Passenger cars",
+     "31 Dec 2024",
+     "32,914,842",
+     "1,942,440",
+     "1,266,421",
+     "5.9%",
+     "30,972,402"
+    ],
+    [
+     "South Korea",
+     "Passenger cars",
+     "31 Dec 2025",
+     "22,038,603",
+     "899,101",
+     "899,101",
+     "4.1%",
+     "21,139,502"
+    ],
+    [
+     "Canada",
+     "Vehicles of 4,536 kg or less (cars, SUVs, pickups, vans)",
+     "2025",
+     "25,322,794",
+     "875,001",
+     "623,481",
+     "3.5%",
+     "24,447,793"
+    ],
+    [
+     "New Zealand",
+     "Light passenger vehicles (rounded by the source)",
+     "2024",
+     "3,500,000",
+     "113,715",
+     "ND",
+     "3.2%",
+     "3,386,285"
+    ],
+    [
+     "Spain",
+     "Passenger cars",
+     "31 Dec 2025",
+     "27,281,373",
+     "683,656",
+     "312,914",
+     "2.5%",
+     "26,597,717"
+    ],
+    [
+     "United States",
+     "Light-duty vehicles (cars, SUVs, pickups, vans)",
+     "2024",
+     "271,085,742",
+     "6,300,000",
+     "ND",
+     "2.3%",
+     "264,785,742"
+    ],
+    [
+     "Türkiye",
+     "Passenger cars",
+     "31 Dec 2025",
+     "17,373,581",
+     "370,591",
+     "370,591",
+     "2.1%",
+     "17,002,990"
+    ],
+    [
+     "Italy",
+     "Passenger cars",
+     "31 Dec 2025",
+     "41,795,962",
+     "745,482",
+     "362,224",
+     "1.8%",
+     "41,050,480"
+    ],
+    [
+     "Greece",
+     "Passenger cars",
+     "31 Dec 2025",
+     "6,188,525",
+     "68,431",
+     "30,108",
+     "1.1%",
+     "6,120,094"
+    ],
+    [
+     "Japan",
+     "Private passenger cars incl. kei cars",
+     "31 Mar 2025",
+     "61,832,213",
+     "646,389",
+     "358,585",
+     "1.0%",
+     "61,185,824"
+    ],
+    [
+     "Poland",
+     "Passenger cars",
+     "31 Dec 2025",
+     "23,233,513",
+     "202,955",
+     "102,710",
+     "0.9%",
+     "23,030,558"
+    ],
+    [
+     "Brazil",
+     "Light-duty: automovel + camioneta + caminhonete + utilitario",
+     "Dec 2025",
+     "82,033,932",
+     "390,000",
+     "ND",
+     "0.5%",
+     "81,643,932"
+    ],
+    [
+     "South Africa",
+     "Passenger vehicles (\"crossed 8 million\"; rounded)",
+     "Sep 2025",
+     "8,000,000",
+     "9,200",
+     "ND",
+     "0.1%",
+     "7,990,800"
+    ]
+   ]
+  },
+  {
+   "section": "s4",
+   "rows": [
+    [
+     "VISUAL V05 — Fleet composition: combustion, BEV and PHEV Data: Excel sheet 06_Fleets.  100% stacked horizontal bars, one per market: combustion (grey), BEV (dark), PHEV (light). Where there is no BEV/PHEV split, one \"EV\" segment. Footnote must say \"EV includes plug-in hybrids\" and give each scope."
+    ]
+   ]
+  },
+  {
+   "section": "s5",
+   "rows": [
+    [
+     "Market",
+     "EVs per public point",
+     "ICE vehicles per station",
+     "Public points per station"
+    ],
+    [
+     "South Korea",
+     "1.7",
+     "1,986",
+     "46.1"
+    ],
+    [
+     "Netherlands",
+     "5.8",
+     "1,989",
+     "50.2"
+    ],
+    [
+     "Greece",
+     "6.8",
+     "1,182",
+     "1.7"
+    ],
+    [
+     "Belgium",
+     "8.1",
+     "1,772",
+     "31.5"
+    ],
+    [
+     "China",
+     "9.4",
+     "2,928",
+     "42.5"
+    ],
+    [
+     "Austria",
+     "9.9",
+     "1,827",
+     "13.3"
+    ],
+    [
+     "Italy",
+     "10.1",
+     "1,892",
+     "3.2"
+    ],
+    [
+     "France",
+     "11.6",
+     "3,908",
+     "19.8"
+    ],
+    [
+     "Türkiye",
+     "11.7",
+     "1,387",
+     "2.9"
+    ],
+    [
+     "Spain",
+     "11.8",
+     "2,087",
+     "4.2"
+    ],
+    [
+     "Sweden",
+     "12.9",
+     "1,306",
+     "19.2"
+    ],
+    [
+     "Denmark",
+     "13.0",
+     "1,095",
+     "24.1"
+    ],
+    [
+     "Germany",
+     "15.6",
+     "3,223",
+     "13.8"
+    ],
+    [
+     "Finland",
+     "17.4",
+     "1,765",
+     "10.3"
+    ],
+    [
+     "Japan",
+     "18.5",
+     "2,265",
+     "1.4"
+    ],
+    [
+     "Poland",
+     "20.3",
+     "2,908",
+     "1.5"
+    ],
+    [
+     "United Kingdom",
+     "21.2",
+     "3,710",
+     "13.9"
+    ],
+    [
+     "Portugal",
+     "21.7",
+     "1,837",
+     "4.7"
+    ],
+    [
+     "Brazil",
+     "23.1",
+     "1,780",
+     "0.4"
+    ],
+    [
+     "Switzerland",
+     "23.3",
+     "1,388",
+     "5.2"
+    ],
+    [
+     "Canada",
+     "27.0",
+     "2,132",
+     "3.3"
+    ],
+    [
+     "United States",
+     "32.5",
+     "2,159",
+     "2.0"
+    ],
+    [
+     "Norway",
+     "34.0",
+     "985",
+     "17.1"
+    ]
+   ]
+  },
+  {
+   "section": "s5",
+   "rows": [
+    [
+     "VISUAL V06 — EVs per public point vs combustion vehicles per station Data: Excel sheet 07_Ratios.  Two panels with the same market order, or one dot plot with two dots per market on a log scale. Never one merged index. Footnote: \"A station has several pumps and a slow point serves one car at a time: not like for like.\""
+    ]
+   ]
+  },
+  {
+   "section": "s5",
+   "rows": [
+    [
+     "VISUAL V07 — Public charging points per fuel station Data: Excel sheet 08_Points_per_Station.  Horizontal bars, 25 markets, with a vertical reference line at 1. Highlight India and Brazil on the left of the line."
+    ]
+   ]
+  },
+  {
+   "section": "s5",
+   "rows": [
+    [
+     "VISUAL V08 — Map: where plugs outnumber pumps Data: Excel sheet 09_Map.  World choropleth by ISO-3, sequential scale on public points per station. Markets with ND in \"no data\" grey."
+    ]
+   ]
+  },
+  {
+   "section": "s6",
+   "rows": [
+    [
+     "VISUAL V09 — EV share of the fleet vs EVs per public point Data: Excel sheet 10_Scatter.  Scatter, one dot per market, coloured by region. Label Norway, Korea, Netherlands, China, US. Caption: \"More EVs on the road does not mean fewer plugs per EV.\""
+    ]
+   ]
+  }
+ ],
+ "visuals": [],
+ "appendix": {
+  "A": [
+   [
+    "ID",
+    "Type",
+    "Title",
+    "Excel sheet",
+    "Section"
+   ],
+   [
+    "V01",
+    "Key figures strip",
+    "Key figures strip",
+    "02_Global_Benchmarks",
+    "1"
+   ],
+   [
+    "V02",
+    "Horizontal bar, stacked",
+    "Public charging points by market, fast vs slow",
+    "03_Charging_Points",
+    "2"
+   ],
+   [
+    "V03",
+    "Donut or waffle",
+    "China's share of the world's public points",
+    "04_China_Share",
+    "2"
+   ],
+   [
+    "V04",
+    "Horizontal bar",
+    "Fuel stations by market",
+    "05_Fuel_Stations",
+    "3"
+   ],
+   [
+    "V05",
+    "100% stacked bar",
+    "Fleet composition: combustion, BEV and PHEV",
+    "06_Fleets",
+    "4"
+   ],
+   [
+    "V06",
+    "Two-panel dot plot (log scale)",
+    "EVs per public point vs combustion vehicles per station",
+    "07_Ratios",
+    "5"
+   ],
+   [
+    "V07",
+    "Horizontal bar with reference line",
+    "Public charging points per fuel station",
+    "08_Points_per_Station",
+    "5"
+   ],
+   [
+    "V08",
+    "World choropleth",
+    "Map: where plugs outnumber pumps",
+    "09_Map",
+    "5"
+   ],
+   [
+    "V09",
+    "Scatter",
+    "EV share of the fleet vs EVs per public point",
+    "10_Scatter",
+    "6"
+   ]
+  ],
+  "C": [
+   "No AllMoving database entries are used. All figures are external [EXT]; the database tracks news, not infrastructure counts. Check: Nothing.",
+   "The IEA country download could not be fetched (iea.org blocks automated access). Public points come from the IEA table as reproduced by EVS Worldwide; EV stock comes from the IEA series republished by Our World in Data. Both are cars only, not cars plus vans as agreed: the IEA van split was not reachable. Check: If the designer or editor can download \"EV data by country\" from iea.org, swap in the light-duty (car + van) EV stock and check the ten largest markets.",
+   "A charging point and a fuel station are different units. A station has several pumps, each with several nozzles, and refuels in minutes; a slow public point serves one car for hours. No global data on dispensers or nozzles exists, so no \"equivalent\" ratio is computed. Check: Keep the two ratios in separate panels or with separate axes. Do not merge them into one index.",
+   "Most EV charging happens at home or work (more than 43 million private points worldwide). \"EVs per public point\" measures the public network only. Check: Keep the private-charging caveat next to V06 and V09.",
+   "Fleet scope differs by market: passenger cars (Europe, Korea, Japan, New Zealand, South Africa), light-duty vehicles (US, Canada, Brazil), all automobiles including trucks and buses (China). Each row states its scope. Check: Show the scope in the chart footnote for V05 and V06.",
+   "Reference dates differ: points and EV stock are end-2025; fleets range from 2024 (US, UK, Iceland, New Zealand) to end-2025; stations range from 2023 (Finland, Norway) to July 2026 (Korea). Check: Print the date column next to each bar or in the footnote.",
+   "United States fuel stations (122,620) count only convenience stores that sell fuel. NACS says they sell about 80% of US consumer fuel; the full number of outlets is higher, so US combustion vehicles per station is overstated. Check: Label the US value as \"c-stores selling fuel\".",
+   "China fuel stations (about 110,000) is a rounded industry figure (Oilchem, via China Energy News); China publishes no official census. China fleet is all automobiles, including about 30-plus million trucks and buses. Check: Keep the \"about\" and the scope note.",
+   "South Korea fuel stations (10,646) are stations registered in Opinet, including temporarily closed ones; press counts of stations operating at end-2024 are 9,253. Korea EV count (899,101) includes electric light trucks; PHEVs are not split from hybrids. Check: Check the Opinet operating count for end-2025 if available.",
+   "Brazil fleet (82.0 m light-duty) is the Senatran registry, which is not purged of scrapped vehicles. It overstates the fleet in circulation, so combustion vehicles per station is overstated. Check: Footnote on V05 and V06.",
+   "Grade C figures (press reports citing a named source): China stations, Indonesia stations (includes fishing and bunker stations), Mexico (permits, not stations), South Africa stations (association members) and fleet (rounded \"over 8 million\"), Israel stations. Check: Treat as indicative; consider dropping Mexico, Indonesia and South Africa from V04 if the designer needs only A/B grades.",
+   "14 markets have no fleet figure, 11 have no fuel-station figure and 10 have no IEA public-point figure (ND). Australia's official fleet report (BITRE) could not be reached; Thailand, Vietnam, UAE, Malaysia, Singapore, Colombia, Philippines and Costa Rica have no comparable published station count in the sources reviewed. Check: Leave ND visible as \"no data\". Do not drop the rows silently.",
+   "The source Excel supplied by the editor has two inconsistencies kept as found: South Korea national series 51,000 vs IEA 491,170 (the IEA figure is used), and China 5.16 m (NEA, Aug 2026) vs 4.68 m (IEA, end-2025). Check: Use the IEA end-2025 series for all cross-country comparisons.",
+   "FuelsEurope 2026 changes some country counts sharply against its 2024 edition (e.g. Romania, Czechia). Romania and Czechia are outside the 40 markets, but it shows how definitions shift between editions. Check: Quote FuelsEurope figures with their year flag."
+  ]
+ },
+ "fulltext": "The plug network has already outgrown the pump network, but the two do not do the same job. In 23 of the 25 markets where both can be counted, there are more public charging points than fuel stations: 6,824,410 points against 546,878 stations, about 12 to 1. Only India and Brazil still have more pumps than plugs. Per vehicle the gap is even wider. In the median market, 13 electric cars share each public charging point, while 1,892 combustion vehicles share each fuel station. That does not mean electric drivers are over-served. A fuel station has several pumps and refills a car in minutes; a slow public point serves one car for hours. And most electric cars charge at home: the world has more than 43 million private points, six for every public one. The network is also extremely concentrated. China holds 4,680,000 public points, 67% of the world total, and roughly four in five of the fast ones. Outside China, the markets that build the most public points per EV are not the ones with the most EVs: Norway, where 39.1% of cars are electric, has 34.0 EVs per public point; the Netherlands has 5.8. The International Energy Agency counts more than 7 million public charging points worldwide at the end of 2025, after nearly 1.8 million were added in a single year, a rise of more than a third [EXT: IEA]. The IEA country table behind that headline adds up to 6.97 million, because country values are rounded; the two figures are kept apart and never averaged. Public points are the visible part of the network. The IEA estimates more than 43 million private points in homes and workplaces, for about 76 million electric light-duty vehicles. On the global average, 11 electric vehicles share each public point, with 4.5 kW of public charging capacity per vehicle [EXT: IEA]. The latest national series move faster than the IEA table. China's National Energy Administration counted 5.16 million public points at the end of August 2026; the EU-27 reached 1,159,838 in August 2026 according to the European Alternative Fuels Observatory [EXT: source Excel]. China alone has 4,680,000 public points, 46.6% of them fast (above 22 kW). South Korea follows with 491,170, and only 10.4% of them are fast. The United States has 240,000, 29.2% fast. The Netherlands, with 207,300, has more public points than Germany or France but only 3.5% fast ones [EXT: IEA via EVS Worldwide]. No one publishes a world census of fuel stations. In the 29 of 40 markets where a defensible count exists, there are 583,047 stations. The pump network is old, dense and shrinking slowly: Europe: FuelsEurope counts 138,831 stations across the EU, UK, Norway, Switzerland and Türkiye in 2025 (Finland, Norway and Germany report older years). Italy has the most (21,700), ahead of Germany (14,376) and Spain (12,746) [EXT: FuelsEurope]. United States: 122,620 convenience stores sold fuel at the end of 2025, the highest number in eight years. They sell about 80% of consumer fuel, so the full count of outlets is higher [EXT: NACS]. China: about 110,000 stations at the end of 2025, 7.5% fewer than at the 2021 peak [EXT: China Energy News, citing Oilchem]. India: 100,266 retail outlets at the end of November 2025, double the 50,451 of 2015 and the only large market where the pump network is still growing fast [EXT: PPAC]. Japan: 27,009 stations at the end of March 2025, down from 29,005 four years earlier [EXT: METI]. Canada: 11,465 at the end of 2025, the lowest since the late 1980s [EXT: Kalibrate]. Brazil: 45,879 stations at the end of 2025 [EXT: ANP]. Even in the leading markets, combustion cars are still most of the fleet. The electric share of the car stock (BEV plus PHEV, plug-in hybrids included) is: Norway leads with 39.1%, followed by Denmark and Iceland at about 22%. China reaches 12.0% of all automobiles. The United States is at 2.3%, Japan at 1.0% and Brazil at 0.5% [EXT: Eurostat and national registries]. Korea and Türkiye do not split plug-in hybrids from conventional hybrids, so their EV figure is battery-electric only and PHEVs remain in the combustion column. For the 23 markets with all four figures, two simple ratios can be set next to each other: electric cars per public charging point, and combustion vehicles per fuel station. The median market has 13 EVs per public point and 1,892 combustion vehicles per station. Korea has the densest public network (1.7 EVs per point) and Norway the thinnest of the European leaders (34.0). On the combustion side, Norway and Denmark have the fewest vehicles per station, France and the United Kingdom the most. Counted site against point, the plug network has overtaken the pump network in 23 of 25 markets. The Netherlands has 50.2 public points per fuel station and China 42.5. India (0.9) and Brazil (0.4) are the only markets where stations still outnumber public points. The two ratios measure different things, and the piece should say so plainly: Unit. A charging point charges one vehicle at a time. A fuel station is a site with several pumps, each with several nozzles. No country publishes harmonised pump or nozzle counts, so no \"equivalent\" ratio can be built without estimating, and none is. Time. A fast charger needs tens of minutes; a slow one, hours. A fuel stop takes minutes. Fewer vehicles per point is therefore expected, not a sign of over-supply. Home charging. With more than 43 million private points, most charging never touches the public network. Where most drivers can charge at home, fewer public points per EV are needed. That is why the EV share of the fleet and the density of public charging do not move together. Norway, with the highest EV share, has 34.0 EVs per public point; Korea, with a fleet share of 4.1%, has 1.7. The data show the gap; they do not explain it, and the piece should not guess a cause. China's NEA publishes charging-facility counts monthly; the jump from 4.68 m (IEA, end-2025) to 5.16 m (NEA, August 2026) shows how fast the national series moves. The EU's AFIR regulation sets charging-power targets per registered EV; Transport & Environment says the EU as a whole exceeds the fleet-based target by more than 180% (source Excel). Station closures: Japan, Canada and China all report slow, steady declines in the pump network; India is the exception. The IEA publishes its Global EV Outlook every spring; the next edition will update public points and EV stock for end-2026."
+}
