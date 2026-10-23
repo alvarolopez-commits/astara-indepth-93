@@ -9,3 +9,4 @@ _build
 .git
 .claude
 deploy/img/*.jpg
+index.html

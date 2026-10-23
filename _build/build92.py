@@ -89,6 +89,7 @@ assert "{{" not in body and "[[" not in body
 page = HEAD + css + "</style>\n</head>\n<body>\n\n" + body + \
     '\n<script src="deploy/d3.v7.min.js"></script>\n<script src="deploy/topojson-client.min.js"></script>\n<script src="deploy/countries-110m.js"></script>\n<script>\n' + js + "\n</script>\n\n</body></html>\n"
 open(f"{PROJ}/index_92.html", "w", encoding="utf-8").write(page)
+open(f"{PROJ}/index.html", "w", encoding="utf-8").write(page)   # GitHub Pages serves index.html at the site root
 
 # ---- verification: every docx block used exactly once and unaltered (after EDITS); excerpts literal ----
 fail = []
