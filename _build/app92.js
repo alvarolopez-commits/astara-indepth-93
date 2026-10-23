@@ -12,6 +12,21 @@ const flag = (m,cls='') => { const f=DATA.flags[m]; if(!f) return '';
 const mlab = (m,label,sub) => `<span class="row__mt">${label ?? esc(m)}${sub?`<small>${sub}</small>`:''}</span>${flag(m)}`;   // market label: name, optional sub-line, flag tile
 const LAB = 'var(--lab)';   // space reserved at the end of a bar row for its value label (CSS: 92px, 70px on phones)
 
+/* ================= summary — 12 plugs to 1 pump, one row at a time ================= */
+function renderRatioViz(){
+  const rows=6, plugs=12, S=44, R=12;
+  const w=(plugs+1)*S, h=rows*S;
+  let s=`<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Illustration: each of six rows shows 12 public charging points and 1 fuel station">`;
+  for(let r=0;r<rows;r++){
+    for(let k=0;k<=plugs;k++){
+      const x=k*S+S/2, y=r*S+S/2, d=(r*(plugs+1)+k)*28;
+      if(k<plugs) s+=`<g transform="translate(${x},${y})"><g class="rv__plug" style="--d:${d}ms"><circle r="${R}"/><path d="M1.5,-7 L-4,1 H0 L-1.5,7 L4,-1 H0 Z"/></g></g>`;
+      else s+=`<g transform="translate(${x},${y})"><g class="rv__pump" style="--d:${d+120}ms"><rect x="-11" y="-14" width="22" height="28" rx="5"/><rect x="-6.5" y="-9" width="13" height="8" rx="2"/></g></g>`;
+    }
+  }
+  $('ratio-viz').innerHTML=s+'</svg>';
+}
+
 /* ================= ch01 — public vs private vs vehicles (1 square = 1 million) ================= */
 function renderUnits(){
   const R=[{n:7,v:'>7 m',t:'Public charging points',c:'var(--col-plug)'},
@@ -212,6 +227,7 @@ function renderScatter(){
 }
 
 /* ================= boot ================= */
+renderRatioViz();
 renderUnits();
 renderPoints();
 renderChina();

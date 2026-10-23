@@ -222,6 +222,14 @@ body{caret-color:var(--accent);}
 .kfig__l{font-size:var(--fs-small);font-weight:600;line-height:1.4;color:var(--txt);}
 .kfig__s{font-size:12px;line-height:1.45;color:var(--txt-muted);margin-top:auto;padding-top:var(--sp-1);}
 
+/* summary — 12 plugs to 1 pump */
+.ratio-viz{margin-top:var(--sp-5);max-width:760px;}
+.ratio-viz svg{width:100%;height:auto;display:block;}
+.rv__plug circle{fill:var(--col-plug);}
+.rv__plug path{fill:var(--ink);}
+.rv__pump rect:first-child{fill:var(--col-pump);}
+.rv__pump rect:last-child{fill:var(--ink);opacity:.55;}
+
 /* ch01 — unit squares (1 square = 1 million) */
 .units{display:grid;gap:var(--sp-4);margin-top:var(--sp-5);}
 .urow{display:grid;gap:var(--sp-2);}
@@ -378,6 +386,12 @@ body{caret-color:var(--accent);}
 
 /* ---------- 9. MOTION ---------- */
 @media(prefers-reduced-motion:no-preference){
+  /* plugs light up in sequence, each row ending with its pump */
+  .rv__plug,.rv__pump{opacity:0;transform-box:fill-box;transform-origin:center;animation:none;}
+  .visible .rv__plug{animation:rv-plug .55s var(--ease) both;animation-delay:var(--d);}
+  .visible .rv__pump{animation:rv-pump .6s var(--ease) both;animation-delay:var(--d);}
+  @keyframes rv-plug{from{opacity:0;transform:scale(.4);}60%{opacity:1;filter:brightness(1.5);}to{opacity:1;transform:none;filter:none;}}
+  @keyframes rv-pump{from{opacity:0;transform:scale(.4);}to{opacity:1;transform:none;}}
   .row__fill{transform:scaleX(0);transition:transform .9s var(--ease);transition-delay:calc(var(--i,0)*25ms);}
   .visible .row__fill{transform:none;}
   .waffle i,.usq i{opacity:0;transition:opacity .4s var(--ease);transition-delay:calc(var(--i,0)*8ms);}

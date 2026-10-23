@@ -234,6 +234,14 @@ body{caret-color:var(--accent);}
 .kfig__l{font-size:var(--fs-small);font-weight:600;line-height:1.4;color:var(--txt);}
 .kfig__s{font-size:12px;line-height:1.45;color:var(--txt-muted);margin-top:auto;padding-top:var(--sp-1);}
 
+/* summary — 12 plugs to 1 pump */
+.ratio-viz{margin-top:var(--sp-5);max-width:760px;}
+.ratio-viz svg{width:100%;height:auto;display:block;}
+.rv__plug circle{fill:var(--col-plug);}
+.rv__plug path{fill:var(--ink);}
+.rv__pump rect:first-child{fill:var(--col-pump);}
+.rv__pump rect:last-child{fill:var(--ink);opacity:.55;}
+
 /* ch01 — unit squares (1 square = 1 million) */
 .units{display:grid;gap:var(--sp-4);margin-top:var(--sp-5);}
 .urow{display:grid;gap:var(--sp-2);}
@@ -390,6 +398,12 @@ body{caret-color:var(--accent);}
 
 /* ---------- 9. MOTION ---------- */
 @media(prefers-reduced-motion:no-preference){
+  /* plugs light up in sequence, each row ending with its pump */
+  .rv__plug,.rv__pump{opacity:0;transform-box:fill-box;transform-origin:center;animation:none;}
+  .visible .rv__plug{animation:rv-plug .55s var(--ease) both;animation-delay:var(--d);}
+  .visible .rv__pump{animation:rv-pump .6s var(--ease) both;animation-delay:var(--d);}
+  @keyframes rv-plug{from{opacity:0;transform:scale(.4);}60%{opacity:1;filter:brightness(1.5);}to{opacity:1;transform:none;filter:none;}}
+  @keyframes rv-pump{from{opacity:0;transform:scale(.4);}to{opacity:1;transform:none;}}
   .row__fill{transform:scaleX(0);transition:transform .9s var(--ease);transition-delay:calc(var(--i,0)*25ms);}
   .visible .row__fill{transform:none;}
   .waffle i,.usq i{opacity:0;transition:opacity .4s var(--ease);transition-delay:calc(var(--i,0)*8ms);}
@@ -437,6 +451,16 @@ body{caret-color:var(--accent);}
     <p class="body-text reveal" data-src="sum2">Per vehicle the gap is even wider. In the median market, 13 electric cars share each public charging point, while 1,892 combustion vehicles share each fuel station. That does not mean electric drivers are over-served. A fuel station has several pumps and refills a car in minutes; a slow public point serves one car for hours. And most electric cars charge at home: the world has more than 43 million private points, six for every public one.</p>
     <p class="body-text reveal" data-src="sum3">The network is also extremely concentrated. China holds 4,680,000 public points, 67% of the world total, and roughly four in five of the fast ones. Outside China, the markets that build the most public points per EV are not the ones with the most EVs: Norway, where 39.1% of cars are electric, has 34.0 EVs per public point; the Netherlands has 5.8.</p>
   </div>
+
+  <figure class="fig reveal">
+    <div class="fig__frame">
+      <div class="fig__title">For every fuel station, about twelve public charging points</div>
+      <div class="fig__what">Illustration of the ratio in the 25 markets where both can be counted: each row is 12 public charging points and 1 fuel station</div>
+      <div class="key-legend"><span><i style="background:var(--col-plug)"></i>Public charging point</span><span><i class="sq" style="background:var(--col-pump)"></i>Fuel station</span></div>
+      <div class="ratio-viz" id="ratio-viz"></div>
+    </div>
+    <figcaption>An illustration, not a count: 6,824,410 public charging points against 546,878 fuel stations is 12.5 to 1. A charging point serves one vehicle at a time and a station has several pumps, so the units are not equivalent.</figcaption>
+  </figure>
 
   <figure class="fig reveal">
     <div class="fig__plain">
@@ -703,6 +727,21 @@ const flag = (m,cls='') => { const f=DATA.flags[m]; if(!f) return '';
 const mlab = (m,label,sub) => `<span class="row__mt">${label ?? esc(m)}${sub?`<small>${sub}</small>`:''}</span>${flag(m)}`;   // market label: name, optional sub-line, flag tile
 const LAB = 'var(--lab)';   // space reserved at the end of a bar row for its value label (CSS: 92px, 70px on phones)
 
+/* ================= summary — 12 plugs to 1 pump, one row at a time ================= */
+function renderRatioViz(){
+  const rows=6, plugs=12, S=44, R=12;
+  const w=(plugs+1)*S, h=rows*S;
+  let s=`<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Illustration: each of six rows shows 12 public charging points and 1 fuel station">`;
+  for(let r=0;r<rows;r++){
+    for(let k=0;k<=plugs;k++){
+      const x=k*S+S/2, y=r*S+S/2, d=(r*(plugs+1)+k)*28;
+      if(k<plugs) s+=`<g transform="translate(${x},${y})"><g class="rv__plug" style="--d:${d}ms"><circle r="${R}"/><path d="M1.5,-7 L-4,1 H0 L-1.5,7 L4,-1 H0 Z"/></g></g>`;
+      else s+=`<g transform="translate(${x},${y})"><g class="rv__pump" style="--d:${d+120}ms"><rect x="-11" y="-14" width="22" height="28" rx="5"/><rect x="-6.5" y="-9" width="13" height="8" rx="2"/></g></g>`;
+    }
+  }
+  $('ratio-viz').innerHTML=s+'</svg>';
+}
+
 /* ================= ch01 — public vs private vs vehicles (1 square = 1 million) ================= */
 function renderUnits(){
   const R=[{n:7,v:'>7 m',t:'Public charging points',c:'var(--col-plug)'},
@@ -903,6 +942,7 @@ function renderScatter(){
 }
 
 /* ================= boot ================= */
+renderRatioViz();
 renderUnits();
 renderPoints();
 renderChina();
