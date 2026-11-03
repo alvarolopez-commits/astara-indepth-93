@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cheapest Kilometre on Earth | Astara Intelligence In Depth #93</title>
+<meta name="description" content="Whales, eels, cyclists, robots, ships and drones on one energy scale. Astara Intelligence In Depth #93.">
+<meta name="theme-color" content="#221E41">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   ASTARA INTELLIGENCE · IN DEPTH #93 — single, self-contained stylesheet
+   (sections 1–6 inherited from #91/#92; section 7 holds the shared chart components, section 10 the #93 ones)
+   1 tokens · 2 base · 3 cover · 4 chapters & reading · 5 images · 6 figures
+   7 chapter components · 8 responsive · 9 motion · 10 #93 components
+   ===================================================================== */
+
+/* ---------- 1. TOKENS ---------- */
+:root{
+  /* palette — seven base colours; surfaces are tints/alphas of these */
+  --bg:#221E41;            /* main purple */
+  --blue-deep:#1A4D7A;     /* deep blue, used selectively */
+  --accent:#8BCDFF;        /* protagonist */
+  --txt:#FFFFFF;           /* headings, strong */
+  --txt-body:#F2F4F6;      /* running text */
+  --txt-sec:#DCE5ED;       /* secondary text, separators */
+  --line-muted:#5A7A94;    /* strokes and graphic marks only (3.0:1 on cards) */
+  --txt-muted:#89A1B4;     /* small labels: #5A7A94 lightened to >=4.6:1 on every surface */
+  --bg-alt:#20274C;        /* alternate sections: #1A4D7A 20% over #221E41 */
+  --bg-card:#292A4E;       /* cards: #8BCDFF 7% over #221E41 */
+  --bg-nest:#252347;       /* panels nested inside cards */
+  --track:#221E41;         /* bar tracks */
+  --ink:#221E41;           /* dark text on light fills */
+  --border:rgba(220,229,237,.14);
+
+  /* category colours — charts, legends and chips only */
+  --col-ev:#3EC6C6;--col-av:#8BCDFF;--col-cap:#B79CFF;--col-fail:#FF8F9C;--col-ship:#FFB935;
+  /* #92: plugs are blue, pumps are amber, fleets are teal (EV) over grey (combustion) */
+  --col-plug:#8BCDFF;--col-fast:#8BCDFF;--col-slow:#4677A6;--col-unsplit:#7E93A8;
+  --col-pump:#FFB935;
+  --col-bev:#3EC6C6;--col-phev:#1F8A8F;--col-ice:#454F72;
+  --hatch-ev:repeating-linear-gradient(135deg,rgba(62,198,198,.75) 0 3px,rgba(62,198,198,.18) 3px 7px);
+  --hatch-av:repeating-linear-gradient(135deg,rgba(139,205,255,.55) 0 3px,transparent 3px 7px);
+  --hatch-pump:repeating-linear-gradient(135deg,rgba(255,185,53,.8) 0 3px,rgba(255,185,53,.22) 3px 7px);
+
+  /* type */
+  --font-d:"Orbitron",sans-serif;
+  --font-b:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;   /* #92: Inter for body text, numbers and UI */
+  --fs-display:clamp(36px,6.2vw,74px);
+  --fs-h1:clamp(28px,4.6vw,54px);
+  --fs-h2:clamp(20px,2.4vw,27px);
+  --fs-h3:clamp(17px,1.9vw,20px);
+  --fs-lead:clamp(17.5px,2vw,21px);
+  --fs-body:16px;
+  --fs-card:14.5px;
+  --fs-small:13.5px;
+  --fs-caption:13px;
+  --fs-label:11px;
+  --fs-kpi-xl:clamp(46px,6.4vw,74px);
+  --fs-kpi-l:clamp(28px,3.6vw,40px);
+  --fs-kpi-m:clamp(21px,2.4vw,27px);
+  --fs-kpi-s:clamp(16.5px,1.8vw,19.5px);
+  --ls-label:.14em;
+
+  /* space (8-pt rhythm) */
+  --g:16px;                /* page gutter */
+  --sp-1:8px;--sp-2:12px;--sp-3:16px;--sp-4:24px;--sp-5:32px;--sp-6:48px;--sp-7:64px;--sp-8:96px;
+  --wide:1240px;--read:68ch;
+  --r-card:16px;--r-sm:12px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+@media(min-width:480px){:root{--g:24px;}}
+@media(min-width:768px){:root{--g:40px;--fs-body:16.5px;--fs-card:15px;}}
+
+/* ---------- 2. BASE ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{background:var(--bg);color:var(--txt-body);font-family:var(--font-b);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{max-width:100%;height:auto;display:block;}
+a{color:var(--accent);}
+a:hover{color:#B3DDFF;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.num{font-variant-numeric:lining-nums tabular-nums;}
+.section-divider{height:1px;background:var(--border);max-width:1100px;margin:0 auto;}
+.wide{max-width:var(--wide);margin-left:auto;margin-right:auto;}
+.reading{max-width:var(--read);}
+
+html{scrollbar-color:var(--line-muted) var(--bg);}
+::selection{background:rgba(139,205,255,.32);color:var(--txt);}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px;}
+a{text-underline-offset:3px;text-decoration-thickness:1px;}
+body{caret-color:var(--accent);}
+
+/* ---------- 3. COVER ---------- */
+/* Same language as the #88/#90 covers: full-bleed image, darkened with a purple gradient,
+   text at the left. Below 900px the image sits above the title, uncropped. */
+.cover{position:relative;background:var(--bg);overflow:hidden;}
+.cover__topbar{position:relative;z-index:3;display:flex;align-items:center;gap:12px;flex-wrap:wrap;row-gap:8px;padding:var(--g) var(--g) 0;}
+.cover__divider{width:1px;height:16px;background:rgba(220,229,237,.3);flex:none;}
+.cover__label{font-family:var(--font-b);font-size:var(--fs-label);font-weight:700;letter-spacing:var(--ls-label);color:var(--txt-muted);text-transform:uppercase;white-space:nowrap;font-variant-numeric:lining-nums tabular-nums;}
+.cover__photo{position:relative;margin:0;}
+.cover__photo img,.cover__photo svg{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;}
+.cover__photo .cover__art--stack{aspect-ratio:900/620;height:auto;}
+.cover__photo .cover__art--wide{display:none;}
+.cover__photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(34,30,65,.35) 0%,rgba(34,30,65,0) 18%,rgba(34,30,65,0) 74%,var(--bg) 100%);}
+.cover__content{position:relative;z-index:2;padding:0 var(--g) var(--sp-6);margin-top:calc(-1*clamp(48px,12vw,110px));}
+.cover__pill{display:inline-flex;border:1px solid rgba(220,229,237,.28);border-radius:20px;padding:6px 14px;margin-bottom:var(--sp-4);}
+.cover__pill span{font-family:var(--font-d);font-size:9px;font-weight:700;letter-spacing:2px;color:var(--txt-sec);text-transform:uppercase;}
+.cover__title{font-family:var(--font-d);font-size:var(--fs-display);font-weight:700;line-height:1.02;letter-spacing:-.01em;color:var(--txt);text-transform:uppercase;margin-bottom:var(--sp-4);}
+.cover__title span{color:var(--accent);}
+.cover__sub{font-size:clamp(16px,1.7vw,19px);font-weight:500;line-height:1.55;color:var(--txt);max-width:520px;}
+.cover__meta{margin-top:var(--sp-5);display:flex;gap:var(--sp-4);flex-wrap:wrap;align-items:center;}
+.cover__date{font-family:var(--font-b);font-size:12px;font-weight:600;letter-spacing:var(--ls-label);color:var(--txt-muted);text-transform:uppercase;font-variant-numeric:lining-nums tabular-nums;}
+.cover__tag{font-family:var(--font-b);font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--ink);background:var(--accent);padding:5px 11px;border-radius:4px;text-transform:uppercase;font-variant-numeric:lining-nums tabular-nums;}
+@media(min-width:900px){
+  .cover{display:flex;flex-direction:column;width:100%;aspect-ratio:16/9;min-height:560px;max-height:780px;}
+  .cover__photo{position:absolute;inset:0;}
+  .cover__photo img,.cover__photo svg{height:100%;aspect-ratio:auto;object-position:center 52%;}
+  .cover__photo .cover__art--stack{display:none;}
+  .cover__photo .cover__art--wide{display:block;}
+  .cover__photo::after{background:
+    linear-gradient(90deg,rgba(34,30,65,.94) 0%,rgba(34,30,65,.78) 26%,rgba(34,30,65,.18) 48%,rgba(34,30,65,0) 60%),
+    linear-gradient(180deg,rgba(34,30,65,.50) 0%,rgba(34,30,65,0) 18%,rgba(34,30,65,0) 76%,var(--bg) 100%);}
+  .cover__content{margin-top:auto;padding:0 var(--g) var(--sp-7);}
+  .cover__title{font-size:clamp(34px,4.6vw,64px);max-width:min(40vw,560px);}
+}
+
+.cover__title span.amber,.chapter-title span.amber{color:var(--col-pump);}
+
+/* ---------- 4. CHAPTERS & READING ---------- */
+.sec{--sec-bg:var(--bg);padding:var(--sp-7) var(--g);}
+.sec--alt{--sec-bg:var(--bg-alt);background:var(--bg-alt);}
+@media(min-width:768px){.sec{padding:var(--sp-8) var(--g);}}
+.chapter-head{margin-bottom:var(--sp-6);}
+.chapter-label{display:flex;align-items:center;gap:var(--sp-2);margin-bottom:var(--sp-4);}
+.chapter-num{font-family:var(--font-b);font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--accent);border:1px solid var(--accent);padding:3px 9px;border-radius:3px;font-variant-numeric:lining-nums tabular-nums;}
+.chapter-label-text{font-family:var(--font-d);font-size:var(--fs-label);font-weight:700;letter-spacing:.28em;color:var(--txt-muted);text-transform:uppercase;}
+.chapter-title{font-family:var(--font-d);font-size:var(--fs-h1);font-weight:700;line-height:1.06;letter-spacing:-.01em;color:var(--txt);text-transform:uppercase;max-width:900px;}
+.chapter-title span{color:var(--accent);}
+
+.body-text{font-size:var(--fs-body);line-height:1.75;font-weight:400;color:var(--txt-body);margin-bottom:var(--sp-4);}
+.reading .body-text:last-child{margin-bottom:0;}
+.lead-para{font-size:var(--fs-lead);font-weight:500;line-height:1.6;letter-spacing:-.011em;color:var(--txt);margin-bottom:var(--sp-5);}
+.gap-top{margin-top:var(--sp-6);}
+
+.excerpt{margin:var(--sp-6) 0 0;max-width:760px;}
+.excerpt p{font-size:clamp(21px,2.8vw,30px);font-weight:500;line-height:1.38;letter-spacing:-.005em;color:var(--accent);}
+.excerpt cite{display:block;font-style:normal;font-size:var(--fs-label);letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--txt-muted);margin-top:var(--sp-2);font-family:var(--font-d);}
+.statement{margin:var(--sp-6) 0 0;padding-top:var(--sp-5);border-top:1px solid var(--border);max-width:900px;}
+.statement p{font-size:clamp(22px,3vw,34px);font-weight:600;line-height:1.32;letter-spacing:-.015em;color:var(--txt);}
+.statement p em{font-style:normal;color:var(--accent);}
+
+/* ---------- 5. IMAGES ---------- */
+.band{margin:var(--sp-6) 0 0;}
+.band img,.split__img img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r-card);background:var(--bg-card);}
+.split{display:grid;gap:var(--sp-5);margin-top:var(--sp-6);align-items:center;}
+@media(min-width:960px){.split{grid-template-columns:5fr 7fr;gap:var(--sp-7);}}
+.split__text .body-text{margin-bottom:0;}
+.split__img{margin:0;}
+
+/* ---------- 6. FIGURES ---------- */
+.fig{margin:var(--sp-6) 0 0;}
+.fig__frame{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-card);padding:var(--sp-4) var(--sp-3) var(--sp-4);}
+@media(min-width:768px){.fig__frame{padding:var(--sp-5) var(--sp-5) var(--sp-5);}}
+.fig__title{font-size:var(--fs-h2);font-weight:700;line-height:1.22;letter-spacing:-.022em;color:var(--txt);max-width:820px;text-wrap:balance;}
+.fig__what{font-size:var(--fs-small);line-height:1.5;color:var(--txt-muted);margin-top:6px;max-width:760px;}
+.fig__dek{font-size:var(--fs-small);line-height:1.6;color:var(--txt-sec);margin-top:var(--sp-2);max-width:760px;}
+.fig figcaption{font-size:var(--fs-caption);line-height:1.65;color:var(--txt-muted);margin-top:var(--sp-3);max-width:820px;}
+.fig figcaption b{color:var(--txt-sec);font-weight:600;}
+.key-legend{display:flex;flex-wrap:wrap;gap:var(--sp-1) var(--sp-4);margin-top:var(--sp-4);}
+.key-legend span{display:inline-flex;align-items:center;gap:var(--sp-1);font-size:12px;font-weight:500;color:var(--txt-muted);}
+.key-legend i{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none;}
+.key-legend i.sq{border-radius:2px;width:14px;height:10px;}
+.key-legend i.hatch-ev{background:var(--hatch-ev);border:1px dashed var(--col-ev);}
+.key-legend i.ring{background:transparent;border:2px solid var(--col-cap);}
+.chip{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:10px;white-space:nowrap;font-family:var(--font-b);}
+.chip--act{background:rgba(139,205,255,.16);color:var(--col-av);}
+.chip--tgt{border:1px dashed var(--txt-muted);color:var(--txt-sec);}
+.chip--ev{background:rgba(62,198,198,.15);color:var(--col-ev);}
+.chip--av{background:rgba(139,205,255,.15);color:var(--col-av);}
+.chip--kind{background:rgba(220,229,237,.1);color:var(--txt-sec);}
+
+/* ---------- 7. CHAPTER COMPONENTS ---------- */
+/* ch07 — questions & conclusion */
+.qseq{margin-top:var(--sp-5);position:relative;list-style:none;}
+.qseq::before{content:"";position:absolute;left:23px;top:10px;bottom:10px;width:1px;background:linear-gradient(var(--accent),rgba(139,205,255,.05));}
+.q{display:grid;grid-template-columns:48px 1fr;gap:var(--sp-3);padding:var(--sp-3) 0;position:relative;}
+.q__n{font-size:16px;font-weight:700;letter-spacing:.02em;color:var(--ink);background:var(--accent);width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;font-variant-numeric:lining-nums tabular-nums;}
+.q__body{padding-top:4px;}
+.q__tag{font-size:var(--fs-label);font-weight:700;letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--txt-sec);}
+.q__text{font-size:clamp(18px,2.5vw,27px);font-weight:600;line-height:1.32;letter-spacing:-.01em;color:var(--txt);margin-top:6px;max-width:760px;}
+@media(min-width:768px){
+  .qseq::before{left:39px;}
+  .q{grid-template-columns:80px 1fr;gap:var(--sp-4);padding:var(--sp-4) 0;}
+  .q__n{width:80px;height:80px;font-size:24px;}
+  .q__body{padding-top:12px;}
+}
+.closing{margin-top:var(--sp-7);padding:var(--sp-5) var(--sp-4);border-radius:var(--r-card);background:linear-gradient(150deg,rgba(26,77,122,.62),rgba(34,30,65,.96));border:1px solid var(--border);}
+@media(min-width:768px){.closing{padding:var(--sp-7) var(--sp-7);}}
+.closing__k{font-size:var(--fs-label);font-weight:700;letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--txt-sec);margin-bottom:var(--sp-3);}
+.closing p{font-size:clamp(21px,2.8vw,31px);font-weight:600;line-height:1.38;letter-spacing:-.01em;color:var(--txt);}
+.closing p em{display:block;margin-top:.45em;color:var(--accent);font-style:normal;}
+
+/* footer */
+.footer{background:var(--bg-alt);padding:var(--sp-7) var(--g);text-align:center;border-top:1px solid var(--border);}
+.footer__divider{width:40px;height:1px;background:var(--border);margin:var(--sp-4) auto;}
+.footer__text{font-size:14px;color:var(--txt-sec);line-height:1.7;max-width:520px;margin:var(--sp-2) auto 0;}
+.footer__disclaimer{font-size:12px;color:var(--txt-muted);line-height:1.65;margin:var(--sp-3) auto 0;max-width:640px;}
+
+
+/* #92 — flag tile: rounded square, hairline ring so light flags hold their edge on the dark ground */
+.flag{display:inline-block;flex:none;width:18px;height:18px;border-radius:5px;background:#3A3F66 center/cover no-repeat;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);vertical-align:-4px;}
+.flag--lg{width:22px;height:22px;border-radius:6px;}
+.flag--blank{background:#FFFFFF;}
+
+/* #92 — numbers in charts and figures line up: tabular figures only where values stack (Inter widens hyphens with tnum) */
+.rows,.pan,.kfig,.waffle-k,.urow__lab,.map-list,.sc-svg,.tip,.rows__ticks{font-variant-numeric:tabular-nums;}
+
+/* #92 — shared bits */
+.key-legend i.hatch-pump{background:var(--hatch-pump);}
+.key-legend i.hatch-ev{background:var(--hatch-ev);border:none;}
+.fig__plain>.fig__title{margin-bottom:var(--sp-4);}
+.fig__head{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--sp-3);flex-wrap:wrap;}
+.note-text{font-size:var(--fs-small);line-height:1.65;color:var(--txt-muted);padding-left:var(--sp-3);border-left:1px solid var(--line-muted);}
+.nd-note{color:var(--txt-muted);}
+.nd-note b{color:var(--txt-sec);font-weight:600;}
+
+/* summary — key figures strip (V01) */
+.kfig{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden;}
+@media(min-width:900px){.kfig{grid-template-columns:repeat(3,minmax(0,1fr));}}
+.kfig__c{background:var(--bg);padding:var(--sp-4) var(--sp-3);display:flex;flex-direction:column;gap:var(--sp-1);}
+@media(min-width:768px){.kfig__c{padding:var(--sp-5) var(--sp-4);}}
+.kfig__v{font-size:var(--fs-kpi-l);font-weight:700;letter-spacing:-.035em;line-height:1.05;color:var(--accent);font-variant-numeric:lining-nums tabular-nums;}
+.kfig__c--pump .kfig__v{color:var(--col-pump);}
+.kfig__c--ev .kfig__v{color:var(--col-bev);}
+.kfig__l{font-size:var(--fs-small);font-weight:600;line-height:1.4;color:var(--txt);}
+.kfig__s{font-size:12px;line-height:1.45;color:var(--txt-muted);margin-top:auto;padding-top:var(--sp-1);}
+
+/* summary — 12 plugs to 1 pump */
+.ratio-viz{margin-top:var(--sp-5);max-width:760px;}
+.ratio-viz svg{width:100%;height:auto;display:block;}
+.rv__plug circle{fill:var(--col-plug);}
+.rv__plug path{fill:var(--ink);}
+.rv__pump rect:first-child{fill:var(--col-pump);}
+.rv__pump rect:last-child{fill:var(--ink);opacity:.55;}
+
+/* ch01 — unit squares (1 square = 1 million) */
+.units{display:grid;gap:var(--sp-4);margin-top:var(--sp-5);}
+.urow{display:grid;gap:var(--sp-2);}
+@media(min-width:760px){.urow{grid-template-columns:200px minmax(0,1fr);gap:var(--sp-4);align-items:start;}}
+.urow__lab b{display:block;font-size:var(--fs-kpi-m);font-weight:700;letter-spacing:-.03em;line-height:1.05;font-variant-numeric:lining-nums tabular-nums;}
+.urow__lab span{font-size:var(--fs-small);color:var(--txt-muted);line-height:1.4;}
+.usq{display:flex;flex-wrap:wrap;gap:4px;}
+.usq i{width:14px;height:14px;border-radius:3px;display:block;}
+@media(min-width:760px){.usq i{width:16px;height:16px;}}
+
+/* row charts (V02, V04, V05, V07): label · bar · value */
+.rows{margin-top:var(--sp-4);display:grid;gap:6px;}
+.row{display:grid;grid-template-columns:minmax(86px,124px) minmax(0,1fr);align-items:center;gap:var(--sp-2);}
+@media(min-width:640px){.row{grid-template-columns:150px minmax(0,1fr);gap:var(--sp-3);}}
+.row__m{font-size:13px;font-weight:500;color:var(--txt-sec);line-height:1.2;text-align:right;display:flex;align-items:center;justify-content:flex-end;gap:8px;min-width:0;}
+.row__mt{min-width:0;}
+.row__m small{display:block;font-size:11px;font-weight:500;color:var(--txt-muted);margin-top:1px;}
+.row__bar{position:relative;display:flex;align-items:center;gap:var(--sp-1);min-width:0;}
+.row__fill{display:flex;height:16px;border-radius:3px;overflow:hidden;flex:none;transform-origin:left;}
+.row__fill>i{display:block;height:100%;}
+.row__v{font-size:12.5px;font-weight:700;color:var(--txt);white-space:nowrap;font-variant-numeric:lining-nums tabular-nums;}
+.row__v small{font-weight:500;color:var(--txt-muted);margin-left:4px;}
+.row--hi .row__m{color:var(--txt);font-weight:600;}
+.row--sep{margin-bottom:var(--sp-2);padding-bottom:var(--sp-3);border-bottom:1px dashed var(--border);}
+.rows__axis{display:grid;grid-template-columns:minmax(86px,124px) minmax(0,1fr);gap:var(--sp-2);margin-top:var(--sp-1);}
+@media(min-width:640px){.rows__axis{grid-template-columns:150px minmax(0,1fr);gap:var(--sp-3);}}
+.rows__ticks{position:relative;height:18px;border-top:1px solid var(--border);}
+.rows__ticks span{position:absolute;top:4px;transform:translateX(-50%);font-size:11px;color:var(--txt-muted);font-variant-numeric:lining-nums tabular-nums;white-space:nowrap;}
+.rows__ticks span:first-child{transform:none;}
+.tag{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.06em;padding:1px 5px;border-radius:3px;border:1px solid var(--line-muted);color:var(--txt-muted);margin-left:4px;vertical-align:1px;}
+
+/* ch02 — two figures side by side on wide screens */
+.duo{display:grid;gap:0 var(--sp-5);}
+@media(min-width:1080px){.duo{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);align-items:start;}}
+
+/* V03 waffle */
+.waffle{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;max-width:340px;margin-top:var(--sp-5);}
+.waffle i{aspect-ratio:1;border-radius:3px;background:rgba(220,229,237,.12);}
+.waffle i.cn{background:var(--col-plug);}
+.waffle-k{display:grid;gap:var(--sp-3);margin-top:var(--sp-4);}
+.waffle-k div{display:grid;grid-template-columns:auto 1fr;gap:0 var(--sp-2);align-items:baseline;}
+.waffle-k b{font-size:var(--fs-kpi-l);font-weight:700;letter-spacing:-.035em;line-height:1;font-variant-numeric:lining-nums tabular-nums;}
+.waffle-k span{font-size:var(--fs-small);color:var(--txt-sec);line-height:1.4;}
+.waffle-k small{grid-column:2;font-size:12px;color:var(--txt-muted);}
+
+/* ch03 — station facts */
+.facts{list-style:none;display:grid;gap:0 var(--sp-6);margin-top:var(--sp-5);}
+@media(min-width:820px){.facts{grid-template-columns:repeat(2,minmax(0,1fr));}}
+.facts li{display:grid;grid-template-columns:72px minmax(0,1fr);gap:var(--sp-3);padding:var(--sp-4) 0;border-top:1px solid var(--border);font-size:var(--fs-card);line-height:1.65;color:var(--txt-sec);}
+.facts li b{color:var(--col-pump);font-weight:600;}
+.facts__f{display:flex;gap:4px;flex-wrap:wrap;align-content:flex-start;padding-top:2px;}
+.facts__f .flag{width:20px;height:20px;}
+
+/* ch04 — fleet scope key */
+.scope-key{display:flex;flex-wrap:wrap;gap:var(--sp-1) var(--sp-4);margin-top:var(--sp-2);font-size:12px;color:var(--txt-muted);}
+.scope-key b{font-size:9.5px;font-weight:700;letter-spacing:.06em;padding:1px 5px;border-radius:3px;border:1px solid var(--line-muted);margin-right:4px;}
+
+/* V06 — two panels */
+.pan{margin-top:var(--sp-4);}
+.pan__head,.pan__row,.pan__foot{display:grid;grid-template-columns:minmax(78px,110px) minmax(0,1fr) minmax(0,1fr);gap:var(--sp-2);align-items:center;}
+@media(min-width:640px){.pan__head,.pan__row,.pan__foot{grid-template-columns:150px minmax(0,1fr) minmax(0,1fr);gap:var(--sp-5);}}
+.pan__head{align-items:end;padding-bottom:var(--sp-2);border-bottom:1px solid var(--border);margin-bottom:var(--sp-1);}
+.pan__h{font-size:12.5px;font-weight:700;line-height:1.35;}
+.pan__h small{display:block;font-weight:500;color:var(--txt-muted);font-size:11.5px;margin-top:2px;}
+.pan__h--ev{color:var(--col-bev);}
+.pan__h--ice{color:var(--col-pump);}
+.pan__row{padding:3px 0;}
+.pan__cell{position:relative;display:flex;align-items:center;gap:6px;min-width:0;}
+.pan__cell .row__fill{height:12px;}
+.pan__med{position:absolute;top:-4px;bottom:-4px;border-left:1px dashed var(--txt-sec);opacity:.6;pointer-events:none;}
+.pan__foot{margin-top:var(--sp-2);padding-top:var(--sp-2);border-top:1px solid var(--border);font-size:11.5px;color:var(--txt-muted);align-items:start;}
+.pan__foot b{color:var(--txt-sec);}
+
+/* V07 — reference line at 1 */
+.ref{position:absolute;top:-5px;bottom:-5px;border-left:2px solid var(--txt);z-index:1;pointer-events:none;}
+.v07-key{display:grid;grid-template-columns:minmax(86px,124px) minmax(0,1fr);gap:var(--sp-2);margin-top:var(--sp-4);}
+@media(min-width:640px){.v07-key{grid-template-columns:150px minmax(0,1fr);gap:var(--sp-3);}}
+.v07-key__z{position:relative;height:30px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1.3;}
+.v07-key__z span{position:absolute;bottom:0;}
+.v07-key__z .l{right:calc(100% - var(--x));padding-right:8px;text-align:right;color:var(--col-pump);}
+.v07-key__z .r{left:var(--x);padding-left:8px;color:var(--col-plug);}
+
+/* segmented control (map view) */
+.seg{display:inline-flex;border:1px solid var(--border);border-radius:20px;padding:3px;gap:2px;background:var(--bg);}
+.seg__b{font:600 12.5px var(--font-b);color:var(--txt-sec);background:none;border:0;border-radius:16px;padding:6px 14px;cursor:pointer;}
+.seg__b.is-on{background:var(--accent);color:var(--ink);}
+.seg__b:hover:not(.is-on){color:var(--txt);}
+
+/* V08 map */
+.map-wrap,.scatter-wrap{position:relative;margin-top:var(--sp-3);}
+.map-svg{width:100%;height:auto;display:block;border-radius:12px;}
+.map-svg .sphere{fill:#1C2A50;}
+.map-svg .land{fill:#2E3358;stroke:#1C2A50;stroke-width:.5;}
+.map-svg .mk{stroke:#1C2A50;stroke-width:.6;cursor:pointer;}
+.map-svg .mk:hover,.map-svg .mk:focus{stroke:#FFFFFF;stroke-width:1.4;outline:none;}
+.map-svg text{font-family:var(--font-b);pointer-events:none;}
+.map-legend{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-1) var(--sp-3);margin-top:var(--sp-4);font-size:12px;color:var(--txt-muted);}
+.map-legend span{display:inline-flex;align-items:center;gap:6px;}
+.map-legend i{width:18px;height:12px;border-radius:2px;display:inline-block;}
+.tip{position:absolute;z-index:5;pointer-events:none;background:#14122B;border:1px solid rgba(220,229,237,.25);border-radius:8px;padding:8px 10px;font-size:12.5px;line-height:1.45;color:var(--txt-sec);box-shadow:0 8px 24px rgba(0,0,0,.35);max-width:240px;}
+.tip b{color:var(--txt);font-size:13.5px;display:block;}
+.map-list{columns:2;column-gap:var(--sp-4);margin-top:var(--sp-4);font-size:12px;color:var(--txt-muted);list-style:none;}
+@media(min-width:760px){.map-list{columns:4;}}
+.map-list li{break-inside:avoid;padding:3px 0;display:flex;justify-content:space-between;gap:var(--sp-2);border-bottom:1px solid var(--border);}
+.map-list b{color:var(--txt);font-variant-numeric:lining-nums tabular-nums;}
+.map-list li.nd b{color:var(--txt-muted);font-weight:500;}
+
+/* ch06 — why cards */
+.why{display:grid;gap:0 var(--sp-5);margin-top:var(--sp-5);}
+@media(min-width:900px){.why{grid-template-columns:repeat(3,minmax(0,1fr));}}
+.why__c{border-top:1px solid var(--border);padding:var(--sp-4) 0;}
+@media(min-width:900px){.why__c{border-top:2px solid var(--accent);}}
+.why__ic{margin-bottom:var(--sp-2);}
+.why__ic svg{width:26px;height:26px;stroke:var(--accent);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block;}
+.why__c p{font-size:var(--fs-card);line-height:1.65;color:var(--txt-sec);}
+.why__c p b{display:block;font-size:var(--fs-h3);font-weight:700;letter-spacing:-.015em;color:var(--txt);margin-bottom:6px;}
+
+/* V09 scatter */
+.sc-svg{width:100%;height:auto;display:block;overflow:visible;}
+.sc-svg text{font-family:var(--font-b);}
+.sc-svg .dot{cursor:pointer;}
+.sc-svg .dot:hover,.sc-svg .dot:focus{stroke:#FFFFFF;stroke-width:2;outline:none;}
+.sc-svg .grid line{stroke:rgba(220,229,237,.09);}
+.sc-svg .ax text{font-size:11.5px;fill:var(--txt-muted);}
+.sc-svg .axt{font-size:12px;font-weight:700;fill:var(--txt-sec);}
+.sc-svg .lbl{font-size:12.5px;font-weight:700;fill:var(--txt);paint-order:stroke;stroke:var(--bg-card);stroke-width:4px;stroke-linejoin:round;pointer-events:none;}
+
+/* sources */
+.sources{margin-top:var(--sp-7);border-top:1px solid var(--border);padding-top:var(--sp-4);}
+.sources summary{cursor:pointer;display:flex;align-items:baseline;gap:var(--sp-3);flex-wrap:wrap;list-style:none;}
+.sources summary::-webkit-details-marker{display:none;}
+.sources summary::before{content:"+";font-size:20px;font-weight:500;color:var(--accent);width:16px;}
+.sources[open] summary::before{content:"−";}
+.sources__k{font-family:var(--font-d);font-size:var(--fs-label);font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--txt);}
+.sources__n{font-size:12.5px;color:var(--txt-muted);}
+.sources ol{margin:var(--sp-4) 0 0 var(--sp-5);display:grid;gap:var(--sp-2);}
+.sources li{font-size:13px;line-height:1.55;color:var(--txt-sec);padding-left:4px;}
+.sources li::marker{color:var(--txt-muted);font-size:12px;}
+.sources li a{word-break:break-word;}
+.sources li small{color:var(--txt-muted);}
+
+.qseq .q__text{font-size:clamp(17px,2vw,22px);font-weight:500;line-height:1.45;}
+
+/* ---------- 8. RESPONSIVE TWEAKS ---------- */
+:root{--lab:92px;}
+@media(max-width:639px){
+  :root{--lab:70px;}
+  .row__m{font-size:12px;}
+  .row__v{font-size:11.5px;line-height:1.2;}
+  .rows .row__v small{display:block;margin-left:0;font-size:10.5px;}
+  .rows__ticks span:nth-child(even){display:none;}
+  .pan__cell .row__v{font-size:11px;}
+}
+
+/* ---------- 9. MOTION ---------- */
+@media(prefers-reduced-motion:no-preference){
+  /* plugs light up in sequence, each row ending with its pump */
+  .rv__plug,.rv__pump{opacity:0;transform-box:fill-box;transform-origin:center;animation:none;}
+  .visible .rv__plug{animation:rv-plug .55s var(--ease) both;animation-delay:var(--d);}
+  .visible .rv__pump{animation:rv-pump .6s var(--ease) both;animation-delay:var(--d);}
+  @keyframes rv-plug{from{opacity:0;transform:scale(.4);}60%{opacity:1;filter:brightness(1.5);}to{opacity:1;transform:none;filter:none;}}
+  @keyframes rv-pump{from{opacity:0;transform:scale(.4);}to{opacity:1;transform:none;}}
+  .row__fill{transform:scaleX(0);transition:transform .9s var(--ease);transition-delay:calc(var(--i,0)*25ms);}
+  .visible .row__fill{transform:none;}
+  .waffle i,.usq i{opacity:0;transition:opacity .4s var(--ease);transition-delay:calc(var(--i,0)*8ms);}
+  .visible .waffle i,.visible .usq i{opacity:1;}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+}
+
+/* ---------- 10. #93 COMPONENTS ---------- */
+:root{
+  /* #93: one colour per group of movers, used for dots, bars and tiles */
+  --g-live:#3EC6C6;--g-human:#8BCDFF;--g-robot:#B79CFF;--g-people:#FFB935;--g-goods:#FF8F9C;
+  --hatch-people:repeating-linear-gradient(135deg,rgba(255,185,53,.85) 0 3px,rgba(255,185,53,.22) 3px 7px);
+  --gl:rgba(220,229,237,.10);
+}
+.cover__art text{font-family:var(--font-b);font-variant-numeric:lining-nums tabular-nums;}
+.key-legend i.ring{width:11px;height:11px;border:2px solid var(--txt);background:transparent;}
+.key-legend i.hatch-people{background:var(--hatch-people);}
+
+/* champions strip (V01) */
+.kfig__ic{width:36px;height:36px;margin-bottom:var(--sp-1);color:var(--accent);}
+.kfig__ic svg{width:100%;height:100%;display:block;}
+.kfig__k{font-size:var(--fs-label);font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--txt-muted);line-height:1.4;}
+.kfig__c--live .kfig__ic,.kfig__c--live .kfig__v{color:var(--g-live);}
+.kfig__c--human .kfig__ic,.kfig__c--human .kfig__v{color:var(--g-human);}
+.kfig__c--robot .kfig__ic,.kfig__c--robot .kfig__v{color:var(--g-robot);}
+.kfig__c--people .kfig__ic,.kfig__c--people .kfig__v{color:var(--g-people);}
+.kfig__c--goods .kfig__ic,.kfig__c--goods .kfig__v{color:var(--g-goods);}
+
+/* summary — the lift figure */
+.lift{margin-top:var(--sp-4);}
+.lift svg{width:100%;height:auto;display:block;overflow:visible;}
+.lift text{font-family:var(--font-b);font-variant-numeric:lining-nums tabular-nums;}
+.lf__ax text{font-size:11.5px;fill:var(--txt-muted);}
+.lf__ax line{stroke:var(--gl);}
+.lf__stem{stroke-width:2;stroke-dasharray:2 5;stroke-linecap:round;}
+.lf__w rect{stroke-width:2.4;}
+.lf__w text{font-size:11px;font-weight:700;text-anchor:middle;}
+.lf__v{font-size:13px;font-weight:700;fill:var(--txt);text-anchor:middle;}
+.lf__n{font-size:12px;font-weight:600;text-anchor:middle;}
+.lf__c{font-size:11.5px;fill:var(--txt-muted);text-anchor:middle;}
+
+/* ch01 — the equation (V09) */
+.cot{margin-top:var(--sp-5);display:grid;gap:var(--sp-5);}
+@media(min-width:900px){.cot{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:var(--sp-6);}}
+.cot__eq{display:flex;align-items:center;gap:var(--sp-3);font-family:var(--font-d);color:var(--txt);flex-wrap:wrap;}
+.cot__k{font-size:clamp(26px,4vw,40px);font-weight:700;color:var(--accent);}
+.cot__op{font-size:clamp(22px,3vw,32px);color:var(--txt-muted);}
+.cot__frac{display:inline-flex;flex-direction:column;align-items:stretch;text-align:center;}
+.cot__num,.cot__den{font-size:clamp(20px,2.8vw,30px);font-weight:600;padding:6px 14px;display:flex;align-items:center;justify-content:center;gap:10px;white-space:nowrap;}
+.cot__num{border-bottom:2px solid var(--txt-sec);}
+.cot__num i,.cot__den i{width:26px;height:26px;display:inline-block;color:var(--accent);}
+.cot__num i svg,.cot__den i svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;display:block;}
+.cot__terms{list-style:none;display:grid;gap:var(--sp-2);margin-top:var(--sp-2);grid-column:1/-1;}
+@media(min-width:700px){.cot__terms{grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-4);}}
+.cot__terms li{font-size:var(--fs-small);line-height:1.55;color:var(--txt-sec);border-top:1px solid var(--border);padding-top:var(--sp-2);}
+.cot__terms b{display:block;font-family:var(--font-d);font-size:15px;color:var(--accent);margin-bottom:2px;}
+.cot__ex{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:var(--sp-4);font-variant-numeric:lining-nums tabular-nums;}
+.cot__ex h4{font-size:var(--fs-label);letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--txt-muted);font-weight:700;margin-bottom:var(--sp-2);}
+.cot__ex p{font-size:var(--fs-small);color:var(--txt-sec);line-height:1.6;}
+.cot__calc{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:var(--sp-3);color:var(--txt);}
+.cot__calc .fr{display:inline-flex;flex-direction:column;text-align:center;font-size:14px;font-weight:600;}
+.cot__calc .fr span:first-child{border-bottom:1.5px solid var(--txt-sec);padding:0 6px 3px;}
+.cot__calc .fr span:last-child{padding:3px 6px 0;}
+.cot__calc .res{font-size:var(--fs-kpi-m);font-weight:700;color:var(--g-people);letter-spacing:-.02em;}
+.cot__calc .eq{color:var(--txt-muted);font-size:20px;}
+
+/* ch01 — reading rules */
+.why--4{margin-top:var(--sp-6);}
+@media(min-width:1000px){.why--4{grid-template-columns:repeat(4,minmax(0,1fr));}}
+.why__k{font-size:var(--fs-label);font-weight:700;letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--txt);margin-bottom:6px;}
+
+/* lr — rows with a free scale (dots, bars, ranges) */
+.lr__bar{position:relative;height:24px;background:var(--grid);}
+.lr__bar .row__fill{position:absolute;left:0;top:4px;height:16px;}
+.lr__rng{position:absolute;top:50%;height:6px;margin-top:-3px;border-radius:3px;opacity:.4;}
+.lr__dot{position:absolute;top:50%;width:13px;height:13px;margin:-6.5px 0 0 -6.5px;border-radius:50%;border:2px solid;}
+.lr__wh{position:absolute;top:50%;height:0;border-top:2px solid var(--txt);margin-top:-1px;opacity:.85;}
+.lr__wh::before,.lr__wh::after{content:"";position:absolute;top:-5px;height:8px;border-left:2px solid var(--txt);}
+.lr__wh::before{left:0;}
+.lr__wh::after{right:0;}
+.lr__v{position:absolute;top:50%;transform:translateY(-50%);white-space:nowrap;}
+.lr__tags{display:block;font-size:11px;font-weight:500;color:var(--txt-muted);margin-top:1px;line-height:1.25;}
+.row--nd .row__v{color:var(--txt-muted);font-weight:500;}
+.lr--ladder .row__m{font-size:12.5px;}
+@media(max-width:639px){.lr--ladder .row__m{font-size:11.5px;}}
+.refl{position:relative;height:34px;margin-bottom:2px;font-size:11px;font-weight:700;letter-spacing:.03em;}
+.refl span{position:absolute;bottom:0;white-space:nowrap;line-height:1.25;}
+
+/* ch02 — animal notes */
+.facts--plain li{grid-template-columns:minmax(0,1fr);}
+.facts--plain li b{color:var(--g-live);}
+
+/* V03 — size line */
+.sc-svg .line{fill:none;stroke:var(--g-live);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round;}
+.sc-svg .brk{stroke:var(--txt-sec);fill:none;stroke-width:1.5;}
+.sc-svg .brkt{font-size:15px;font-weight:700;fill:var(--txt);}
+.sc-svg .gl{stroke:var(--txt-muted);stroke-dasharray:3 4;}
+
+/* V05 — paired panels reuse .pan */
+.pan--human .pan__h--ev{color:var(--g-human);}
+.pan--human .pan__h--ice{color:var(--g-people);}
+.pan--human .pan__cell .row__fill{height:14px;}
+.pan__nd{font-size:12px;font-weight:500;color:var(--txt-muted);}
+.pan__cell{min-height:22px;}
+.pan__wh{position:absolute;top:50%;height:0;border-top:2px solid var(--txt);margin-top:-1px;}
+.pan__wh::before,.pan__wh::after{content:"";position:absolute;top:-5px;height:8px;border-left:2px solid var(--txt);}
+.pan__wh::before{left:0;}
+.pan__wh::after{right:0;}
+.pan__cell .row__v{position:absolute;top:50%;transform:translateY(-50%);}
+.pan__cell .row__fill{position:absolute;left:0;top:50%;margin-top:-7px;}
+
+#v04 .row__v small,#v08 .row__v small{display:inline;}
+
+/* ---------- 10b. MOTION ---------- */
+@media(prefers-reduced-motion:no-preference){
+  .lf__w,.lf__stem{opacity:0;}
+  .visible .lf__stem{animation:lf-in .5s var(--ease) both;animation-delay:calc(var(--i)*110ms);}
+  .visible .lf__w{animation:lf-up 1.1s var(--ease) both;animation-delay:calc(var(--i)*110ms);}
+  @keyframes lf-in{from{opacity:0;}to{opacity:1;}}
+  @keyframes lf-up{from{opacity:0;transform:translateY(var(--dy));}20%{opacity:1;}to{opacity:1;transform:none;}}
+  .lr__dot,.lr__wh{opacity:0;transition:opacity .5s var(--ease);transition-delay:calc(var(--i,0)*18ms);}
+  .visible .lr__dot,.visible .lr__wh{opacity:1;}
+  .sc-svg .line{stroke-dasharray:1600;stroke-dashoffset:1600;}
+  .visible .sc-svg .line{stroke-dashoffset:0;transition:stroke-dashoffset 1.6s var(--ease);}
+}
+.ndo{display:inline-block;width:11px;height:11px;border:2px dashed var(--g-robot);border-radius:50%;margin-right:8px;vertical-align:-2px;}
+
+/* #93 — wider label column where mover names are long */
+@media(min-width:640px){.lr--wide .row,.lr--wide .rows__axis,.lr--wide~.rows__axis{grid-template-columns:210px minmax(0,1fr);}}
+.facts--plain li{display:block;}
+#v03{max-width:860px;}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="cover__topbar">
+    <img src="deploy/logo clear.svg" alt="Astara Intelligence" style="height:16px;width:auto;">
+    <div class="cover__divider"></div>
+    <div class="cover__label">In Depth #93</div>
+  </div>
+  <figure class="cover__photo"><svg class="cover__art cover__art--wide" viewBox="0 0 1672 940" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Eight movers on a rising curve of cost of transport, from the humpback whale at 0.003 to a delivery drone at 16"><defs><radialGradient id="cg1w" cx="70%" cy="35%" r="60%"><stop offset="0" stop-color="#1A4D7A" stop-opacity=".55"/><stop offset="1" stop-color="#221E41" stop-opacity="0"/></radialGradient><linearGradient id="cg2w" x1="0" x2="1"><stop offset="0" stop-color="#8BCDFF" stop-opacity=".2"/><stop offset=".3" stop-color="#8BCDFF" stop-opacity=".6"/><stop offset="1" stop-color="#FFB935" stop-opacity=".85"/></linearGradient></defs><rect width="1672" height="940" fill="#221E41"/><rect width="1672" height="940" fill="url(#cg1w)"/><line x1="0" y1="0" x2="0" y2="940" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="119" y1="0" x2="119" y2="940" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="238" y1="0" x2="238" y2="940" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="357" y1="0" x2="357" y2="940" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="476" y1="0" x2="476" y2="940" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="595" y1="0" x2="595" y2="940" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="714" y1="0" x2="714" y2="940" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="833" y1="0" x2="833" y2="940" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="952" y1="0" x2="952" y2="940" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="1071" y1="0" x2="1071" y2="940" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="1190" y1="0" x2="1190" y2="940" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="1309" y1="0" x2="1309" y2="940" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="1428" y1="0" x2="1428" y2="940" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="1547" y1="0" x2="1547" y2="940" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="1666" y1="0" x2="1666" y2="940" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="0" y1="60" x2="1672" y2="60" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="0" y1="179" x2="1672" y2="179" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="0" y1="298" x2="1672" y2="298" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="0" y1="417" x2="1672" y2="417" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="0" y1="536" x2="1672" y2="536" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="0" y1="655" x2="1672" y2="655" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="0" y1="774" x2="1672" y2="774" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="0" y1="893" x2="1672" y2="893" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="746" y1="600" x2="1610" y2="600" stroke="#DCE5ED" stroke-opacity=".35"/><path d="M800 500 C818 494 872 470 908 461 C944 452 980 457 1016 446 C1052 434 1088 408 1124 393 C1160 377 1196 366 1232 355 C1268 344 1304 341 1340 325 C1376 310 1412 284 1448 261 C1484 239 1538 202 1556 190" fill="none" stroke="url(#cg2w)" stroke-width="2.8" stroke-dasharray="2 9" stroke-linecap="round"/><line x1="800" y1="558" x2="800" y2="600" stroke="#3EC6C6" stroke-opacity=".4" stroke-dasharray="3 6"/><circle cx="800" cy="500" r="52" fill="#3EC6C6" fill-opacity=".12" stroke="#3EC6C6" stroke-opacity=".55"/><g transform="translate(764 464) scale(0.72)" style="color:#3EC6C6"><g fill="none" stroke="currentColor" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 56C8 42 26 34 48 35c16 1 27 9 38 15"/><path d="M86 50 95 36M86 50 97 62"/><path d="M86 50C76 62 60 70 42 70 22 70 8 68 8 56"/><path d="M34 62c6 3 13 2 18-3"/><circle cx="22" cy="54" r="1.8" fill="currentColor" stroke="none"/><path d="M40 28c0-5 4-7 4-12M47 28c0-5 4-7 4-12"/></g></g><circle cx="800" cy="600" r="4.8" fill="#3EC6C6"/><text x="800" y="641" text-anchor="middle" font-size="24" font-weight="700" fill="#FFFFFF">0.0031</text><text x="800" y="665" text-anchor="middle" font-size="17" font-weight="500" fill="#A9BCCB">Whale</text><line x1="908" y1="519" x2="908" y2="600" stroke="#FFB935" stroke-opacity=".4" stroke-dasharray="3 6"/><circle cx="908" cy="461" r="52" fill="#FFB935" fill-opacity=".12" stroke="#FFB935" stroke-opacity=".55"/><g transform="translate(872 425) scale(0.72)" style="color:#FFB935"><g fill="none" stroke="currentColor" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 68C8 54 30 46 56 46c22 0 38 10 38 22Z"/><path d="M37 49c5-10 22-11 31-1"/><circle cx="26" cy="70" r="7"/><circle cx="76" cy="70" r="7"/></g></g><circle cx="908" cy="600" r="4.8" fill="#FFB935"/><text x="908" y="641" text-anchor="middle" font-size="24" font-weight="700" fill="#FFFFFF">0.0091</text><text x="908" y="665" text-anchor="middle" font-size="17" font-weight="500" fill="#A9BCCB">Eco car</text><line x1="1016" y1="504" x2="1016" y2="600" stroke="#FF8F9C" stroke-opacity=".4" stroke-dasharray="3 6"/><circle cx="1016" cy="446" r="52" fill="#FF8F9C" fill-opacity=".12" stroke="#FF8F9C" stroke-opacity=".55"/><g transform="translate(980 410) scale(0.72)" style="color:#FF8F9C"><g fill="none" stroke="currentColor" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 62H94L84 80H18Z"/><rect x="22" y="46" width="16" height="14"/><rect x="40" y="46" width="16" height="14"/><rect x="58" y="46" width="16" height="14"/><rect x="31" y="32" width="16" height="14"/><rect x="49" y="32" width="16" height="14"/><path d="M80 62V42H90V62"/><path d="M10 90q6-6 12 0t12 0 12 0 12 0 12 0 12 0"/></g></g><circle cx="1016" cy="600" r="4.8" fill="#FF8F9C"/><text x="1016" y="641" text-anchor="middle" font-size="24" font-weight="700" fill="#FFFFFF">0.014</text><text x="1016" y="665" text-anchor="middle" font-size="17" font-weight="500" fill="#A9BCCB">Ship</text><line x1="1124" y1="451" x2="1124" y2="600" stroke="#3EC6C6" stroke-opacity=".4" stroke-dasharray="3 6"/><circle cx="1124" cy="393" r="52" fill="#3EC6C6" fill-opacity=".12" stroke="#3EC6C6" stroke-opacity=".55"/><g transform="translate(1088 357) scale(0.72)" style="color:#3EC6C6"><g fill="none" stroke="currentColor" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 64C16 42 28 42 38 60S58 80 68 60 84 40 94 52"/><circle cx="90.5" cy="49" r="1.8" fill="currentColor" stroke="none"/><path d="M62 70c3 7 9 8 12 1"/></g></g><circle cx="1124" cy="600" r="4.8" fill="#3EC6C6"/><text x="1124" y="641" text-anchor="middle" font-size="24" font-weight="700" fill="#FFFFFF">0.060</text><text x="1124" y="665" text-anchor="middle" font-size="17" font-weight="500" fill="#A9BCCB">Eel</text><line x1="1232" y1="413" x2="1232" y2="600" stroke="#8BCDFF" stroke-opacity=".4" stroke-dasharray="3 6"/><circle cx="1232" cy="355" r="52" fill="#8BCDFF" fill-opacity=".12" stroke="#8BCDFF" stroke-opacity=".55"/><g transform="translate(1196 319) scale(0.72)" style="color:#8BCDFF"><g fill="none" stroke="currentColor" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="68" r="15"/><circle cx="76" cy="68" r="15"/><path d="M24 68H46L40 46H66L76 68M46 68 66 46M34 41H46M66 46 62 37H72"/><circle cx="50" cy="22" r="6"/><path d="M49 29 41 45M49 29 63 37"/></g></g><circle cx="1232" cy="600" r="4.8" fill="#8BCDFF"/><text x="1232" y="641" text-anchor="middle" font-size="24" font-weight="700" fill="#FFFFFF">0.172</text><text x="1232" y="665" text-anchor="middle" font-size="17" font-weight="500" fill="#A9BCCB">Cyclist</text><line x1="1340" y1="383" x2="1340" y2="600" stroke="#8BCDFF" stroke-opacity=".4" stroke-dasharray="3 6"/><circle cx="1340" cy="325" r="52" fill="#8BCDFF" fill-opacity=".12" stroke="#8BCDFF" stroke-opacity=".55"/><g transform="translate(1304 289) scale(0.72)" style="color:#8BCDFF"><g fill="none" stroke="currentColor" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="16" r="8"/><path d="M50 26V56M50 34 36 47M50 34 64 45M50 56 38 84M50 56 62 70 58 86"/></g></g><circle cx="1340" cy="600" r="4.8" fill="#8BCDFF"/><text x="1340" y="641" text-anchor="middle" font-size="24" font-weight="700" fill="#FFFFFF">0.387</text><text x="1340" y="665" text-anchor="middle" font-size="17" font-weight="500" fill="#A9BCCB">Walker</text><line x1="1448" y1="319" x2="1448" y2="600" stroke="#B79CFF" stroke-opacity=".4" stroke-dasharray="3 6"/><circle cx="1448" cy="261" r="52" fill="#B79CFF" fill-opacity=".12" stroke="#B79CFF" stroke-opacity=".55"/><g transform="translate(1412 225) scale(0.72)" style="color:#B79CFF"><g fill="none" stroke="currentColor" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"><rect x="38" y="10" width="24" height="18" rx="5"/><path d="M50 10V4"/><circle cx="44" cy="19" r="1.8" fill="currentColor" stroke="none"/><circle cx="56" cy="19" r="1.8" fill="currentColor" stroke="none"/><rect x="32" y="34" width="36" height="28" rx="6"/><path d="M32 40 20 58M68 40 80 58M42 62V86H34M58 62V86H66"/></g></g><circle cx="1448" cy="600" r="4.8" fill="#B79CFF"/><text x="1448" y="641" text-anchor="middle" font-size="24" font-weight="700" fill="#FFFFFF">2.27</text><text x="1448" y="665" text-anchor="middle" font-size="17" font-weight="500" fill="#A9BCCB">Robot</text><line x1="1556" y1="248" x2="1556" y2="600" stroke="#FF8F9C" stroke-opacity=".4" stroke-dasharray="3 6"/><circle cx="1556" cy="190" r="52" fill="#FF8F9C" fill-opacity=".12" stroke="#FF8F9C" stroke-opacity=".55"/><g transform="translate(1520 154) scale(0.72)" style="color:#FF8F9C"><g fill="none" stroke="currentColor" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="42" width="20" height="10" rx="3"/><path d="M40 45 20 34M60 45 80 34M40 50 20 62M60 50 80 62"/><ellipse cx="16" cy="32" rx="12" ry="3"/><ellipse cx="84" cy="32" rx="12" ry="3"/><ellipse cx="16" cy="64" rx="12" ry="3"/><ellipse cx="84" cy="64" rx="12" ry="3"/><path d="M50 52V64"/><rect x="43" y="64" width="14" height="13" rx="2"/></g></g><circle cx="1556" cy="600" r="4.8" fill="#FF8F9C"/><text x="1556" y="641" text-anchor="middle" font-size="24" font-weight="700" fill="#FFFFFF">16.3</text><text x="1556" y="665" text-anchor="middle" font-size="17" font-weight="500" fill="#A9BCCB">Drone</text><text x="746" y="585" font-size="13" font-weight="700" letter-spacing="2" fill="#89A1B4">COST OF TRANSPORT · LOG SCALE · LOWER IS BETTER</text></svg><svg class="cover__art cover__art--stack" viewBox="0 0 900 620" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Eight movers on a rising curve of cost of transport, from the humpback whale at 0.003 to a delivery drone at 16"><defs><radialGradient id="cg1s" cx="70%" cy="35%" r="60%"><stop offset="0" stop-color="#1A4D7A" stop-opacity=".55"/><stop offset="1" stop-color="#221E41" stop-opacity="0"/></radialGradient><linearGradient id="cg2s" x1="0" x2="1"><stop offset="0" stop-color="#8BCDFF" stop-opacity=".2"/><stop offset=".3" stop-color="#8BCDFF" stop-opacity=".6"/><stop offset="1" stop-color="#FFB935" stop-opacity=".85"/></linearGradient></defs><rect width="900" height="620" fill="#221E41"/><rect width="900" height="620" fill="url(#cg1s)"/><line x1="0" y1="0" x2="0" y2="620" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="64" y1="0" x2="64" y2="620" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="128" y1="0" x2="128" y2="620" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="192" y1="0" x2="192" y2="620" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="256" y1="0" x2="256" y2="620" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="320" y1="0" x2="320" y2="620" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="384" y1="0" x2="384" y2="620" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="448" y1="0" x2="448" y2="620" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="512" y1="0" x2="512" y2="620" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="576" y1="0" x2="576" y2="620" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="640" y1="0" x2="640" y2="620" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="704" y1="0" x2="704" y2="620" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="768" y1="0" x2="768" y2="620" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="832" y1="0" x2="832" y2="620" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="896" y1="0" x2="896" y2="620" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="0" y1="32" x2="900" y2="32" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="0" y1="96" x2="900" y2="96" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="0" y1="160" x2="900" y2="160" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="0" y1="224" x2="900" y2="224" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="0" y1="288" x2="900" y2="288" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="0" y1="352" x2="900" y2="352" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="0" y1="416" x2="900" y2="416" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="0" y1="480" x2="900" y2="480" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="0" y1="544" x2="900" y2="544" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="0" y1="608" x2="900" y2="608" stroke="#DCE5ED" stroke-opacity=".035"/><line x1="16" y1="392" x2="880" y2="392" stroke="#DCE5ED" stroke-opacity=".35"/><path d="M70 330 C88 325 142 307 178 301 C214 294 250 298 286 289 C322 281 358 260 394 249 C430 238 466 229 502 220 C538 212 574 210 610 198 C646 186 682 167 718 150 C754 133 808 105 826 96" fill="none" stroke="url(#cg2s)" stroke-width="2.1" stroke-dasharray="2 6" stroke-linecap="round"/><line x1="70" y1="374" x2="70" y2="392" stroke="#3EC6C6" stroke-opacity=".4" stroke-dasharray="3 6"/><circle cx="70" cy="330" r="38" fill="#3EC6C6" fill-opacity=".12" stroke="#3EC6C6" stroke-opacity=".55"/><g transform="translate(44 304) scale(0.52)" style="color:#3EC6C6"><g fill="none" stroke="currentColor" stroke-width="5.2615384615384615" stroke-linecap="round" stroke-linejoin="round"><path d="M8 56C8 42 26 34 48 35c16 1 27 9 38 15"/><path d="M86 50 95 36M86 50 97 62"/><path d="M86 50C76 62 60 70 42 70 22 70 8 68 8 56"/><path d="M34 62c6 3 13 2 18-3"/><circle cx="22" cy="54" r="1.8" fill="currentColor" stroke="none"/><path d="M40 28c0-5 4-7 4-12M47 28c0-5 4-7 4-12"/></g></g><circle cx="70" cy="392" r="4.4" fill="#3EC6C6"/><text x="70" y="429" text-anchor="middle" font-size="22" font-weight="700" fill="#FFFFFF">0.0031</text><text x="70" y="453" text-anchor="middle" font-size="16" font-weight="500" fill="#A9BCCB">Whale</text><line x1="178" y1="345" x2="178" y2="392" stroke="#FFB935" stroke-opacity=".4" stroke-dasharray="3 6"/><circle cx="178" cy="301" r="38" fill="#FFB935" fill-opacity=".12" stroke="#FFB935" stroke-opacity=".55"/><g transform="translate(152 275) scale(0.52)" style="color:#FFB935"><g fill="none" stroke="currentColor" stroke-width="5.2615384615384615" stroke-linecap="round" stroke-linejoin="round"><path d="M6 68C8 54 30 46 56 46c22 0 38 10 38 22Z"/><path d="M37 49c5-10 22-11 31-1"/><circle cx="26" cy="70" r="7"/><circle cx="76" cy="70" r="7"/></g></g><circle cx="178" cy="392" r="4.4" fill="#FFB935"/><text x="178" y="429" text-anchor="middle" font-size="22" font-weight="700" fill="#FFFFFF">0.0091</text><text x="178" y="453" text-anchor="middle" font-size="16" font-weight="500" fill="#A9BCCB">Eco car</text><line x1="286" y1="333" x2="286" y2="392" stroke="#FF8F9C" stroke-opacity=".4" stroke-dasharray="3 6"/><circle cx="286" cy="289" r="38" fill="#FF8F9C" fill-opacity=".12" stroke="#FF8F9C" stroke-opacity=".55"/><g transform="translate(260 263) scale(0.52)" style="color:#FF8F9C"><g fill="none" stroke="currentColor" stroke-width="5.2615384615384615" stroke-linecap="round" stroke-linejoin="round"><path d="M6 62H94L84 80H18Z"/><rect x="22" y="46" width="16" height="14"/><rect x="40" y="46" width="16" height="14"/><rect x="58" y="46" width="16" height="14"/><rect x="31" y="32" width="16" height="14"/><rect x="49" y="32" width="16" height="14"/><path d="M80 62V42H90V62"/><path d="M10 90q6-6 12 0t12 0 12 0 12 0 12 0 12 0"/></g></g><circle cx="286" cy="392" r="4.4" fill="#FF8F9C"/><text x="286" y="429" text-anchor="middle" font-size="22" font-weight="700" fill="#FFFFFF">0.014</text><text x="286" y="453" text-anchor="middle" font-size="16" font-weight="500" fill="#A9BCCB">Ship</text><line x1="394" y1="293" x2="394" y2="392" stroke="#3EC6C6" stroke-opacity=".4" stroke-dasharray="3 6"/><circle cx="394" cy="249" r="38" fill="#3EC6C6" fill-opacity=".12" stroke="#3EC6C6" stroke-opacity=".55"/><g transform="translate(368 223) scale(0.52)" style="color:#3EC6C6"><g fill="none" stroke="currentColor" stroke-width="5.2615384615384615" stroke-linecap="round" stroke-linejoin="round"><path d="M6 64C16 42 28 42 38 60S58 80 68 60 84 40 94 52"/><circle cx="90.5" cy="49" r="1.8" fill="currentColor" stroke="none"/><path d="M62 70c3 7 9 8 12 1"/></g></g><circle cx="394" cy="392" r="4.4" fill="#3EC6C6"/><text x="394" y="429" text-anchor="middle" font-size="22" font-weight="700" fill="#FFFFFF">0.060</text><text x="394" y="453" text-anchor="middle" font-size="16" font-weight="500" fill="#A9BCCB">Eel</text><line x1="502" y1="264" x2="502" y2="392" stroke="#8BCDFF" stroke-opacity=".4" stroke-dasharray="3 6"/><circle cx="502" cy="220" r="38" fill="#8BCDFF" fill-opacity=".12" stroke="#8BCDFF" stroke-opacity=".55"/><g transform="translate(476 194) scale(0.52)" style="color:#8BCDFF"><g fill="none" stroke="currentColor" stroke-width="5.2615384615384615" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="68" r="15"/><circle cx="76" cy="68" r="15"/><path d="M24 68H46L40 46H66L76 68M46 68 66 46M34 41H46M66 46 62 37H72"/><circle cx="50" cy="22" r="6"/><path d="M49 29 41 45M49 29 63 37"/></g></g><circle cx="502" cy="392" r="4.4" fill="#8BCDFF"/><text x="502" y="429" text-anchor="middle" font-size="22" font-weight="700" fill="#FFFFFF">0.172</text><text x="502" y="453" text-anchor="middle" font-size="16" font-weight="500" fill="#A9BCCB">Cyclist</text><line x1="610" y1="242" x2="610" y2="392" stroke="#8BCDFF" stroke-opacity=".4" stroke-dasharray="3 6"/><circle cx="610" cy="198" r="38" fill="#8BCDFF" fill-opacity=".12" stroke="#8BCDFF" stroke-opacity=".55"/><g transform="translate(584 172) scale(0.52)" style="color:#8BCDFF"><g fill="none" stroke="currentColor" stroke-width="5.2615384615384615" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="16" r="8"/><path d="M50 26V56M50 34 36 47M50 34 64 45M50 56 38 84M50 56 62 70 58 86"/></g></g><circle cx="610" cy="392" r="4.4" fill="#8BCDFF"/><text x="610" y="429" text-anchor="middle" font-size="22" font-weight="700" fill="#FFFFFF">0.387</text><text x="610" y="453" text-anchor="middle" font-size="16" font-weight="500" fill="#A9BCCB">Walker</text><line x1="718" y1="194" x2="718" y2="392" stroke="#B79CFF" stroke-opacity=".4" stroke-dasharray="3 6"/><circle cx="718" cy="150" r="38" fill="#B79CFF" fill-opacity=".12" stroke="#B79CFF" stroke-opacity=".55"/><g transform="translate(692 124) scale(0.52)" style="color:#B79CFF"><g fill="none" stroke="currentColor" stroke-width="5.2615384615384615" stroke-linecap="round" stroke-linejoin="round"><rect x="38" y="10" width="24" height="18" rx="5"/><path d="M50 10V4"/><circle cx="44" cy="19" r="1.8" fill="currentColor" stroke="none"/><circle cx="56" cy="19" r="1.8" fill="currentColor" stroke="none"/><rect x="32" y="34" width="36" height="28" rx="6"/><path d="M32 40 20 58M68 40 80 58M42 62V86H34M58 62V86H66"/></g></g><circle cx="718" cy="392" r="4.4" fill="#B79CFF"/><text x="718" y="429" text-anchor="middle" font-size="22" font-weight="700" fill="#FFFFFF">2.27</text><text x="718" y="453" text-anchor="middle" font-size="16" font-weight="500" fill="#A9BCCB">Robot</text><line x1="826" y1="140" x2="826" y2="392" stroke="#FF8F9C" stroke-opacity=".4" stroke-dasharray="3 6"/><circle cx="826" cy="96" r="38" fill="#FF8F9C" fill-opacity=".12" stroke="#FF8F9C" stroke-opacity=".55"/><g transform="translate(800 70) scale(0.52)" style="color:#FF8F9C"><g fill="none" stroke="currentColor" stroke-width="5.2615384615384615" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="42" width="20" height="10" rx="3"/><path d="M40 45 20 34M60 45 80 34M40 50 20 62M60 50 80 62"/><ellipse cx="16" cy="32" rx="12" ry="3"/><ellipse cx="84" cy="32" rx="12" ry="3"/><ellipse cx="16" cy="64" rx="12" ry="3"/><ellipse cx="84" cy="64" rx="12" ry="3"/><path d="M50 52V64"/><rect x="43" y="64" width="14" height="13" rx="2"/></g></g><circle cx="826" cy="392" r="4.4" fill="#FF8F9C"/><text x="826" y="429" text-anchor="middle" font-size="22" font-weight="700" fill="#FFFFFF">16.3</text><text x="826" y="453" text-anchor="middle" font-size="16" font-weight="500" fill="#A9BCCB">Drone</text><text x="16" y="378" font-size="11" font-weight="700" letter-spacing="2" fill="#89A1B4">COST OF TRANSPORT · LOG SCALE · LOWER IS BETTER</text></svg></figure>
+  <div class="cover__content">
+    <div class="cover__pill"><span>Whales · Eels · Cyclists · Robots · Ships · Drones</span></div>
+    <h1 class="cover__title">The cheapest<br>kilometre <span>on Earth</span></h1>
+    <p class="cover__sub">Whales, eels, cyclists, robots, ships and drones on one energy scale</p>
+    <div class="cover__meta">
+      <span class="cover__date">Prepared 3 November 2026</span>
+      <span class="cover__tag">COT from 0.003 to 16</span>
+    </div>
+  </div>
+</header>
+
+<!-- 00 SUMMARY -->
+<section class="sec">
+<div class="chapter wide">
+  <div class="chapter-head reveal">
+    <div class="chapter-label"><span class="chapter-num">00</span><span class="chapter-label-text">Summary</span></div>
+    <h2 class="chapter-title">There is no single <span>most efficient mover</span></h2>
+  </div>
+  <div class="reading">
+    <p class="body-text lead-para reveal" data-src="sum1">There is no single most efficient mover. There is a winner for each thing you choose to count, and the winners share three traits: they are big, slow and supported by water, rails or a smooth road.</p>
+    <p class="body-text reveal" data-src="sum2">Among living beings, the large swimmers win. A humpback whale cruising at its best speed has a cost of transport of about 0.0031, by an estimate from breathing rates; a European eel, measured in a swim tunnel, about 0.060. A fast-walking human spends 0.387, roughly 6 times the eel. Size matters as much as medium: per kilogram, a mouse-sized runner spends 47 times more than an elephant-sized one.</p>
+    <p class="body-text reveal" data-src="sum3">The bicycle is still the best way for a human body to move itself: 29 Wh of food energy per km against 72 Wh for walking. But machines built only for efficiency go much further. A student prototype at the 2026 Shell Eco-marathon covered 538 km on 1 kWh: 1.9 Wh per km, a cost of 0.0091 per kg of driver, about 16 times less than a cyclist.</p>
+    <p class="body-text reveal" data-src="sum4">For cargo, the champion is the ship: 0.014 per kg of freight, about half the cost of a freight train and 1,176 times less than a small delivery drone. Robots are the laggards: the best humanoids still spend about 10 times more energy per metre than a walking person.</p>
+  </div>
+
+  <figure class="fig reveal">
+    <div class="fig__frame">
+      <div class="fig__title">Lift a kilo by how much, for every metre you move it?</div>
+      <div class="fig__what">Cost of transport read as a lift: a COT of 0.1 costs the energy of raising 1 kg by 10 cm for each metre travelled. Height on a log scale.</div>
+      <div class="key-legend"><span><i style="background:var(--txt)"></i>Per kg of itself (own mass)</span><span><i class="ring" style="border-color:var(--txt)"></i>Per kg of passenger or cargo (payload)</span></div>
+      <div class="lift" id="lift"></div>
+    </div>
+    <figcaption>An illustration, not a contest: the two bases are never ranked against each other. Whale, eel, cyclist (rider), walker and ASIMO are measured per kg of themselves; the Eco-marathon prototype, the ship and the drone per kg of passenger or cargo. COT = energy / (weight x distance). Lower is better.</figcaption>
+  </figure>
+
+  <blockquote class="excerpt reveal"><p class="excerpt-text">There is a winner for each thing you choose to count</p><cite>From the analysis</cite></blockquote>
+
+  <figure class="fig reveal">
+    <div class="fig__plain">
+      <div class="fig__title">The champion of each class</div>
+      <div class="kfig"><div class="kfig__c kfig__c--live"><div class="kfig__ic"><svg class="" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 56C8 42 26 34 48 35c16 1 27 9 38 15"/><path d="M86 50 95 36M86 50 97 62"/><path d="M86 50C76 62 60 70 42 70 22 70 8 68 8 56"/><path d="M34 62c6 3 13 2 18-3"/><circle cx="22" cy="54" r="1.8" fill="currentColor" stroke="none"/><path d="M40 28c0-5 4-7 4-12M47 28c0-5 4-7 4-12"/></svg></div><div class="kfig__k">Per kg of itself, among living beings</div><div class="kfig__v">0.0031</div><div class="kfig__l">Humpback whale</div><div class="kfig__s">own mass · Grade B</div></div><div class="kfig__c kfig__c--live"><div class="kfig__ic"><svg class="" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 64C16 42 28 42 38 60S58 80 68 60 84 40 94 52"/><circle cx="90.5" cy="49" r="1.8" fill="currentColor" stroke="none"/><path d="M62 70c3 7 9 8 12 1"/></svg></div><div class="kfig__k">Per kg of itself, the best measured animal</div><div class="kfig__v">0.060</div><div class="kfig__l">European eel</div><div class="kfig__s">own mass · Grade B</div></div><div class="kfig__c kfig__c--human"><div class="kfig__ic"><svg class="" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="68" r="15"/><circle cx="76" cy="68" r="15"/><path d="M24 68H46L40 46H66L76 68M46 68 66 46M34 41H46M66 46 62 37H72"/><circle cx="50" cy="22" r="6"/><path d="M49 29 41 45M49 29 63 37"/></svg></div><div class="kfig__k">Per kg of person, human power</div><div class="kfig__v">0.172</div><div class="kfig__l">Human on a bicycle</div><div class="kfig__s">own mass (rider) · Grade B</div></div><div class="kfig__c kfig__c--people"><div class="kfig__ic"><svg class="" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 68C8 54 30 46 56 46c22 0 38 10 38 22Z"/><path d="M37 49c5-10 22-11 31-1"/><circle cx="26" cy="70" r="7"/><circle cx="76" cy="70" r="7"/></svg></div><div class="kfig__k">Per kg of person, any machine</div><div class="kfig__v">0.0091</div><div class="kfig__l">Shell Eco-marathon prototype</div><div class="kfig__s">payload · Grade B</div></div><div class="kfig__c kfig__c--goods"><div class="kfig__ic"><svg class="" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 62H94L84 80H18Z"/><rect x="22" y="46" width="16" height="14"/><rect x="40" y="46" width="16" height="14"/><rect x="58" y="46" width="16" height="14"/><rect x="31" y="32" width="16" height="14"/><rect x="49" y="32" width="16" height="14"/><path d="M80 62V42H90V62"/><path d="M10 90q6-6 12 0t12 0 12 0 12 0 12 0 12 0"/></svg></div><div class="kfig__k">Per kg of cargo</div><div class="kfig__v">0.014</div><div class="kfig__l">Ocean freight ship</div><div class="kfig__s">payload · Grade A</div></div><div class="kfig__c kfig__c--robot"><div class="kfig__ic"><svg class="" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="38" y="10" width="24" height="18" rx="5"/><path d="M50 10V4"/><circle cx="44" cy="19" r="1.8" fill="currentColor" stroke="none"/><circle cx="56" cy="19" r="1.8" fill="currentColor" stroke="none"/><rect x="32" y="34" width="36" height="28" rx="6"/><path d="M32 40 20 58M68 40 80 58M42 62V86H34M58 62V86H66"/></svg></div><div class="kfig__k">Per kg of itself, legged robots</div><div class="kfig__v">0.280</div><div class="kfig__l">Cornell Ranger (legged robot)</div><div class="kfig__s">own mass · Grade A</div></div></div>
+    </div>
+    <figcaption>COT = energy / (weight x distance). Lower is better. Grades: A measured or official; B peer-reviewed model, synthesis or quoted review value; C manufacturer claim. The humpback whale value is derived from breathing, not from measured oxygen use.</figcaption>
+  </figure>
+</div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 01 THE YARDSTICK -->
+<section class="sec sec--alt">
+<div class="chapter wide">
+  <div class="chapter-head reveal">
+    <div class="chapter-label"><span class="chapter-num">01</span><span class="chapter-label-text">The Yardstick</span></div>
+    <h2 class="chapter-title">One number for <span>a whale and a ship</span></h2>
+  </div>
+  <div class="reading">
+    <p class="body-text lead-para reveal" data-src="s1p1">Engineers Gabrielli and von Karman asked in 1950 what speed costs in energy; biologist Vance Tucker answered in 1975 with a chart that set fruit flies, salmon, horses, jets and a man on a bicycle on one line. Their trick was to divide energy by weight and distance, which removes the units.</p>
+    <p class="body-text reveal" data-src="s1p2">The same formula is used here for every row. Many sources publish it directly; for the rest it is computed from energy per kilometre and mass, or from power, mass and speed. Each row shows its inputs.</p>
+  </div>
+
+  <figure class="fig reveal">
+    <div class="fig__frame">
+      <div class="fig__title">One equation, no units</div>
+      <div class="fig__what">Cost of transport: the energy put in, divided by the weight moved and the distance</div>
+      <div class="cot" id="cot"></div>
+    </div>
+    <figcaption>Where a source gives energy and mass but not the cost of transport, the figure is computed from the inputs shown for each row. Oxygen is converted at 13.6 J per mg.</figcaption>
+  </figure>
+
+  <div class="why why--4 reveal">
+    <article class="why__c"><div class="why__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="8" width="20" height="8" rx="1.5"/><path d="M6 8v3M10 8v4M14 8v3M18 8v4"/></svg></div><div class="why__k">Yardstick</div><p data-src="how1">The yardstick is the cost of transport (COT): the energy used to move a weight over a distance, divided by that weight and that distance. It has no units, so a whale, a bicycle and a ship sit on the same axis. A COT of 0.1 means that moving 1 kg one metre costs as much energy as lifting it 10 cm.</p></article>
+    <article class="why__c"><div class="why__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="5"/><circle cx="16.5" cy="12" r="5" stroke-dasharray="2 2.4"/></svg></div><div class="why__k">Two bases</div><p data-src="how2">Two bases, never mixed in one contest: "own mass" (the animal, robot or whole vehicle moving itself) and "payload" (per kg of passenger or cargo carried; a passenger counts as 75 kg, the EU type-approval driver mass).</p></article>
+    <article class="why__c"><div class="why__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2 5 13.5h6L10 22l9-12h-6.5Z"/></svg></div><div class="why__k">Energy boundary</div><p data-src="how3">Energy boundary: living beings and human power are measured in food (metabolic) energy; machines in electricity or fuel delivered to the vehicle. Farming, power plants and refineries are not counted anywhere.</p></article>
+    <article class="why__c"><div class="why__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></div><div class="why__k">Sources</div><p data-src="how4">Sources: every figure is external, and every source is listed with its URL at the end of the page. Where a source gives energy and mass but not COT, the COT is computed and the inputs are shown. Nothing is estimated; "ND" means no defensible figure.</p></article>
+  </div>
+
+  <figure class="fig reveal">
+    <div class="fig__frame">
+      <div class="fig__title">The scale runs across more than three orders of magnitude</div>
+      <div class="fig__what">Every mover on one log axis, from the humpback whale (0.003) to the delivery drone (16)</div>
+      <div class="key-legend" id="v02-legend"></div>
+      <div id="v02"></div>
+    </div>
+    <figcaption>Bars show the range where a source gives one; the dot is the central value. Filled dots are per kg of the mover itself, hollow dots per kg of passenger or cargo: the two are never ranked against each other. Passenger figures use a 75 kg person (EU type-approval driver mass); real passengers and Eco-marathon drivers can be lighter, which would raise the per-kg values. <span id="v02-nd"></span></figcaption>
+  </figure>
+</div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 02 LIVING BEINGS -->
+<section class="sec">
+<div class="chapter wide">
+  <div class="chapter-head reveal">
+    <div class="chapter-label"><span class="chapter-num">02</span><span class="chapter-label-text">Living Beings</span></div>
+    <h2 class="chapter-title">Living beings: <span>big swimmers win</span></h2>
+  </div>
+
+  <figure class="fig reveal" style="margin-top:0">
+    <div class="fig__frame">
+      <div class="fig__title">The living podium</div>
+      <div class="fig__what">Cost of transport per kg of the animal itself, log scale. Lower is better.</div>
+      <div class="key-legend"><span><i class="sq" style="background:var(--g-live)"></i>Animals</span><span><i class="sq" style="background:var(--g-human)"></i>Human body</span><span><i class="sq" style="background:none;border:1px solid var(--txt-sec);width:2px;height:10px;border-radius:0"></i>Range</span></div>
+      <div id="v04"></div>
+    </div>
+    <figcaption>The humpback whale is the lowest number and the least direct: it is derived from breath counts and an assumed lung volume. Eel and beluga are measured oxygen use. The horse is a value quoted in a robotics review. Human rows are metabolic (food) energy: walking net of standing, walking fast (gross) and running. <span id="v04-nd"></span></figcaption>
+  </figure>
+
+  <ul class="facts facts--plain reveal">
+    <li data-src="s2b1"><b>Humpback whale:</b> 0.0020-0.0042, derived from breathing rates at the optimal speed of 2-4 m/s off Peru. It is the lowest number in the piece and the least direct.</li>
+    <li data-src="s2b2"><b>European eel:</b> 0.051-0.069, measured in swim tunnels simulating the 5,500 km migration to the Sargasso Sea. Eels swim 4-6 times more efficiently than salmon-like fish.</li>
+    <li data-src="s2b3"><b>Beluga whale:</b> 0.143, measured by oxygen use in an aquarium.</li>
+    <li data-src="s2b4"><b>Moon jellyfish:</b> reported as the cheapest swimmer in its comparison, with fish only beating it above about 100 kg; its body is mostly water, which flatters a per-kg metric. No number is published in the text (ND).</li>
+    <li data-src="s2b5"><b>Birds:</b> fliers sit between swimmers and runners; a sparrow's minimum cost is about ten times lower than a mouse's, because it covers ground ten times faster for the same metabolic rate. No comparable bird number is included.</li>
+  </ul>
+
+  <div class="reading gap-top">
+    <p class="body-text lead-para reveal" data-src="s2p1">Size matters as much as medium. A regression across 62 running birds and mammals gives a net cost of 3.76 for a 20 g runner, 0.285 for a 70 kg one and 0.079 for a 4,000 kg one.</p>
+  </div>
+
+  <figure class="fig reveal">
+    <div class="fig__frame">
+      <div class="fig__title">Size matters as much as medium</div>
+      <div class="fig__what">Net cost of running against body mass, both on log scales: mouse to elephant</div>
+      <div class="scatter-wrap"><div id="v03"></div></div>
+    </div>
+    <figcaption>A model line from one published regression across 62 running birds and mammals (Taylor, Heglund &amp; Maloiy 1982), not five measured animals. Net cost excludes the energy of standing still. Per kg, a mouse-sized runner spends about 47 times more than an elephant-sized one.</figcaption>
+  </figure>
+</div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 03 THE HUMAN BODY -->
+<section class="sec sec--alt">
+<div class="chapter wide">
+  <div class="chapter-head reveal">
+    <div class="chapter-label"><span class="chapter-num">03</span><span class="chapter-label-text">The Human Body</span></div>
+    <h2 class="chapter-title">The human body <span>and its best machine</span></h2>
+  </div>
+  <div class="reading"><p class="body-text lead-para reveal" data-src="s3p1">On a bicycle, a person needs 29 Wh of food energy per km, against about 72 Wh on foot: well under half. Muscles still lose about three quarters of food energy as heat, which is why an electric scooter, at 15.9 Wh per km of electricity, looks cheaper still.</p></div>
+
+  <figure class="fig reveal">
+    <div class="fig__frame">
+      <div class="fig__title">The bicycle more than halves the energy of walking</div>
+      <div class="fig__what">Walk, run, cycle: cost of transport and food energy per km</div>
+      <div id="v05"></div>
+    </div>
+    <figcaption>Food energy, not electricity. Wh per km is food energy per person-km; for walking it is the incremental cost (range 56 to 88 Wh). ND: no defensible figure for that mode on the same basis. Muscles turn only about 22 to 25% of food energy into work.</figcaption>
+  </figure>
+</div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 04 ROBOTS -->
+<section class="sec">
+<div class="chapter wide">
+  <div class="chapter-head reveal">
+    <div class="chapter-label"><span class="chapter-num">04</span><span class="chapter-label-text">Robots</span></div>
+    <h2 class="chapter-title">Robots: <span>still far from biology</span></h2>
+  </div>
+  <div class="reading"><p class="body-text lead-para reveal" data-src="s4p1">The record holder is the Cornell Ranger, which walked 65 km in 2011 on one charge at 0.280, close to a walking human, but it can do nothing except walk. The bipedal Cassie reaches 0.680. Full humanoids sit at 2.27 (ASIMO) to 2.80 (WALK-MAN), ten or more times a walking person, and the hydraulic BigDog at 15.0.</p></div>
+
+  <figure class="fig reveal">
+    <div class="fig__frame">
+      <div class="fig__title">Humanoids still spend ten times more than a walking human</div>
+      <div class="fig__what">Robots against two biological references, per kg of the machine, log scale</div>
+      <div class="key-legend"><span><i style="background:var(--g-robot)"></i>Robot</span><span><i class="sq" style="background:var(--g-human);width:3px"></i>Human walking, net (0.22)</span><span><i class="sq" style="background:var(--g-live);width:3px"></i>Horse, trotting (0.20)</span></div>
+      <div id="v06"></div>
+    </div>
+    <figcaption>All robot figures are total electrical energy, except BigDog (fuel). Cassie is a preliminary experiment. The Unitree G1 cannot be placed: Fraunhofer IPA publishes battery life but no distance or speed, so its cost of transport is ND.</figcaption>
+  </figure>
+
+  <div class="reading gap-top"><p class="body-text reveal" data-src="s4p2">The new generation of commercial humanoids cannot be placed on this scale yet. Fraunhofer IPA's 2026 benchmark of the Unitree G1 publishes battery life (2 h 49 min standing, 1 h 49 min standing and walking) but not the distance or speed, so its cost of transport is ND.</p></div>
+</div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 05 MOVING PEOPLE -->
+<section class="sec sec--alt">
+<div class="chapter wide">
+  <div class="chapter-head reveal">
+    <div class="chapter-label"><span class="chapter-num">05</span><span class="chapter-label-text">Moving People</span></div>
+    <h2 class="chapter-title">Moving <span>people</span></h2>
+  </div>
+  <div class="reading"><p class="body-text lead-para reveal" data-src="s5p1">At the top, the Eco-marathon prototype (1.9 Wh per km) shows the physical limit for a one-seat vehicle on a smooth track. Among things people actually use, the shared e-scooter (15.9 Wh) and the full electric bus (about 44 Wh per passenger at 40 on board) lead. A battery-electric car carrying one person uses 210 Wh, and the average passenger-km on British roads 395 Wh, about 213 times the prototype.</p></div>
+
+  <figure class="fig reveal">
+    <div class="fig__frame">
+      <div class="fig__title">A record prototype uses 1.9 Wh per person-km; the UK road average, 213 times more</div>
+      <div class="fig__what">Energy per person-km, sorted. Whiskers: car 1 to 4 occupants, double-decker 20 to 80 on board, and the spread across aircraft and Swedish city buses.</div>
+      <div class="key-legend"><span><i class="sq" style="background:var(--g-people)"></i>Electricity, fuel or final energy</span><span><i class="sq hatch-people"></i>Food energy (metabolic)</span></div>
+      <div id="v07"></div>
+    </div>
+    <figcaption>Each bar keeps its energy boundary: do not read the bicycle and the e-scooter as like for like. The Eco-marathon prototype is a one-seat car built only to minimise energy on a closed track at low speed: a physics limit, not a usable vehicle. The Candela ferry is a manufacturer claim (grade C); the double-decker bus and the eVTOL are scenarios or design models. COT per kg of passenger uses 75 kg.</figcaption>
+  </figure>
+</div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 06 MOVING GOODS -->
+<section class="sec">
+<div class="chapter wide">
+  <div class="chapter-head reveal">
+    <div class="chapter-label"><span class="chapter-num">06</span><span class="chapter-label-text">Moving Goods</span></div>
+    <h2 class="chapter-title">Moving <span>goods</span></h2>
+  </div>
+  <div class="reading"><p class="body-text lead-para reveal" data-src="s6p1">A ship moves a tonne one kilometre with about 38 Wh, a freight train with 67 Wh, an average truck with 608 Wh and a cargo aircraft with 4,556 Wh. A small drone carrying a 0.5 kg parcel spends 44,440 Wh per tonne-km. Per parcel on a short trip it can still beat a van, but per kilogram it is the costliest mover in the piece.</p></div>
+
+  <figure class="fig reveal">
+    <div class="fig__frame">
+      <div class="fig__title">A ship moves a kilo about 1,176 times more cheaply than a drone</div>
+      <div class="fig__what">Energy per tonne-km of cargo, log scale</div>
+      <div id="v08"></div>
+    </div>
+    <figcaption>Per tonne of cargo carried. Whiskers: the 10th to 90th percentile for ship and train. The long-haul electric truck is a scenario estimate, not fleet data. <span id="v08-nd"></span></figcaption>
+  </figure>
+
+  <div class="reading gap-top"><p class="body-text reveal" data-src="s6p2">Seen as a whole vehicle, a 40-tonne electric truck in a design model reaches 0.0098, a number close to the ship's per-kg figure and lower than any land animal.</p></div>
+</div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 07 SO, WHO WINS? -->
+<section class="sec sec--alt">
+<div class="chapter wide">
+  <div class="chapter-head reveal">
+    <div class="chapter-label"><span class="chapter-num">07</span><span class="chapter-label-text">The Verdict</span></div>
+    <h2 class="chapter-title">So, <span>who wins?</span></h2>
+  </div>
+  <ol class="qseq">
+    <li class="q reveal"><div class="q__n">01</div><div class="q__body"><div class="q__tag">Living beings</div><p class="q__text" data-src="s7b1">If the question is "which living being moves its own body most cheaply?": the large swimmers. The humpback whale by estimate (0.0020-0.0042); the eel by measurement (0.051-0.069).</p></div></li>
+    <li class="q reveal"><div class="q__n">02</div><div class="q__body"><div class="q__tag">Moving a person</div><p class="q__text" data-src="s7b2">If it is "which way of moving a person uses the least energy?": a purpose-built prototype (0.0091 per kg of driver). Among everyday options, the e-scooter on electricity and the bicycle on food energy.</p></div></li>
+    <li class="q reveal"><div class="q__n">03</div><div class="q__body"><div class="q__tag">Moving goods</div><p class="q__text" data-src="s7b3">If it is "which way of moving goods uses the least energy?": the ship (0.014 per kg of cargo), then the freight train.</p></div></li>
+    <li class="q reveal"><div class="q__n">04</div><div class="q__body"><div class="q__tag">Walking robots</div><p class="q__text" data-src="s7b4">If it is "which machine walks like us?": none yet. The most efficient walking robot matches a human only because it does nothing else.</p></div></li>
+  </ol>
+</div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 08 WHAT TO WATCH -->
+<section class="sec">
+<div class="chapter wide">
+  <div class="chapter-head reveal">
+    <div class="chapter-label"><span class="chapter-num">08</span><span class="chapter-label-text">What to Watch</span></div>
+    <h2 class="chapter-title">What <span>to watch</span></h2>
+  </div>
+  <ol class="qseq">
+    <li class="q reveal"><div class="q__n">01</div><div class="q__body"><div class="q__tag">Humanoids · Fraunhofer IPA</div><p class="q__text" data-src="s8b1">Humanoid benchmarks: Fraunhofer IPA has published a method rather than results; the first published distance and speed for a commercial humanoid will allow a real cost of transport.</p></div></li>
+    <li class="q reveal"><div class="q__n">02</div><div class="q__body"><div class="q__tag">Electric trucks and ships</div><p class="q__text" data-src="s8b2">Electric trucks and ships: long-haul electric trucking scenarios already sit at about three times the ship's per-kg cost of moving cargo; fleet data will test that.</p></div></li>
+    <li class="q reveal"><div class="q__n">03</div><div class="q__body"><div class="q__tag">Bird flight · FLIGHT project</div><p class="q__text" data-src="s8b3">Bird flight: wild-flight tagging studies (e.g. the Swansea FLIGHT project, 46 species) promise the first comparable field costs of transport for fliers.</p></div></li>
+  </ol>
+
+  <details class="sources reveal">
+    <summary><span class="sources__k">Sources</span><span class="sources__n">27 sources · research cut-off 3 November 2026</span></summary>
+    <ol><li>Cornell University, Cornell Ranger walks 40.5 miles without recharge (record, 2 May 2011) <small>(May 2011)</small> · <a href="https://news.cornell.edu/node/270375" target="_blank" rel="noopener">news.cornell.edu</a></li><li>Czech Technical University, Green Gliders team: 538 km on 1 kWh at Shell Eco-marathon Poland 2026 (BusinessInfo.cz) <small>(Jun 2026)</small> · <a href="https://www.businessinfo.cz/clanky/rekordnich-538-kilometru-na-1-kwh-studenti-z-cvut-by-na-jedno-nabiti-dojeli-z-prahy-az-do-krakova/" target="_blank" rel="noopener">businessinfo.cz</a></li><li>Commission Regulation (EU) No 1230/2012: mass in running order includes a 75 kg driver <small>(2012)</small> · <a href="https://eur-lex.europa.eu/eli/reg/2012/1230/oj" target="_blank" rel="noopener">eur-lex.europa.eu</a></li><li>Fraunhofer IPA, benchmark for humanoid robots (Unitree G1 EDU-4 tested) <small>(27 May 2026)</small> · <a href="https://www.ipa.fraunhofer.de/en/press-media/press_releases/benchmark-for-humanoid-robots.html" target="_blank" rel="noopener">ipa.fraunhofer.de</a></li><li>Das Gupta et al. (2018), Cycling efficiency and energy cost of walking in young and older adults, J. Appl. Physiol. (net walking cost, 190 adults) <small>(2018)</small> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5867372/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov</a></li><li>Gemmell et al. (2013), Passive energy recapture in jellyfish contributes to propulsive advantage over other metazoans, PNAS 110:17904 <small>(Oct 2013)</small> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3816424/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov</a></li><li>John et al. (2024), Conservation energetics of beluga whales, J. Exp. Biol. 227: jeb246899 <small>(Mar 2024)</small> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11070638/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov</a></li><li>Kashiri et al. (2018), An overview on principles for energy efficient robot locomotion, Frontiers in Robotics and AI 5:129 <small>(Dec 2018)</small> · <a href="https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2018.00129/pdf" target="_blank" rel="noopener">frontiersin.org</a></li><li>McArdle &amp; Katch (2000), Essentials of Exercise Physiology, 2nd ed., p. 171: running costs about 1 kcal per kg per km <small>(2000)</small> · <a href="https://en.wikipedia.org/wiki/Cost_of_transport" target="_blank" rel="noopener">en.wikipedia.org</a></li><li>Oxy-calorific equivalent 13.6 J per mg O2 (Brafield &amp; Solomon 1972; equals 3.25 cal/mg in Elliott &amp; Davison 1975, Oecologia 19:195) <small>(1975)</small> · <a href="https://marineinfo.org/doc/publication/99223" target="_blank" rel="noopener">marineinfo.org</a></li><li>Palstra, van Ginneken &amp; van den Thillart, swim performance of European silver eels (Leiden University thesis chapter); see also van Ginneken et al. (2005) J. Exp. Biol. 208:1329 <small>(2005-2008)</small> · <a href="https://scholarlypublications.universiteitleiden.nl/access/item%3A2927713/view" target="_blank" rel="noopener">scholarlypublications.universiteitleiden.nl</a></li><li>Radhakrishnan (1998), Locomotion: dealing with friction, PNAS 95:5448 (reviews Tucker 1975 and Gabrielli &amp; von Karman 1950) <small>(1998)</small> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC20397/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov</a></li><li>UK DESNZ, Energy Consumption in the UK (ECUK) 2026 <small>(2026)</small> · <a href="https://www.gov.uk/government/statistics/energy-consumption-in-the-uk-2026/energy-consumption-in-the-uk-ecuk-2026" target="_blank" rel="noopener">gov.uk</a></li><li>BEV energy consumption in Europe, Sustainability 16(17):7529 (342 models, real-world 21 +/- 4 kWh/100 km) <small>(2024)</small> · <a href="https://www.mdpi.com/2071-1050/16/17/7529" target="_blank" rel="noopener">mdpi.com</a></li><li>Jia &amp; Gao (2025), Life-cycle analysis of shared e-scooters in 100 EU cities, Transportation Research Part D <small>(Nov 2025)</small> · <a href="https://www.sciencedirect.com/science/article/pii/S1361920925004195" target="_blank" rel="noopener">sciencedirect.com</a></li><li>Wilson et al. (2020), Fuelling walking and cycling, PMC7280492 (incremental food energy per km) <small>(2020)</small> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7280492/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov</a></li><li>Energy intensity and human mobility after the Anthropocene, Sustainability 12(6):2376 (cycling at ~16 km/h, 62.3 kg adult) <small>(2020)</small> · <a href="https://www.mdpi.com/2071-1050/12/6/2376" target="_blank" rel="noopener">mdpi.com</a></li><li>Passenger transport energy use in ten Swedish cities, Energies 13(14):3719 <small>(2020)</small> · <a href="https://www.mdpi.com/1996-1073/13/14/3719" target="_blank" rel="noopener">mdpi.com</a></li><li>Drone flight data reveal energy savings for very small package delivery, Patterns (2022), 188 flights <small>(2022)</small> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9403403/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov</a></li><li>Adopting eVTOL aircraft for green transport transformation, Fundamental Research (2026) <small>(2026)</small> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13424162/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov</a></li><li>Electric and hydrogen double-decker buses, real-world data, Transportation Research Part D (Oct 2026) <small>(Oct 2026)</small> · <a href="https://www.sciencedirect.com/science/article/pii/S1361920926003093" target="_blank" rel="noopener">sciencedirect.com</a></li><li>Economies of scale in intercity freight transportation (PMC11953041): mean and 10th-90th percentile energy intensity by mode <small>(2025)</small> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11953041/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov</a></li><li>Decarbonization versus technological continuity, Energy Conversion and Management: X (2026) <small>(2026)</small> · <a href="https://doi.org/10.1016/j.ecmx.2026.101885" target="_blank" rel="noopener">doi.org</a></li><li>Candela (manufacturer), P-12 product information <small>(2024)</small> · <a href="https://candela.com/newsroom/candela-p-12-enables-public-transport-faster-than-cars-and-subway/" target="_blank" rel="noopener">candela.com</a></li><li>40-tonne battery-electric truck design model, eTransportation (2025/26) <small>(2026)</small> · <a href="https://doi.org/10.1016/j.etran.2025.100511" target="_blank" rel="noopener">doi.org</a></li><li>Taylor, Heglund &amp; Maloiy (1982), Energetics and mechanics of terrestrial locomotion I, J. Exp. Biol. 97:1-21 (62 bird and mammal species) <small>(1982)</small> · <a href="https://pubmed.ncbi.nlm.nih.gov/7086334/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov</a></li><li>Villagra et al. (2021), Energetic effects of whale-watching boats on humpback whales on a breeding ground, Frontiers in Marine Science 7:600508 <small>(Jan 2021)</small> · <a href="https://doi.org/10.3389/fmars.2020.600508" target="_blank" rel="noopener">doi.org</a></li></ol>
+  </details>
+</div>
+</section>
+
+<footer class="footer">
+  <img src="deploy/logo clear.svg" alt="Astara Intelligence" style="height:18px;width:auto;margin:0 auto;opacity:0.7;">
+  <div class="footer__divider"></div>
+  <p class="footer__text">Astara Intelligence In Depth is a periodic analysis of the automotive and mobility sector for professionals navigating strategic uncertainty.</p>
+  <p class="footer__disclaimer">Sources: peer-reviewed studies, national statistics, university and manufacturer releases (full list above). Cost of transport (COT) = energy put in / (mass x g x distance). Two bases are used and never ranked against each other: own mass (the animal, robot or whole vehicle) and payload (the passenger, counted as 75 kg, or the cargo). Living beings and human power are measured in food (metabolic) energy; machines in electricity or fuel delivered to the vehicle. Farming, power plants and refineries are not counted. ND means no defensible figure was found by the research cut-off; it never means zero, and nothing has been estimated. Prepared 3 November 2026; figures reflect published data as of that date and are subject to revision. This newsletter is produced for informational purposes only and does not constitute investment advice. © 2026 Astara Intelligence.</p>
+</footer>
+
+<script src="deploy/d3.v7.min.js"></script>
+<script>
+const DATA = {"champions":[{"cls":"Per kg of itself, among living beings","mover":"Humpback whale","detail":"Breeding ground, optimal speed 2-4 m/s","cot":0.003110134449582681,"basis":"own mass","boundary":"Metabolic, estimated from breathing rate","grade":"B"},{"cls":"Per kg of itself, the best measured animal","mover":"European eel","detail":"Silver eel, swim tunnel, optimum 0.74-1.02 body lengths/s","cot":0.06032641115977424,"basis":"own mass","boundary":"Metabolic, measured oxygen use","grade":"B"},{"cls":"Per kg of person, human power","mover":"Human on a bicycle","detail":"~16 km/h, 62.3 kg adult","cot":0.171881924489949,"basis":"own mass (rider)","boundary":"Metabolic (food energy)","grade":"B"},{"cls":"Per kg of person, any machine","mover":"Shell Eco-marathon prototype","detail":"CTU Green Gliders, 538 km per kWh, 2026","cot":0.009097839818390439,"basis":"payload","boundary":"Electricity at the vehicle","grade":"B"},{"cls":"Per kg of cargo","mover":"Ocean freight ship","detail":"Container, bulk and tanker average","cot":0.01386895626947021,"basis":"payload","boundary":"Fuel energy","grade":"A"},{"cls":"Per kg of itself, legged robots","mover":"Cornell Ranger (legged robot)","detail":"65 km in 30 h 49 min without recharge, 16 W","cot":0.28,"basis":"own mass","boundary":"Total electrical","grade":"A"}],"ladder":[{"id":"L01","mover":"Humpback whale","detail":"Breeding ground, optimal speed 2-4 m/s","basis":"own mass","boundary":"Metabolic, estimated from breathing rate","low":0.002039432425955857,"cot":0.003110134449582681,"high":0.004180836473209507,"grade":"B","note":"Indirect: derived from breath counts and assumed tidal volume, not measured oxygen use. Treat as order of magnitude.","group":"Living beings","inputs":"0.020-0.041 J/(kg*m) / g"},{"id":"V01","mover":"Shell Eco-marathon prototype","detail":"CTU Green Gliders, 538 km per kWh, 2026","basis":"payload","boundary":"Electricity at the vehicle","low":0.009097839818390439,"cot":0.009097839818390439,"high":0.009097839818390439,"grade":"B","note":"A one-seat competition car at low speed on a closed track. Competition rules allow lighter drivers, which would raise the per-kg figure.","group":"Moving people","inputs":"1 kWh / 538 km, 1 occupant at 75 kg"},{"id":"F04","mover":"Battery-electric 40-tonne truck (whole vehicle)","detail":"Design model, 1.068 kWh/km at 40 t gross","basis":"own mass","boundary":"Electricity at the vehicle","low":0.009801512239143847,"cot":0.009801512239143847,"high":0.009801512239143847,"grade":"B","note":"Whole-vehicle basis (truck plus load), not per kg of cargo.","group":"Moving goods","inputs":"1,068 Wh/km / (40,000 kg x g)"},{"id":"F01","mover":"Ocean freight ship","detail":"Container, bulk and tanker average","basis":"payload","boundary":"Fuel energy","low":0.006218637353224599,"cot":0.01386895626947021,"high":0.02121091300291129,"grade":"A","note":"The cheapest way to move a kilogram any distance.","group":"Moving goods","inputs":"0.136 MJ/tkm (10th-90th pct 0.061-0.208)"},{"id":"F02","mover":"Freight train","detail":"Mode average","basis":"payload","boundary":"Final energy","low":0.0194782112138192,"cot":0.02457352918682731,"high":0.02916225214522798,"grade":"A","note":null,"group":"Moving goods","inputs":"0.241 MJ/tkm (0.191-0.286)"},{"id":"F03","mover":"Battery-electric truck, long haul","detail":"Scenario estimate, >400 km","basis":"payload","boundary":"Electricity at the vehicle","low":0.04331754472730239,"cot":0.04331754472730239,"high":0.04331754472730239,"grade":"B","note":"Scenario, not fleet data.","group":"Moving goods","inputs":"0.118 kWh/tkm"},{"id":"L02","mover":"European eel","detail":"Silver eel, swim tunnel, optimum 0.74-1.02 body lengths/s","basis":"own mass","boundary":"Metabolic, measured oxygen use","low":0.05131211983704935,"cot":0.06032641115977424,"high":0.06934070248249913,"grade":"B","note":"Eels swim 4-6 times more efficiently than salmonids (van Ginneken et al. 2005). Thesis chapter; peer-reviewed version cited by the same group.","group":"Living beings","inputs":"37-50 mg O2/(kg*km) x 13.6 J/mg / 1000 / g"},{"id":"V02","mover":"Shared e-scooter","detail":"100 EU cities, active riding","basis":"payload","boundary":"Electricity at the vehicle","low":0.0778247413744755,"cot":0.0778247413744755,"high":0.0778247413744755,"grade":"A","note":"Excludes collection and charging logistics.","group":"Moving people","inputs":"15.9 Wh/km, 1 rider"},{"id":"L05","mover":"Elephant-sized runner (4,000 kg)","detail":"Allometric model for running birds and mammals","basis":"own mass","boundary":"Metabolic, net (above standing)","low":0.0793619161085524,"cot":0.0793619161085524,"high":0.0793619161085524,"grade":"B","note":"Published regression across 62 species; 90% of observed values within 25%. A model line, not a measurement of one animal.","group":"Living beings","inputs":"10.7 x M^-0.316 J/(kg*m), M = 4000 kg, / g"},{"id":"L03","mover":"Beluga whale","detail":"Aquarium, open-flow respirometry, total cost","basis":"own mass","boundary":"Metabolic, measured oxygen use","low":0.14276026981691,"cot":0.14276026981691,"high":0.14276026981691,"grade":"A","note":"Total (gross) cost of transport.","group":"Living beings","inputs":"1.4 +/- 0.1 J/(kg*m) / g"},{"id":"V03","mover":"Human on a bicycle (food energy)","detail":"~16 km/h","basis":"payload","boundary":"Metabolic (food energy)","low":0.1427765852763176,"cot":0.1427765852763176,"high":0.1427765852763176,"grade":"B","note":"Same data as H04, put on the 75 kg passenger basis.","group":"Moving people","inputs":"29.2 Wh/km at 75 kg convention"},{"id":"L06","mover":"Horse-sized runner (500 kg)","detail":"Allometric model for running birds and mammals","basis":"own mass","boundary":"Metabolic, net (above standing)","low":0.1531047204068567,"cot":0.1531047204068567,"high":0.1531047204068567,"grade":"B","note":"Published regression across 62 species; 90% of observed values within 25%. A model line, not a measurement of one animal.","group":"Living beings","inputs":"10.7 x M^-0.316 J/(kg*m), M = 500 kg, / g"},{"id":"H04","mover":"Human on a bicycle","detail":"~16 km/h, 62.3 kg adult","basis":"own mass (rider)","boundary":"Metabolic (food energy)","low":0.1555009937363646,"cot":0.171881924489949,"high":0.1882039310321896,"grade":"B","note":"Bicycle mass not included in the denominator. Muscles turn only ~22-25% of food energy into work.","group":"Human body","inputs":"0.095-0.115 MJ/km for a 62.3 kg rider"},{"id":"L04","mover":"Horse, trotting","detail":null,"basis":"own mass","boundary":"Metabolic","low":0.2,"cot":0.2,"high":0.2,"grade":"B","note":"Value quoted in a robotics review.","group":"Living beings","inputs":"Specific resistance 0.2 as reported"},{"id":"V05","mover":"Electric double-decker bus, 40 on board","detail":"Scenario on a real-world consumption of 1.77 kWh/km","basis":"payload","boundary":"Electricity at the vehicle","low":0.216587723636512,"cot":0.216587723636512,"high":0.216587723636512,"grade":"B","note":"Occupancy is a scenario (20 to 80 gives 22-89 Wh per person-km).","group":"Moving people","inputs":"1,770 Wh/km / 40 passengers"},{"id":"H02","mover":"Human walking, net","detail":"190 adults, treadmill 1.34 m/s","basis":"own mass","boundary":"Metabolic, net (above standing)","low":0.2212784182162104,"cot":0.2212784182162104,"high":0.2212784182162104,"grade":"A","note":"Net cost excludes the energy of standing still.","group":"Human body","inputs":"2.17 J/(kg*m) / g"},{"id":"F05","mover":"Truck freight, mode average","detail":"Historical observations","basis":"payload","boundary":"Fuel energy","low":0.2233056140476106,"cot":0.2233056140476106,"high":0.2233056140476106,"grade":"A","note":null,"group":"Moving goods","inputs":"2.19 MJ/tkm"},{"id":"B01","mover":"Cornell Ranger (legged robot)","detail":"65 km in 30 h 49 min without recharge, 16 W","basis":"own mass","boundary":"Total electrical","low":0.28,"cot":0.28,"high":0.28,"grade":"A","note":"World record for a legged robot (2011). Walks, but cannot carry or work.","group":"Robots","inputs":"Reported 0.28 J/(N*m)"},{"id":"L07","mover":"Human-sized runner (70 kg)","detail":"Allometric model for running birds and mammals","basis":"own mass","boundary":"Metabolic, net (above standing)","low":0.2849785165732872,"cot":0.2849785165732872,"high":0.2849785165732872,"grade":"B","note":"Published regression across 62 species; 90% of observed values within 25%. A model line, not a measurement of one animal.","group":"Living beings","inputs":"10.7 x M^-0.316 J/(kg*m), M = 70 kg, / g"},{"id":"V04","mover":"Human walking (food energy)","detail":"Incremental food energy","basis":"payload","boundary":"Metabolic (food energy)","low":0.2731207904840083,"cot":0.3529033869874014,"high":0.4321965197085651,"grade":"B","note":null,"group":"Moving people","inputs":"48-76 kcal/km"},{"id":"H01","mover":"Human walking, fast walk","detail":"70 kg at just over 6 km/h, ~450 W metabolic","basis":"own mass","boundary":"Metabolic, gross","low":0.3868712564459588,"cot":0.3868712564459588,"high":0.3868712564459588,"grade":"B","note":"Speed of minimum cost for walking, per Tucker 1975 as reviewed.","group":"Human body","inputs":"450 W / (70 kg x g x 1.69 m/s)"},{"id":"L08","mover":"Dog-sized runner (20 kg)","detail":"Allometric model for running birds and mammals","basis":"own mass","boundary":"Metabolic, net (above standing)","low":0.4233871018771317,"cot":0.4233871018771317,"high":0.4233871018771317,"grade":"B","note":"Published regression across 62 species; 90% of observed values within 25%. A model line, not a measurement of one animal.","group":"Living beings","inputs":"10.7 x M^-0.316 J/(kg*m), M = 20 kg, / g"},{"id":"H03","mover":"Human running","detail":"Textbook value, ~1 kcal per kg per km","basis":"own mass","boundary":"Metabolic","low":0.4266492635099652,"cot":0.4266492635099652,"high":0.4266492635099652,"grade":"B","note":"Nearly independent of speed.","group":"Human body","inputs":"1 kcal/(kg*km) = 4.184 J/(kg*m), / g"},{"id":"V06","mover":"Electric hydrofoil ferry (Candela P-12)","detail":"Manufacturer figure","basis":"payload","boundary":"Electricity at the vessel","low":0.4894637822294056,"cot":0.4894637822294056,"high":0.4894637822294056,"grade":"C","note":"Not independently verified.","group":"Moving people","inputs":"100 Wh per person-km"},{"id":"B03","mover":"MIT Cheetah (quadruped)","detail":"Electrical energy recycling","basis":"own mass","boundary":"Total electrical","low":0.5,"cot":0.5,"high":0.5,"grade":"B","note":null,"group":"Robots","inputs":"Reported SR 0.5"},{"id":"V07","mover":"Passenger rail, Great Britain average","detail":"National aggregate 2025","basis":"payload","boundary":"Final energy","low":0.6088929450933805,"cot":0.6088929450933805,"high":0.6088929450933805,"grade":"A","note":"Real occupancy built in.","group":"Moving people","inputs":"10.7 ktoe per billion pkm"},{"id":"B02","mover":"Cassie (bipedal robot)","detail":"30 kg, 1.0 m/s, 200 W","basis":"own mass","boundary":"Total electrical","low":0.6798108086519522,"cot":0.6798108086519522,"high":0.6798108086519522,"grade":"B","note":"Preliminary experiments.","group":"Robots","inputs":"200 W / (30 kg x g x 1 m/s)"},{"id":"V08","mover":"Battery-electric car","detail":"342 models in Europe; 1 to 4 occupants","basis":"payload","boundary":"Electricity at the vehicle","low":0.256968485670438,"cot":1.027873942681752,"high":1.027873942681752,"grade":"A","note":"Range: 4 occupants (52.5) to 1 occupant (210).","group":"Moving people","inputs":"210 Wh/km (170-250) / occupants"},{"id":"V09","mover":"eVTOL air taxi, 2 of 4 seats","detail":"Design model, 100 km mission","basis":"payload","boundary":"Electricity at the aircraft","low":1.272605833796455,"cot":1.272605833796455,"high":1.272605833796455,"grade":"B","note":"Modelled, not fleet data.","group":"Moving people","inputs":"520 Wh/km / 2 passengers"},{"id":"V10","mover":"Passenger aircraft (combustion)","detail":"Representative aircraft, cross-mode synthesis","basis":"payload","boundary":"Fuel energy","low":1.032768580504046,"cot":1.453707433221335,"high":1.727807151269802,"grade":"B","note":"Small sample (n=5).","group":"Moving people","inputs":"211-353 Wh per person-km"},{"id":"F06","mover":"Freighter aircraft","detail":"Mode average","basis":"payload","boundary":"Fuel energy","low":1.67235090474321,"cot":1.67235090474321,"high":1.67235090474321,"grade":"A","note":null,"group":"Moving goods","inputs":"16.4 MJ/tkm"},{"id":"V11","mover":"Road passenger transport, UK average","detail":"All cars, buses, motorcycles; 2024","basis":"payload","boundary":"Final energy","low":1.93533979493507,"cot":1.93533979493507,"high":1.93533979493507,"grade":"A","note":"Mostly combustion cars at real occupancy.","group":"Moving people","inputs":"34.0 ktoe per billion pkm"},{"id":"B04","mover":"Honda ASIMO (humanoid)","detail":"54 kg, 1.5 m/s, 1.8 kW","basis":"own mass","boundary":"Total electrical","low":2.266036028839841,"cot":2.266036028839841,"high":2.266036028839841,"grade":"B","note":"The review rounds it to 2.","group":"Robots","inputs":"1,800 W / (54 kg x g x 1.5 m/s)"},{"id":"V12","mover":"Urban bus, Swedish cities","detail":"Fleet mix varies","basis":"payload","boundary":"Operating energy","low":1.291694921303401,"cot":2.664640830456884,"high":4.038076203392596,"grade":"B","note":null,"group":"Moving people","inputs":"0.95-2.97 MJ per pkm"},{"id":"B05","mover":"WALK-MAN (humanoid)","detail":"Slow walk 0.2 m/s, total consumption","basis":"own mass","boundary":"Total electrical","low":2.8,"cot":2.8,"high":2.8,"grade":"B","note":"14 times human walking.","group":"Robots","inputs":"Reported SR 2.8"},{"id":"L09","mover":"Mouse-sized runner (20 g)","detail":"Allometric model for running birds and mammals","basis":"own mass","boundary":"Metabolic, net (above standing)","low":3.75610412849626,"cot":3.75610412849626,"high":3.75610412849626,"grade":"B","note":"Published regression across 62 species; 90% of observed values within 25%. A model line, not a measurement of one animal.","group":"Living beings","inputs":"10.7 x M^-0.316 J/(kg*m), M = 0.02 kg, / g"},{"id":"B06","mover":"BigDog (hydraulic quadruped)","detail":"110 kg, 15 l of fuel for 20 km","basis":"own mass","boundary":"Fuel","low":15,"cot":15,"high":15,"grade":"B","note":null,"group":"Robots","inputs":"Reported SR 15"},{"id":"F07","mover":"Small delivery drone, 0.5 kg parcel","detail":"188 test flights plus mission model","basis":"payload","boundary":"Electricity at the drone","low":16.31382786170609,"cot":16.31382786170609,"high":16.31382786170609,"grade":"A","note":"Per kg of parcel the drone is the costliest mover in the set; per parcel it can still beat a van on short trips.","group":"Moving goods","inputs":"22.2 Wh/km / 0.5 kg"}],"ladder_nd":["Moon jellyfish","Unitree G1 (humanoid)"],"size":[{"kg":0.01,"cot":4.675877254977594,"label":null},{"kg":0.02,"cot":3.75610412849626,"label":"Mouse"},{"kg":0.1,"cot":2.258723665274498,"label":null},{"kg":1,"cot":1.091096347886383,"label":null},{"kg":10,"cot":0.5270636947199673,"label":null},{"kg":20,"cot":0.4233871018771317,"label":"Dog"},{"kg":70,"cot":0.2849785165732872,"label":"Human"},{"kg":100,"cot":0.2546027569700839,"label":null},{"kg":500,"cot":0.1531047204068567,"label":"Horse"},{"kg":1000,"cot":0.1229881027779921,"label":null},{"kg":4000,"cot":0.0793619161085524,"label":"Elephant"},{"kg":10000,"cot":0.05941048559308129,"label":null}],"size_ratio":47.32879840449676,"living":[{"id":"L01","mover":"Humpback whale","detail":"Breeding ground, optimal speed 2-4 m/s","basis":"own mass","boundary":"Metabolic, estimated from breathing rate","low":0.002039432425955857,"cot":0.003110134449582681,"high":0.004180836473209507,"grade":"B","note":"Indirect: derived from breath counts and assumed tidal volume, not measured oxygen use. Treat as order of magnitude.","group":"Living beings","inputs":"0.020-0.041 J/(kg*m) / g"},{"id":"L02","mover":"European eel","detail":"Silver eel, swim tunnel, optimum 0.74-1.02 body lengths/s","basis":"own mass","boundary":"Metabolic, measured oxygen use","low":0.05131211983704935,"cot":0.06032641115977424,"high":0.06934070248249913,"grade":"B","note":"Eels swim 4-6 times more efficiently than salmonids (van Ginneken et al. 2005). Thesis chapter; peer-reviewed version cited by the same group.","group":"Living beings","inputs":"37-50 mg O2/(kg*km) x 13.6 J/mg / 1000 / g"},{"id":"L05","mover":"Elephant-sized runner (4,000 kg)","detail":"Allometric model for running birds and mammals","basis":"own mass","boundary":"Metabolic, net (above standing)","low":0.0793619161085524,"cot":0.0793619161085524,"high":0.0793619161085524,"grade":"B","note":"Published regression across 62 species; 90% of observed values within 25%. A model line, not a measurement of one animal.","group":"Living beings","inputs":"10.7 x M^-0.316 J/(kg*m), M = 4000 kg, / g"},{"id":"L03","mover":"Beluga whale","detail":"Aquarium, open-flow respirometry, total cost","basis":"own mass","boundary":"Metabolic, measured oxygen use","low":0.14276026981691,"cot":0.14276026981691,"high":0.14276026981691,"grade":"A","note":"Total (gross) cost of transport.","group":"Living beings","inputs":"1.4 +/- 0.1 J/(kg*m) / g"},{"id":"L06","mover":"Horse-sized runner (500 kg)","detail":"Allometric model for running birds and mammals","basis":"own mass","boundary":"Metabolic, net (above standing)","low":0.1531047204068567,"cot":0.1531047204068567,"high":0.1531047204068567,"grade":"B","note":"Published regression across 62 species; 90% of observed values within 25%. A model line, not a measurement of one animal.","group":"Living beings","inputs":"10.7 x M^-0.316 J/(kg*m), M = 500 kg, / g"},{"id":"L04","mover":"Horse, trotting","detail":null,"basis":"own mass","boundary":"Metabolic","low":0.2,"cot":0.2,"high":0.2,"grade":"B","note":"Value quoted in a robotics review.","group":"Living beings","inputs":"Specific resistance 0.2 as reported"},{"id":"L07","mover":"Human-sized runner (70 kg)","detail":"Allometric model for running birds and mammals","basis":"own mass","boundary":"Metabolic, net (above standing)","low":0.2849785165732872,"cot":0.2849785165732872,"high":0.2849785165732872,"grade":"B","note":"Published regression across 62 species; 90% of observed values within 25%. A model line, not a measurement of one animal.","group":"Living beings","inputs":"10.7 x M^-0.316 J/(kg*m), M = 70 kg, / g"},{"id":"L08","mover":"Dog-sized runner (20 kg)","detail":"Allometric model for running birds and mammals","basis":"own mass","boundary":"Metabolic, net (above standing)","low":0.4233871018771317,"cot":0.4233871018771317,"high":0.4233871018771317,"grade":"B","note":"Published regression across 62 species; 90% of observed values within 25%. A model line, not a measurement of one animal.","group":"Living beings","inputs":"10.7 x M^-0.316 J/(kg*m), M = 20 kg, / g"},{"id":"L09","mover":"Mouse-sized runner (20 g)","detail":"Allometric model for running birds and mammals","basis":"own mass","boundary":"Metabolic, net (above standing)","low":3.75610412849626,"cot":3.75610412849626,"high":3.75610412849626,"grade":"B","note":"Published regression across 62 species; 90% of observed values within 25%. A model line, not a measurement of one animal.","group":"Living beings","inputs":"10.7 x M^-0.316 J/(kg*m), M = 0.02 kg, / g"},{"id":"L10","mover":"Moon jellyfish","detail":"Aurelia aurita","basis":"own mass","boundary":"Metabolic, net, per wet mass","low":null,"cot":null,"high":null,"grade":"A","note":"Lowest net cost of transport of the animals compared; fish beat it only above ~100 kg. Wet mass is ~96% water. No number extractable from the text: ND.","group":"Living beings","inputs":"Reported only as a chart"}],"human":[{"id":"H04","mover":"Human on a bicycle","detail":"~16 km/h, 62.3 kg adult","basis":"own mass (rider)","boundary":"Metabolic (food energy)","low":0.1555009937363646,"cot":0.171881924489949,"high":0.1882039310321896,"grade":"B","note":"Bicycle mass not included in the denominator. Muscles turn only ~22-25% of food energy into work.","group":"Human body","inputs":"0.095-0.115 MJ/km for a 62.3 kg rider","practical":29.2},{"id":"H02","mover":"Human walking, net","detail":"190 adults, treadmill 1.34 m/s","basis":"own mass","boundary":"Metabolic, net (above standing)","low":0.2212784182162104,"cot":0.2212784182162104,"high":0.2212784182162104,"grade":"A","note":"Net cost excludes the energy of standing still.","group":"Human body","inputs":"2.17 J/(kg*m) / g","practical":null},{"id":"H01","mover":"Human walking, fast walk","detail":"70 kg at just over 6 km/h, ~450 W metabolic","basis":"own mass","boundary":"Metabolic, gross","low":0.3868712564459588,"cot":0.3868712564459588,"high":0.3868712564459588,"grade":"B","note":"Speed of minimum cost for walking, per Tucker 1975 as reviewed.","group":"Human body","inputs":"450 W / (70 kg x g x 1.69 m/s)","practical":null},{"id":"H03","mover":"Human running","detail":"Textbook value, ~1 kcal per kg per km","basis":"own mass","boundary":"Metabolic","low":0.4266492635099652,"cot":0.4266492635099652,"high":0.4266492635099652,"grade":"B","note":"Nearly independent of speed.","group":"Human body","inputs":"1 kcal/(kg*km) = 4.184 J/(kg*m), / g","practical":null},{"id":"V03","mover":"Human on a bicycle (food energy)","detail":"~16 km/h","basis":"payload","boundary":"Metabolic (food energy)","low":0.1427765852763176,"cot":0.1427765852763176,"high":0.1427765852763176,"grade":"B","note":"Same data as H04, put on the 75 kg passenger basis.","group":"Moving people","inputs":"29.2 Wh/km at 75 kg convention","practical":29.2},{"id":"V04","mover":"Human walking (food energy)","detail":"Incremental food energy","basis":"payload","boundary":"Metabolic (food energy)","low":0.2731207904840083,"cot":0.3529033869874014,"high":0.4321965197085651,"grade":"B","note":null,"group":"Moving people","inputs":"48-76 kcal/km","practical":72.1}],"robots":[{"id":"B01","mover":"Cornell Ranger (legged robot)","detail":"65 km in 30 h 49 min without recharge, 16 W","basis":"own mass","boundary":"Total electrical","low":0.28,"cot":0.28,"high":0.28,"grade":"A","note":"World record for a legged robot (2011). Walks, but cannot carry or work.","group":"Robots","inputs":"Reported 0.28 J/(N*m)"},{"id":"B03","mover":"MIT Cheetah (quadruped)","detail":"Electrical energy recycling","basis":"own mass","boundary":"Total electrical","low":0.5,"cot":0.5,"high":0.5,"grade":"B","note":null,"group":"Robots","inputs":"Reported SR 0.5"},{"id":"B02","mover":"Cassie (bipedal robot)","detail":"30 kg, 1.0 m/s, 200 W","basis":"own mass","boundary":"Total electrical","low":0.6798108086519522,"cot":0.6798108086519522,"high":0.6798108086519522,"grade":"B","note":"Preliminary experiments.","group":"Robots","inputs":"200 W / (30 kg x g x 1 m/s)"},{"id":"B04","mover":"Honda ASIMO (humanoid)","detail":"54 kg, 1.5 m/s, 1.8 kW","basis":"own mass","boundary":"Total electrical","low":2.266036028839841,"cot":2.266036028839841,"high":2.266036028839841,"grade":"B","note":"The review rounds it to 2.","group":"Robots","inputs":"1,800 W / (54 kg x g x 1.5 m/s)"},{"id":"B05","mover":"WALK-MAN (humanoid)","detail":"Slow walk 0.2 m/s, total consumption","basis":"own mass","boundary":"Total electrical","low":2.8,"cot":2.8,"high":2.8,"grade":"B","note":"14 times human walking.","group":"Robots","inputs":"Reported SR 2.8"},{"id":"B06","mover":"BigDog (hydraulic quadruped)","detail":"110 kg, 15 l of fuel for 20 km","basis":"own mass","boundary":"Fuel","low":15,"cot":15,"high":15,"grade":"B","note":null,"group":"Robots","inputs":"Reported SR 15"},{"id":"B07","mover":"Unitree G1 (humanoid)","detail":"Fraunhofer IPA benchmark, May 2026","basis":"own mass","boundary":"Total electrical","low":null,"cot":null,"high":null,"grade":"A","note":"No walking speed or distance published, so no cost of transport can be computed: ND. Power figures quoted in the editor's brief (154-283 W) are not on the public page.","group":"Robots","inputs":"Battery life only: 2 h 49 min standing, 1 h 49 min standing and walking"},{"id":"H02","mover":"Human walking, net (reference)","detail":"190 adults, treadmill 1.34 m/s","basis":"own mass","boundary":"Metabolic, net (above standing)","low":0.2212784182162104,"cot":0.2212784182162104,"high":0.2212784182162104,"grade":"A","note":"Reference line for the chart","group":"Human body","inputs":"2.17 J/(kg*m) / g"},{"id":"L04","mover":"Horse, trotting (reference)","detail":null,"basis":"own mass","boundary":"Metabolic","low":0.2,"cot":0.2,"high":0.2,"grade":"B","note":"Reference line for the chart","group":"Living beings","inputs":"Specific resistance 0.2 as reported"}],"people":[{"id":"V01","mover":"Shell Eco-marathon prototype","detail":"CTU Green Gliders, 538 km per kWh, 2026","basis":"payload","boundary":"Electricity at the vehicle","low":0.009097839818390439,"cot":0.009097839818390439,"high":0.009097839818390439,"grade":"B","note":"A one-seat competition car at low speed on a closed track. Competition rules allow lighter drivers, which would raise the per-kg figure.","group":"Moving people","inputs":"1 kWh / 538 km, 1 occupant at 75 kg","wh":1.858736059479554,"wh_low":1.858736059479554,"wh_high":1.858736059479554},{"id":"V02","mover":"Shared e-scooter","detail":"100 EU cities, active riding","basis":"payload","boundary":"Electricity at the vehicle","low":0.0778247413744755,"cot":0.0778247413744755,"high":0.0778247413744755,"grade":"A","note":"Excludes collection and charging logistics.","group":"Moving people","inputs":"15.9 Wh/km, 1 rider","wh":15.9,"wh_low":15.900000000000002,"wh_high":15.900000000000002},{"id":"V03","mover":"Human on a bicycle (food energy)","detail":"~16 km/h","basis":"payload","boundary":"Metabolic (food energy)","low":0.1427765852763176,"cot":0.1427765852763176,"high":0.1427765852763176,"grade":"B","note":"Same data as H04, put on the 75 kg passenger basis.","group":"Moving people","inputs":"29.2 Wh/km at 75 kg convention","wh":29.2,"wh_low":29.169999999999998,"wh_high":29.169999999999998},{"id":"V05","mover":"Electric double-decker bus, 40 on board","detail":"Scenario on a real-world consumption of 1.77 kWh/km","basis":"payload","boundary":"Electricity at the vehicle","low":0.216587723636512,"cot":0.216587723636512,"high":0.216587723636512,"grade":"B","note":"Occupancy is a scenario (20 to 80 gives 22-89 Wh per person-km).","group":"Moving people","inputs":"1,770 Wh/km / 40 passengers","wh":44.25,"wh_low":22,"wh_high":89},{"id":"V04","mover":"Human walking (food energy)","detail":"Incremental food energy","basis":"payload","boundary":"Metabolic (food energy)","low":0.2731207904840083,"cot":0.3529033869874014,"high":0.4321965197085651,"grade":"B","note":null,"group":"Moving people","inputs":"48-76 kcal/km","wh":72.1,"wh_low":55.8,"wh_high":88.3},{"id":"V06","mover":"Electric hydrofoil ferry (Candela P-12)","detail":"Manufacturer figure","basis":"payload","boundary":"Electricity at the vessel","low":0.4894637822294056,"cot":0.4894637822294056,"high":0.4894637822294056,"grade":"C","note":"Not independently verified.","group":"Moving people","inputs":"100 Wh per person-km","wh":100,"wh_low":100.00000000000001,"wh_high":100.00000000000001},{"id":"V07","mover":"Passenger rail, Great Britain average","detail":"National aggregate 2025","basis":"payload","boundary":"Final energy","low":0.6088929450933805,"cot":0.6088929450933805,"high":0.6088929450933805,"grade":"A","note":"Real occupancy built in.","group":"Moving people","inputs":"10.7 ktoe per billion pkm","wh":124.4,"wh_low":124.4,"wh_high":124.4},{"id":"V08","mover":"Battery-electric car","detail":"342 models in Europe; 1 to 4 occupants","basis":"payload","boundary":"Electricity at the vehicle","low":0.256968485670438,"cot":1.027873942681752,"high":1.027873942681752,"grade":"A","note":"Range: 4 occupants (52.5) to 1 occupant (210).","group":"Moving people","inputs":"210 Wh/km (170-250) / occupants","wh":210,"wh_low":52.500000000000014,"wh_high":210.00000000000006},{"id":"V09","mover":"eVTOL air taxi, 2 of 4 seats","detail":"Design model, 100 km mission","basis":"payload","boundary":"Electricity at the aircraft","low":1.272605833796455,"cot":1.272605833796455,"high":1.272605833796455,"grade":"B","note":"Modelled, not fleet data.","group":"Moving people","inputs":"520 Wh/km / 2 passengers","wh":260,"wh_low":260.0000000000001,"wh_high":260.0000000000001},{"id":"V10","mover":"Passenger aircraft (combustion)","detail":"Representative aircraft, cross-mode synthesis","basis":"payload","boundary":"Fuel energy","low":1.032768580504046,"cot":1.453707433221335,"high":1.727807151269802,"grade":"B","note":"Small sample (n=5).","group":"Moving people","inputs":"211-353 Wh per person-km","wh":297,"wh_low":211.00000000000006,"wh_high":353.0000000000001},{"id":"V11","mover":"Road passenger transport, UK average","detail":"All cars, buses, motorcycles; 2024","basis":"payload","boundary":"Final energy","low":1.93533979493507,"cot":1.93533979493507,"high":1.93533979493507,"grade":"A","note":"Mostly combustion cars at real occupancy.","group":"Moving people","inputs":"34.0 ktoe per billion pkm","wh":395.4,"wh_low":395.40000000000003,"wh_high":395.40000000000003},{"id":"V12","mover":"Urban bus, Swedish cities","detail":"Fleet mix varies","basis":"payload","boundary":"Operating energy","low":1.291694921303401,"cot":2.664640830456884,"high":4.038076203392596,"grade":"B","note":null,"group":"Moving people","inputs":"0.95-2.97 MJ per pkm","wh":544.4,"wh_low":263.8999999999999,"wh_high":825.0000000000001}],"goods":[{"id":"F01","mover":"Ocean freight ship","detail":"Container, bulk and tanker average","basis":"payload","boundary":"Fuel energy","low":0.006218637353224599,"cot":0.01386895626947021,"high":0.02121091300291129,"grade":"A","note":"The cheapest way to move a kilogram any distance.","group":"Moving goods","inputs":"0.136 MJ/tkm (10th-90th pct 0.061-0.208)","wh":37.8,"wh_low":16.94,"wh_high":57.78},{"id":"F02","mover":"Freight train","detail":"Mode average","basis":"payload","boundary":"Final energy","low":0.0194782112138192,"cot":0.02457352918682731,"high":0.02916225214522798,"grade":"A","note":null,"group":"Moving goods","inputs":"0.241 MJ/tkm (0.191-0.286)","wh":66.9,"wh_low":53.06000000000002,"wh_high":79.43999999999998},{"id":"F03","mover":"Battery-electric truck, long haul","detail":"Scenario estimate, >400 km","basis":"payload","boundary":"Electricity at the vehicle","low":0.04331754472730239,"cot":0.04331754472730239,"high":0.04331754472730239,"grade":"B","note":"Scenario, not fleet data.","group":"Moving goods","inputs":"0.118 kWh/tkm","wh":118,"wh_low":118.0,"wh_high":118.0},{"id":"F05","mover":"Truck freight, mode average","detail":"Historical observations","basis":"payload","boundary":"Fuel energy","low":0.2233056140476106,"cot":0.2233056140476106,"high":0.2233056140476106,"grade":"A","note":null,"group":"Moving goods","inputs":"2.19 MJ/tkm","wh":608.3,"wh_low":608.3000000000001,"wh_high":608.3000000000001},{"id":"F06","mover":"Freighter aircraft","detail":"Mode average","basis":"payload","boundary":"Fuel energy","low":1.67235090474321,"cot":1.67235090474321,"high":1.67235090474321,"grade":"A","note":null,"group":"Moving goods","inputs":"16.4 MJ/tkm","wh":4555.6,"wh_low":4555.599999999999,"wh_high":4555.599999999999},{"id":"F07","mover":"Small delivery drone, 0.5 kg parcel","detail":"188 test flights plus mission model","basis":"payload","boundary":"Electricity at the drone","low":16.31382786170609,"cot":16.31382786170609,"high":16.31382786170609,"grade":"A","note":"Per kg of parcel the drone is the costliest mover in the set; per parcel it can still beat a van on short trips.","group":"Moving goods","inputs":"22.2 Wh/km / 0.5 kg","wh":44440,"wh_low":44440.00000000001,"wh_high":44440.00000000001}],"goods_whole":[{"id":"F04","mover":"Battery-electric 40-tonne truck (whole vehicle)","detail":"Design model, 1.068 kWh/km at 40 t gross","basis":"own mass","boundary":"Electricity at the vehicle","low":0.009801512239143847,"cot":0.009801512239143847,"high":0.009801512239143847,"grade":"B","note":"Whole-vehicle basis (truck plus load), not per kg of cargo.","group":"Moving goods","inputs":"1,068 Wh/km / (40,000 kg x g)","wh":null}],"formula":{"g":9.80665,"passenger_kg":75}};
+
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const $ = id => document.getElementById(id);
+const fmt = v => Math.round(v).toLocaleString('en-US');
+const cotf = v => v<.01 ? v.toFixed(4) : v<1 ? v.toFixed(3) : v<10 ? v.toFixed(2) : v.toFixed(1);   // 0.0031 · 0.060 · 0.172 · 2.27 · 15.0
+const whf = v => v<10 ? v.toFixed(1) : fmt(v);
+const ndNote = (text) => `<span class="nd-note">${text}</span>`;
+const LAB = 'var(--lab)';   // space reserved at the end of a bar row for its value label (CSS: 92px, 70px on phones)
+const at = f => `calc((100% - ${LAB})*${f})`;
+const log10 = Math.log10;
+
+const GRP = {'Living beings':'var(--g-live)','Human body':'var(--g-human)','Robots':'var(--g-robot)','Moving people':'var(--g-people)','Moving goods':'var(--g-goods)'};
+const byId = L => Object.fromEntries(L.map(d => [d.id, d]));
+const LAD = byId(DATA.ladder);
+
+/* gridlines behind a row of bars: [fraction, colour, width] -> one CSS background (read by .lr__bar) */
+const grid = (list) => list.map(([f,c='var(--gl)',w=1]) => `linear-gradient(${c},${c}) calc((100% - var(--lab))*${f}) 0/${w}px 100% no-repeat`).join(',');
+const lrow = (name, sub, bar, cls='') => `<div class="row lr ${cls}"><div class="row__m"><span class="row__mt">${name}${sub?`<small>${sub}</small>`:''}</span></div><div class="row__bar lr__bar">${bar}</div></div>`;
+const axis = (vals, X, f) => `<div class="rows__axis"><span></span><div class="rows__ticks" style="margin-right:${LAB}">${vals.map(v => `<span style="left:${X(v)*100}%">${f(v)}</span>`).join('')}</div></div>`;
+const whisker = (lo, hi, X) => `<span class="lr__wh" style="left:${at(X(lo))};width:calc((100% - ${LAB})*${X(hi)-X(lo)})"></span>`;
+const valLabel = (f, txt) => `<span class="row__v lr__v" style="left:calc((100% - ${LAB})*${f} + 10px)">${txt}</span>`;
+const SHORT_B = {'Electricity at the vehicle':'electricity','Electricity at the vessel':'electricity','Electricity at the aircraft':'electricity','Electricity at the drone':'electricity',
+  'Metabolic (food energy)':'food energy','Final energy':'final energy','Fuel energy':'fuel','Operating energy':'operating energy'};
+/* the tag that flags how firm a row is: derived, claim, model, scenario */
+const flagOf = d => { const t=[], x=(d.detail||'');
+  if(d.id==='L01') t.push('derived from breathing');
+  if(d.id==='V01') t.push('physics limit');
+  if(d.grade==='C') t.push('manufacturer claim');
+  if(/allometric/i.test(x)) t.push('model line'); else if(/scenario|design model/i.test(x)) t.push('scenario / model');
+  return t; };
+
+/* ================= summary — the lift figure (a COT of 0.1 lifts 1 kg by 10 cm per metre) ================= */
+function renderLift(){
+  const narrow = $('lift').clientWidth < 560, w = narrow ? 400 : 760, h = narrow ? 390 : 410;
+  const m = {l:narrow?42:52, r:8, t:36, b:62}, y0 = h-m.b;
+  const I = [['L01','Whale'],['V01','Eco car'],['F01','Ship'],['L02','Eel'],['H04','Cyclist'],['H01','Walker'],['B04','ASIMO'],['F07','Drone']];
+  const Y = cm => y0 - (log10(cm)-log10(.1))/(log10(3000)-log10(.1))*(y0-m.t);
+  const hf = cm => cm<10 ? cm.toFixed(1)+' cm' : cm<100 ? Math.round(cm)+' cm' : (cm/100<10 ? (cm/100).toFixed(1) : Math.round(cm/100))+' m';
+  const cw = (w-m.l-m.r)/I.length, bw = narrow ? 28 : 36, bh = narrow ? 19 : 22;
+  let s = `<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Height by which each mover lifts 1 kg per metre travelled: ${I.map(([id,n])=>`${LAD[id].mover} ${hf(LAD[id].cot*100)}`).join('; ')}">`;
+  s += '<g class="lf__ax">'+[[.1,'1 mm'],[1,'1 cm'],[10,'10 cm'],[100,'1 m'],[1000,'10 m']].map(([v,t])=>`<line x1="${m.l}" x2="${w-m.r}" y1="${Y(v)}" y2="${Y(v)}"/><text x="${m.l-8}" y="${Y(v)+4}" text-anchor="end">${t}</text>`).join('')+'</g>';
+  I.forEach(([id,n],i) => {
+    const d = LAD[id], c = GRP[d.group], own = d.basis.startsWith('own'), cx = m.l+cw*(i+.5), yv = Y(d.cot*100);
+    s += `<line class="lf__stem" style="--i:${i}" x1="${cx}" x2="${cx}" y1="${y0}" y2="${yv+bh/2}" stroke="${c}"/>`;
+    s += `<g class="lf__w" style="--i:${i};--dy:${y0-yv}px"><rect x="${cx-bw/2}" y="${yv-bh/2}" width="${bw}" height="${bh}" rx="4" fill="${own?c:'var(--bg-card)'}" stroke="${c}"/>`+
+         `<text x="${cx}" y="${yv+4}" fill="${own?'var(--ink)':c}">1 kg</text><text class="lf__v" x="${cx}" y="${yv-bh/2-7}">${hf(d.cot*100)}</text></g>`;
+    s += `<circle cx="${cx}" cy="${y0}" r="3.5" fill="${c}"/><text class="lf__n" x="${cx}" y="${y0+22}" fill="${c}">${n}</text><text class="lf__c" x="${cx}" y="${y0+39}">${narrow?'':'COT '}${cotf(d.cot)}</text>`;
+  });
+  $('lift').innerHTML = s+'</svg>';
+}
+
+/* ================= ch01 — the equation (V09) ================= */
+function renderCot(){
+  const IC = {bolt:'<svg viewBox="0 0 24 24"><path d="M13 2 5 13.5h6L10 22l9-12h-6.5Z"/></svg>', kg:'<svg viewBox="0 0 24 24"><path d="M7 8h10l3 12H4Z"/><circle cx="12" cy="5" r="2"/></svg>', d:'<svg viewBox="0 0 24 24"><path d="M3 12h18M7 8l-4 4 4 4M17 8l4 4-4 4"/></svg>'};
+  const E = 3.6e6, km = 538, m = DATA.formula.passenger_kg, g = DATA.formula.g, res = E/(m*g*km*1000);
+  $('cot').innerHTML =
+    `<div class="cot__eq" role="img" aria-label="COT equals E divided by m times g times d"><span class="cot__k">COT</span><span class="cot__op">=</span><span class="cot__frac"><span class="cot__num"><i>${IC.bolt}</i>E</span><span class="cot__den"><i>${IC.kg}</i>m × g<span style="color:var(--txt-muted)">×</span><i>${IC.d}</i>d</span></span></div>`+
+    `<div class="cot__ex"><h4>Worked example</h4><p>Shell Eco-marathon prototype: 1 kWh (3.6 million J) for 538 km, one occupant counted as ${m} kg.</p><div class="cot__calc"><span class="fr"><span>${fmt(E)} J</span><span>${m} kg × ${g.toFixed(2)} m/s² × ${fmt(km*1000)} m</span></span><span class="eq">=</span><span class="res">${cotf(res)}</span></div></div>`+
+    `<ul class="cot__terms"><li><b>E</b>Energy put in, in joules: food, electricity or fuel.</li><li><b>m</b>The mass moved, in kg: the mover itself, or its passenger or cargo.</li><li><b>g</b>Gravity, ${g.toFixed(2)} m/s².</li><li><b>d</b>The distance travelled, in metres.</li></ul>`;
+}
+
+/* ================= V02 — every mover on one log axis ================= */
+function renderLadder(){
+  const L = DATA.ladder, X = v => (log10(v)+3)/5, T = [.001,.01,.1,1,10,100];
+  let h = `<div class="rows lr--wide lr--ladder" style="--grid:${grid(T.map(v => [X(v)]))}" role="img" aria-label="Cost of transport of ${L.length} movers on a log scale: ${L.map(d=>`${d.mover} ${cotf(d.cot)}`).join('; ')}">`;
+  L.forEach((d,i) => {
+    const c = GRP[d.group], own = d.basis.startsWith('own'), x = X(d.cot);
+    let bar = d.high > d.low ? `<span class="lr__rng" style="left:${at(X(d.low))};width:calc((100% - ${LAB})*${X(d.high)-X(d.low)});background:${c}"></span>` : '';
+    bar += `<span class="lr__dot" style="--i:${i};left:${at(x)};border-color:${c};background:${own?c:'var(--bg-card)'}"></span>`;
+    bar += valLabel(Math.max(X(d.high),x), cotf(d.cot));
+    h += lrow(esc(d.mover), esc(flagOf(d).join(' · ')), bar);
+  });
+  $('v02').innerHTML = h+'</div>'+axis(T, X, v => v);
+  $('v02-legend').innerHTML = Object.entries(GRP).map(([k,c]) => `<span><i style="background:${c}"></i>${k}</span>`).join('')+
+    `<span><i style="background:var(--txt)"></i>Filled: per kg of itself</span><span><i class="ring"></i>Hollow: per kg of passenger or cargo</span>`;
+  $('v02-nd').innerHTML = ndNote(`<b>No comparable number (ND):</b> ${DATA.ladder_nd.map(esc).join(', ')}. ND means no defensible figure was found; it never means zero.`);
+}
+
+/* ================= V04 — the living podium ================= */
+function renderPodium(){
+  const A = byId(DATA.living), Hm = byId(DATA.human);
+  const R = [A.L01, A.L02, A.L03, A.L04, Hm.H02, Hm.H01, Hm.H03].sort((a,b) => a.cot-b.cot);
+  const X = v => (log10(v)+3)/3, T = [.001,.01,.1,1];
+  const NAME = {L01:'Humpback whale', L02:'European eel', L03:'Beluga whale', L04:'Horse, trotting', H02:'Human walking, net', H01:'Human walking, fast', H03:'Human running'};
+  const SUB = d => d.id==='L01' ? 'derived from breathing' : (d.boundary||'').replace(/^Metabolic,? ?/,'');
+  let h = `<div class="rows lr--wide" style="--grid:${grid(T.map(v => [X(v)]))}" role="img" aria-label="Cost of transport of living beings: ${R.map(d=>`${NAME[d.id]} ${cotf(d.cot)}`).join('; ')}">`;
+  R.forEach((d,i) => {
+    const c = d.group==='Human body' ? 'var(--g-human)' : 'var(--g-live)', x = X(d.cot);
+    let bar = `<span class="row__fill" style="--i:${i};width:calc((100% - ${LAB})*${x});background:${c}"></span>`;
+    if(d.high > d.low) bar += whisker(d.low, d.high, X);
+    bar += valLabel(Math.max(X(d.high),x), cotf(d.cot));
+    h += lrow(NAME[d.id], esc(SUB(d)), bar);
+  });
+  $('v04').innerHTML = h+'</div>'+axis(T, X, v => v);
+  $('v04-nd').innerHTML = ndNote('<b>Not charted (ND): moon jellyfish.</b> It is reported as the cheapest swimmer in its comparison, but the value appears only in a chart, and its body is mostly water, which flatters a per-kg metric.');
+}
+
+/* ================= V03 — size line, log-log ================= */
+function renderSize(){
+  const narrow = $('v03').clientWidth < 560, S = DATA.size, w = narrow ? 400 : 760, h = narrow ? 360 : 420, m = {t:22, r:narrow?46:74, b:54, l:52};
+  const x = d3.scaleLog().domain([.01,10000]).range([m.l, w-m.r]), y = d3.scaleLog().domain([.05,5]).range([h-m.b, m.t]);
+  const XT = [[.01,'10 g'],[.1,'100 g'],[1,'1 kg'],[10,'10 kg'],[100,'100 kg'],[1000,'1 t'],[10000,'10 t']].filter((_,i) => !narrow || i%2===0);
+  const YT = [.05,.1,.2,.5,1,2,5];
+  const line = d3.line().x(d => x(d.kg)).y(d => y(d.cot)).curve(d3.curveMonotoneX)(S);
+  const L = S.filter(d => d.label), mo = L.find(d => d.label==='Mouse'), el = L.find(d => d.label==='Elephant');
+  const KG = {Mouse:'20 g',Dog:'20 kg',Human:'70 kg',Horse:'500 kg',Elephant:'4,000 kg'};
+  let s = `<svg viewBox="0 0 ${w} ${h}" class="sc-svg" role="img" aria-label="Net cost of running against body mass, model line: ${L.map(d=>`${d.label} (${KG[d.label]}) ${cotf(d.cot)}`).join('; ')}">`;
+  s += '<g class="grid">'+XT.map(([v]) => `<line x1="${x(v)}" x2="${x(v)}" y1="${m.t}" y2="${h-m.b}"/>`).join('')+YT.map(v => `<line x1="${m.l}" x2="${w-m.r}" y1="${y(v)}" y2="${y(v)}"/>`).join('')+'</g>';
+  s += '<g class="ax">'+XT.map(([v,t]) => `<text x="${x(v)}" y="${h-m.b+18}" text-anchor="middle">${t}</text>`).join('')+YT.map(v => `<text x="${m.l-8}" y="${y(v)+4}" text-anchor="end">${v}</text>`).join('')+'</g>';
+  s += `<text class="axt" x="${w-m.r}" y="${h-10}" text-anchor="end">Body mass →</text>`;
+  s += `<text class="axt" x="${m.l-40}" y="${m.t-4}" text-anchor="start" transform="rotate(-90 ${m.l-40} ${m.t-4})" dx="-${h-m.b-m.t}">Net cost of running, COT (log) →</text>`;
+  s += `<line class="gl" x1="${x(mo.kg)}" x2="${w-m.r+10}" y1="${y(mo.cot)}" y2="${y(mo.cot)}"/><line class="gl" x1="${x(el.kg)}" x2="${w-m.r+10}" y1="${y(el.cot)}" y2="${y(el.cot)}"/>`;
+  const bx = w-m.r+16;
+  s += `<path class="brk" d="M${bx-5} ${y(mo.cot)}H${bx}V${y(el.cot)}H${bx-5}"/><text class="brkt" x="${bx+7}" y="${(y(mo.cot)+y(el.cot))/2+5}">${Math.round(DATA.size_ratio)}×</text>`;
+  s += `<path class="line" d="${line}"/>`;
+  L.forEach(d => { const last = d.label==='Elephant', dx = last ? -8 : 10, dy = last ? 24 : -10;
+    s += `<circle cx="${x(d.kg)}" cy="${y(d.cot)}" r="6.5" fill="var(--g-live)" stroke="#292A4E" stroke-width="1.5"/><text class="lbl" x="${x(d.kg)+dx}" y="${y(d.cot)+dy}" text-anchor="${last?'end':'start'}">${d.label} ${narrow?'':KG[d.label]+' · '}${cotf(d.cot)}</text>`; });
+  $('v03').innerHTML = s+'</svg>';
+}
+
+/* ================= V05 — walk, run, cycle: two panels, same order ================= */
+function renderHuman(){
+  const H = byId(DATA.human), P = byId(DATA.people), W = 54;
+  const R = [{n:'Walking, fast', s:'70 kg, ~6 km/h', d:H.H01, w:P.V04}, {n:'Walking, net of standing', s:'190 adults, 1.34 m/s', d:H.H02}, {n:'Running', s:'~1 kcal per kg per km', d:H.H03},
+             {n:'Cycling', s:'~16 km/h, 62 kg rider', d:H.H04, w:{wh:H.H04.practical, wh_low:H.H04.practical, wh_high:H.H04.practical}}];
+  const mxC = .5, mxW = 90;
+  const cell = (v, mx, bg, txt, i, lo, hi) => `<div class="pan__cell"><span class="row__fill" style="--i:${i};width:calc((100% - ${W}px)*${v/mx});background:${bg}"></span>`+
+    (hi > lo ? `<span class="pan__wh" style="left:calc((100% - ${W}px)*${lo/mx});width:calc((100% - ${W}px)*${(hi-lo)/mx})"></span>` : '')+
+    `<span class="row__v" style="left:calc((100% - ${W}px)*${Math.max(v,hi||0)/mx} + 8px)">${txt}</span></div>`;
+  let h = `<div class="pan pan--human" role="img" aria-label="${R.map(r=>`${r.n}: COT ${cotf(r.d.cot)}, ${r.w?whf(r.w.wh)+' Wh per km of food energy':'no Wh per km figure (ND)'}`).join('; ')}">`;
+  h += `<div class="pan__head"><span></span><div class="pan__h pan__h--ev">Cost of transport<small>per kg of the person · scale 0–${mxC}</small></div><div class="pan__h pan__h--ice">Food energy per km, Wh<small>scale 0–${mxW}</small></div></div>`;
+  R.forEach((r,i) => {
+    h += `<div class="pan__row"><div class="row__m"><span class="row__mt">${r.n}<small>${r.s}</small></span></div>`+
+      cell(r.d.cot, mxC, 'var(--g-human)', cotf(r.d.cot), i, r.d.low, r.d.high)+
+      (r.w ? cell(r.w.wh, mxW, 'var(--hatch-people)', whf(r.w.wh), i, r.w.wh_low, r.w.wh_high) : `<div class="pan__cell"><span class="pan__nd">ND</span></div>`)+'</div>';
+  });
+  $('v05').innerHTML = h+'</div>';
+}
+
+/* ================= V06 — robots against biology, log axis with two reference lines ================= */
+function renderRobots(){
+  const R = DATA.robots, X = v => (log10(v)+1)/(log10(30)+1), T = [.1,.3,1,3,10,30];
+  const bots = R.filter(d => d.id.startsWith('B')).sort((a,b) => (a.cot??1e9)-(b.cot??1e9)), hw = R.find(d => d.id==='H02'), ho = R.find(d => d.id==='L04');
+  const gl = grid([...T.map(v => [X(v)]), [X(ho.cot),'var(--g-live)',2], [X(hw.cot),'var(--g-human)',2]]);
+  let h = `<div class="rows lr--wide" style="--grid:${gl}" role="img" aria-label="Robot cost of transport: ${bots.map(d=>`${d.mover} ${d.cot==null?'ND':cotf(d.cot)}`).join('; ')}. References: human walking ${cotf(hw.cot)}, horse trotting ${cotf(ho.cot)}">`;
+  h += `<div class="rows__axis"><span></span><div class="refl" style="margin-right:${LAB}"><span style="left:${X(ho.cot)*100}%;transform:translateX(-100%);padding-right:7px;color:var(--g-live);text-align:right">Horse, trotting<br>${cotf(ho.cot)}</span><span style="left:${X(hw.cot)*100}%;padding-left:7px;color:var(--g-human)">Human walking, net<br>${cotf(hw.cot)}</span></div></div>`;
+  bots.forEach((d,i) => {
+    let bar;
+    if(d.cot == null) bar = `<span class="row__v lr__v" style="left:calc((100% - ${LAB})*${X(.32)});color:var(--txt-muted);font-weight:500"><i class="ndo"></i>no distance data${innerWidth<640?'':' · cost of transport ND'}</span>`;
+    else bar = `<span class="lr__dot" style="--i:${i};left:${at(X(d.cot))};border-color:var(--g-robot);background:var(--g-robot)"></span>`+valLabel(X(d.cot), cotf(d.cot));
+    h += lrow(esc(d.mover), d.cot==null ? 'Fraunhofer IPA, May 2026' : esc(d.boundary.toLowerCase()), bar, d.cot==null ? 'row--nd' : '');
+  });
+  $('v06').innerHTML = h+'</div>'+axis(T, X, v => v);
+}
+
+/* ================= V07 — moving people: Wh per person-km, linear, with whiskers ================= */
+function renderPeople(){
+  const P = DATA.people, MX = 900, X = v => v/MX, T = [0,300,600,900];
+  let h = `<div class="rows lr--wide" style="--grid:${grid(T.map(v => [X(v)]))}" role="img" aria-label="Energy per person-km: ${P.map(d=>`${d.mover} ${whf(d.wh)} Wh`).join('; ')}">`;
+  P.forEach((d,i) => {
+    const food = /Metabolic/.test(d.boundary), x = X(d.wh), hi = Math.max(X(d.wh_high), x);
+    let bar = `<span class="row__fill" style="--i:${i};width:calc((100% - ${LAB})*${x});background:${food?'var(--hatch-people)':'var(--g-people)'}"></span>`;
+    if(d.wh_high > d.wh_low*1.001) bar += whisker(d.wh_low, d.wh_high, X);
+    bar += valLabel(hi, whf(d.wh));
+    const sub = [SHORT_B[d.boundary]||d.boundary.toLowerCase(), 'COT '+cotf(d.cot), ...flagOf(d)].join(' · ');
+    h += lrow(esc(d.mover), esc(sub), bar);
+  });
+  $('v07').innerHTML = h+'</div>'+axis(T, X, v => v+(v===900?' Wh':''));
+}
+
+/* ================= V08 — moving goods: Wh per tonne-km, log axis ================= */
+function renderGoods(){
+  const G = DATA.goods, X = v => (log10(v)-1)/4, T = [10,100,1000,1e4,1e5];
+  let h = `<div class="rows lr--wide" style="--grid:${grid(T.map(v => [X(v)]))}" role="img" aria-label="Energy per tonne-km: ${G.map(d=>`${d.mover} ${fmt(d.wh)} Wh`).join('; ')}">`;
+  G.forEach((d,i) => {
+    const x = X(d.wh), hi = Math.max(X(d.wh_high), x), tight = d.wh_high/d.wh_low < 1.0001;
+    let bar = `<span class="row__fill" style="--i:${i};width:calc((100% - ${LAB})*${x});background:var(--g-goods)"></span>`;
+    if(!tight) bar += whisker(d.wh_low, d.wh_high, X);
+    bar += valLabel(hi, fmt(d.wh));
+    const sub = [SHORT_B[d.boundary]||d.boundary.toLowerCase(), 'COT '+cotf(d.cot), ...flagOf(d)].join(' · ');
+    h += lrow(esc(d.mover), esc(sub), bar);
+  });
+  $('v08').innerHTML = h+'</div>'+axis(T, X, v => v>=1000 ? (v/1000)+'k' : v);
+  const w = DATA.goods_whole[0];
+  $('v08-nd').innerHTML = ndNote(`<b>Not charted (ND):</b> ${esc(w.mover)}. It is a whole-vehicle value (COT ${cotf(w.cot)} per kg of truck plus load) with no tonne-km figure.`);
+}
+
+/* ================= boot ================= */
+renderLift();
+renderCot();
+renderLadder();
+renderPodium();
+renderSize();
+renderHuman();
+renderRobots();
+renderPeople();
+renderGoods();
+let narrowNow = $('v03').clientWidth < 560;
+window.addEventListener('resize', () => { const n = $('v03').clientWidth < 560; if(n !== narrowNow){ narrowNow = n; renderSize(); renderLift(); } });
+
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(reduce || !('IntersectionObserver' in window)){ document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible')); }
+else{
+  const obs = new IntersectionObserver(e => { e.forEach(x => { if(x.isIntersecting){ x.target.classList.add('visible'); obs.unobserve(x.target); } }); }, {threshold:0.06});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+}
+
+</script>
+
+</body></html>

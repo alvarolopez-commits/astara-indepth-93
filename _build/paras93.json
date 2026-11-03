@@ -1,0 +1,584 @@
+{
+ "title": "The cheapest kilometre on Earth",
+ "cover": [
+  "Whales, eels, cyclists, robots, ships and drones on one energy scale",
+  "Prepared 3 November 2026 · Astara Intelligence · Companion file: Most_Efficient_Mover_InDepth_Data.xlsx"
+ ],
+ "paras": {
+  "how1": "The yardstick is the cost of transport (COT): the energy used to move a weight over a distance, divided by that weight and that distance. It has no units, so a whale, a bicycle and a ship sit on the same axis. A COT of 0.1 means that moving 1 kg one metre costs as much energy as lifting it 10 cm.",
+  "how2": "Two bases, never mixed in one contest: \"own mass\" (the animal, robot or whole vehicle moving itself) and \"payload\" (per kg of passenger or cargo carried; a passenger counts as 75 kg, the EU type-approval driver mass).",
+  "how3": "Energy boundary: living beings and human power are measured in food (metabolic) energy; machines in electricity or fuel delivered to the vehicle. Farming, power plants and refineries are not counted anywhere.",
+  "how4": "Sources: every figure is external [EXT], with its URL in Appendix B and in the Excel. Where a source gives energy and mass but not COT, the COT is computed and the inputs are shown. Nothing is estimated; \"ND\" means no defensible figure.",
+  "sum1": "There is no single most efficient mover. There is a winner for each thing you choose to count, and the winners share three traits: they are big, slow and supported by water, rails or a smooth road.",
+  "sum2": "Among living beings, the large swimmers win. A humpback whale cruising at its best speed has a cost of transport of about 0.0031, by an estimate from breathing rates; a European eel, measured in a swim tunnel, about 0.060. A fast-walking human spends 0.387, roughly 6 times the eel. Size matters as much as medium: per kilogram, a mouse-sized runner spends 47 times more than an elephant-sized one.",
+  "sum3": "The bicycle is still the best way for a human body to move itself: 29 Wh of food energy per km against 72 Wh for walking. But machines built only for efficiency go much further. A student prototype at the 2026 Shell Eco-marathon covered 538 km on 1 kWh: 1.9 Wh per km, a cost of 0.0091 per kg of driver, about 16 times less than a cyclist.",
+  "sum4": "For cargo, the champion is the ship: 0.014 per kg of freight, about half the cost of a freight train and 1,176 times less than a small delivery drone. Robots are the laggards: the best humanoids still spend about 10 times more energy per metre than a walking person.",
+  "s1_h": "One number for a whale and a ship",
+  "s1p1": "Engineers Gabrielli and von Karman asked in 1950 what speed costs in energy; biologist Vance Tucker answered in 1975 with a chart that set fruit flies, salmon, horses, jets and a man on a bicycle on one line. Their trick was to divide energy by weight and distance, which removes the units [EXT: Radhakrishnan 1998, PNAS].",
+  "s1p2": "The same formula is used here for every row. Many sources publish it directly; for the rest it is computed from energy per kilometre and mass, or from power, mass and speed. The conversions are in sheet 10_Formula and each row shows its inputs.",
+  "s2_h": "Living beings: big swimmers win",
+  "s2b1": "Humpback whale: 0.0020-0.0042, derived from breathing rates at the optimal speed of 2-4 m/s off Peru [EXT: Villagra et al. 2021]. It is the lowest number in the piece and the least direct.",
+  "s2b2": "European eel: 0.051-0.069, measured in swim tunnels simulating the 5,500 km migration to the Sargasso Sea. Eels swim 4-6 times more efficiently than salmon-like fish [EXT: Palstra, van Ginneken et al.].",
+  "s2b3": "Beluga whale: 0.143, measured by oxygen use in an aquarium [EXT: John et al. 2024].",
+  "s2b4": "Moon jellyfish: reported as the cheapest swimmer in its comparison, with fish only beating it above about 100 kg; its body is mostly water, which flatters a per-kg metric. No number is published in the text (ND) [EXT: Gemmell et al. 2013, PNAS].",
+  "s2b5": "Birds: fliers sit between swimmers and runners; a sparrow's minimum cost is about ten times lower than a mouse's, because it covers ground ten times faster for the same metabolic rate [EXT: Radhakrishnan 1998]. No comparable bird number is included.",
+  "s2p1": "Size matters as much as medium. A regression across 62 running birds and mammals gives a net cost of 3.76 for a 20 g runner, 0.285 for a 70 kg one and 0.079 for a 4,000 kg one [EXT: Taylor et al. 1982].",
+  "s3_h": "The human body and its best machine",
+  "s3p1": "On a bicycle, a person needs 29 Wh of food energy per km, against about 72 Wh on foot: well under half. Muscles still lose about three quarters of food energy as heat, which is why an electric scooter, at 15.9 Wh per km of electricity, looks cheaper still [EXT].",
+  "s4_h": "Robots: still far from biology",
+  "s4p1": "The record holder is the Cornell Ranger, which walked 65 km in 2011 on one charge at 0.280, close to a walking human, but it can do nothing except walk [EXT: Cornell]. The bipedal Cassie reaches 0.680. Full humanoids sit at 2.27 (ASIMO) to 2.80 (WALK-MAN), ten or more times a walking person, and the hydraulic BigDog at 15.0 [EXT: Kashiri et al. 2018].",
+  "s4p2": "The new generation of commercial humanoids cannot be placed on this scale yet. Fraunhofer IPA's 2026 benchmark of the Unitree G1 publishes battery life (2 h 49 min standing, 1 h 49 min standing and walking) but not the distance or speed, so its cost of transport is ND [EXT: Fraunhofer IPA].",
+  "s5_h": "Moving people",
+  "s5p1": "At the top, the Eco-marathon prototype (1.9 Wh per km) shows the physical limit for a one-seat vehicle on a smooth track. Among things people actually use, the shared e-scooter (15.9 Wh) and the full electric bus (about 44 Wh per passenger at 40 on board) lead. A battery-electric car carrying one person uses 210 Wh, and the average passenger-km on British roads 395 Wh, about 213 times the prototype [EXT].",
+  "s6_h": "Moving goods",
+  "s6p1": "A ship moves a tonne one kilometre with about 38 Wh, a freight train with 67 Wh, an average truck with 608 Wh and a cargo aircraft with 4,556 Wh [EXT: PMC11953041]. A small drone carrying a 0.5 kg parcel spends 44,440 Wh per tonne-km. Per parcel on a short trip it can still beat a van, but per kilogram it is the costliest mover in the piece [EXT].",
+  "s6p2": "Seen as a whole vehicle, a 40-tonne electric truck in a design model reaches 0.0098, a number close to the ship's per-kg figure and lower than any land animal [EXT].",
+  "s7_h": "So, who wins?",
+  "s7b1": "If the question is \"which living being moves its own body most cheaply?\": the large swimmers. The humpback whale by estimate (0.0020-0.0042); the eel by measurement (0.051-0.069).",
+  "s7b2": "If it is \"which way of moving a person uses the least energy?\": a purpose-built prototype (0.0091 per kg of driver). Among everyday options, the e-scooter on electricity and the bicycle on food energy.",
+  "s7b3": "If it is \"which way of moving goods uses the least energy?\": the ship (0.014 per kg of cargo), then the freight train.",
+  "s7b4": "If it is \"which machine walks like us?\": none yet. The most efficient walking robot matches a human only because it does nothing else.",
+  "s8_h": "What to watch",
+  "s8b1": "Humanoid benchmarks: Fraunhofer IPA has published a method rather than results; the first published distance and speed for a commercial humanoid will allow a real cost of transport.",
+  "s8b2": "Electric trucks and ships: long-haul electric trucking scenarios already sit at about three times the ship's per-kg cost of moving cargo; fleet data will test that.",
+  "s8b3": "Bird flight: wild-flight tagging studies (e.g. the Swansea FLIGHT project, 46 species) promise the first comparable field costs of transport for fliers.",
+  "src1": "Cornell University, Cornell Ranger walks 40.5 miles without recharge (record, 2 May 2011) (May 2011). https://news.cornell.edu/node/270375",
+  "src2": "Czech Technical University, Green Gliders team: 538 km on 1 kWh at Shell Eco-marathon Poland 2026 (BusinessInfo.cz) (Jun 2026). https://www.businessinfo.cz/clanky/rekordnich-538-kilometru-na-1-kwh-studenti-z-cvut-by-na-jedno-nabiti-dojeli-z-prahy-az-do-krakova/",
+  "src3": "Commission Regulation (EU) No 1230/2012: mass in running order includes a 75 kg driver (2012). https://eur-lex.europa.eu/eli/reg/2012/1230/oj",
+  "src4": "Fraunhofer IPA, benchmark for humanoid robots (Unitree G1 EDU-4 tested) (27 May 2026). https://www.ipa.fraunhofer.de/en/press-media/press_releases/benchmark-for-humanoid-robots.html",
+  "src5": "Cross-mode scenario estimates for road freight by powertrain (records F012-F017 in the editor's workbook) (2026). data/source_comparativa_eficiencia_energetica_transporte_2026.xlsx",
+  "src6": "Das Gupta et al. (2018), Cycling efficiency and energy cost of walking in young and older adults, J. Appl. Physiol. (net walking cost, 190 adults) (2018). https://pmc.ncbi.nlm.nih.gov/articles/PMC5867372/",
+  "src7": "Gemmell et al. (2013), Passive energy recapture in jellyfish contributes to propulsive advantage over other metazoans, PNAS 110:17904 (Oct 2013). https://pmc.ncbi.nlm.nih.gov/articles/PMC3816424/",
+  "src8": "John et al. (2024), Conservation energetics of beluga whales, J. Exp. Biol. 227: jeb246899 (Mar 2024). https://pmc.ncbi.nlm.nih.gov/articles/PMC11070638/",
+  "src9": "Kashiri et al. (2018), An overview on principles for energy efficient robot locomotion, Frontiers in Robotics and AI 5:129 (Dec 2018). https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2018.00129/pdf",
+  "src10": "McArdle & Katch (2000), Essentials of Exercise Physiology, 2nd ed., p. 171: running costs about 1 kcal per kg per km (2000). https://en.wikipedia.org/wiki/Cost_of_transport",
+  "src11": "Oxy-calorific equivalent 13.6 J per mg O2 (Brafield & Solomon 1972; equals 3.25 cal/mg in Elliott & Davison 1975, Oecologia 19:195) (1975). https://marineinfo.org/doc/publication/99223",
+  "src12": "Palstra, van Ginneken & van den Thillart, swim performance of European silver eels (Leiden University thesis chapter); see also van Ginneken et al. (2005) J. Exp. Biol. 208:1329 (2005-2008). https://scholarlypublications.universiteitleiden.nl/access/item%3A2927713/view",
+  "src13": "Radhakrishnan (1998), Locomotion: dealing with friction, PNAS 95:5448 (reviews Tucker 1975 and Gabrielli & von Karman 1950) (1998). https://pmc.ncbi.nlm.nih.gov/articles/PMC20397/",
+  "src14": "UK DESNZ, Energy Consumption in the UK (ECUK) 2026 (2026). https://www.gov.uk/government/statistics/energy-consumption-in-the-uk-2026/energy-consumption-in-the-uk-ecuk-2026",
+  "src15": "BEV energy consumption in Europe, Sustainability 16(17):7529 (342 models, real-world 21 +/- 4 kWh/100 km) (2024). https://www.mdpi.com/2071-1050/16/17/7529",
+  "src16": "Jia & Gao (2025), Life-cycle analysis of shared e-scooters in 100 EU cities, Transportation Research Part D (Nov 2025). https://www.sciencedirect.com/science/article/pii/S1361920925004195",
+  "src17": "Wilson et al. (2020), Fuelling walking and cycling, PMC7280492 (incremental food energy per km) (2020). https://pmc.ncbi.nlm.nih.gov/articles/PMC7280492/",
+  "src18": "Energy intensity and human mobility after the Anthropocene, Sustainability 12(6):2376 (cycling at ~16 km/h, 62.3 kg adult) (2020). https://www.mdpi.com/2071-1050/12/6/2376",
+  "src19": "Passenger transport energy use in ten Swedish cities, Energies 13(14):3719 (2020). https://www.mdpi.com/1996-1073/13/14/3719",
+  "src20": "Drone flight data reveal energy savings for very small package delivery, Patterns (2022), 188 flights (2022). https://pmc.ncbi.nlm.nih.gov/articles/PMC9403403/",
+  "src21": "Adopting eVTOL aircraft for green transport transformation, Fundamental Research (2026) (2026). https://pmc.ncbi.nlm.nih.gov/articles/PMC13424162/",
+  "src22": "Electric and hydrogen double-decker buses, real-world data, Transportation Research Part D (Oct 2026) (Oct 2026). https://www.sciencedirect.com/science/article/pii/S1361920926003093",
+  "src23": "Economies of scale in intercity freight transportation (PMC11953041): mean and 10th-90th percentile energy intensity by mode (2025). https://pmc.ncbi.nlm.nih.gov/articles/PMC11953041/",
+  "src24": "Decarbonization versus technological continuity, Energy Conversion and Management: X (2026) (2026). https://doi.org/10.1016/j.ecmx.2026.101885",
+  "src25": "Candela (manufacturer), P-12 product information (2024). https://candela.com/newsroom/candela-p-12-enables-public-transport-faster-than-cars-and-subway/",
+  "src26": "40-tonne battery-electric truck design model, eTransportation (2025/26) (2026). https://doi.org/10.1016/j.etran.2025.100511",
+  "src27": "Editor's research workbook: Comparativa_eficiencia_energetica_transporte_2026.xlsx (cut-off 20 Oct 2026) (20 Oct 2026). data/source_comparativa_eficiencia_energetica_transporte_2026.xlsx",
+  "src28": "Taylor, Heglund & Maloiy (1982), Energetics and mechanics of terrestrial locomotion I, J. Exp. Biol. 97:1-21 (62 bird and mammal species) (1982). https://pubmed.ncbi.nlm.nih.gov/7086334/",
+  "src29": "Villagra et al. (2021), Energetic effects of whale-watching boats on humpback whales on a breeding ground, Frontiers in Marine Science 7:600508 (Jan 2021). https://doi.org/10.3389/fmars.2020.600508"
+ },
+ "tables": [
+  {
+   "section": "sum",
+   "rows": [
+    [
+     "Class",
+     "Champion",
+     "COT",
+     "Basis",
+     "Grade"
+    ],
+    [
+     "Per kg of itself, among living beings",
+     "Humpback whale",
+     "0.0031",
+     "own mass",
+     "B"
+    ],
+    [
+     "Per kg of itself, the best measured animal",
+     "European eel",
+     "0.060",
+     "own mass",
+     "B"
+    ],
+    [
+     "Per kg of person, human power",
+     "Human on a bicycle",
+     "0.172",
+     "own mass (rider)",
+     "B"
+    ],
+    [
+     "Per kg of person, any machine",
+     "Shell Eco-marathon prototype",
+     "0.0091",
+     "payload",
+     "B"
+    ],
+    [
+     "Per kg of cargo",
+     "Ocean freight ship",
+     "0.014",
+     "payload",
+     "A"
+    ],
+    [
+     "Per kg of itself, legged robots",
+     "Cornell Ranger (legged robot)",
+     "0.280",
+     "own mass",
+     "A"
+    ]
+   ]
+  },
+  {
+   "section": "sum",
+   "rows": [
+    [
+     "VISUAL V01 — The champion of each class Data: Excel sheet 02_Champions.  Six tiles, one per class, with the champion's icon, its COT and a one-line \"per kg of ...\" label. Footnote: \"COT = energy / (weight x distance). Lower is better.\""
+    ]
+   ]
+  },
+  {
+   "section": "sum",
+   "rows": [
+    [
+     "VISUAL V09 — How the cost of transport works Data: Excel sheet 10_Formula.  Explainer: a weight (kg x g) moved a distance d using energy E; COT = E / (m g d). Show \"0.1 = lifting the load 10 cm for every metre travelled\"."
+    ]
+   ]
+  },
+  {
+   "section": "sum",
+   "rows": [
+    [
+     "VISUAL V02 — Every mover on one scale Data: Excel sheet 03_COT_Ladder.  Horizontal log-scale ladder from 0.001 to 100 with one dot per row, coloured by group (living, human, robots, people, goods). Filled dots for \"own mass\", hollow for \"payload\". Range rows as bars. ND rows listed underneath as \"no comparable number\"."
+    ]
+   ]
+  },
+  {
+   "section": "s2",
+   "rows": [
+    [
+     "Animal",
+     "COT",
+     "How measured",
+     "Grade"
+    ],
+    [
+     "Humpback whale",
+     "0.0020-0.0042",
+     "Metabolic, estimated from breathing rate",
+     "B"
+    ],
+    [
+     "European eel",
+     "0.051-0.069",
+     "Metabolic, measured oxygen use",
+     "B"
+    ],
+    [
+     "Elephant-sized runner (4,000 kg)",
+     "0.079",
+     "Metabolic, net (above standing)",
+     "B"
+    ],
+    [
+     "Beluga whale",
+     "0.143",
+     "Metabolic, measured oxygen use",
+     "A"
+    ],
+    [
+     "Horse-sized runner (500 kg)",
+     "0.153",
+     "Metabolic, net (above standing)",
+     "B"
+    ],
+    [
+     "Horse, trotting",
+     "0.200",
+     "Metabolic",
+     "B"
+    ],
+    [
+     "Human-sized runner (70 kg)",
+     "0.285",
+     "Metabolic, net (above standing)",
+     "B"
+    ],
+    [
+     "Dog-sized runner (20 kg)",
+     "0.423",
+     "Metabolic, net (above standing)",
+     "B"
+    ],
+    [
+     "Mouse-sized runner (20 g)",
+     "3.76",
+     "Metabolic, net (above standing)",
+     "B"
+    ]
+   ]
+  },
+  {
+   "section": "s2",
+   "rows": [
+    [
+     "VISUAL V03 — Size matters: mouse to elephant Data: Excel sheet 04_Size_Matters.  Log-log line of net running COT against body mass, with labelled points for mouse, dog, human, horse, elephant. Caption: Per kg, a mouse spends about 47 times more than an elephant."
+    ]
+   ]
+  },
+  {
+   "section": "s2",
+   "rows": [
+    [
+     "VISUAL V04 — The living podium Data: Excel sheet 05_Living_Beings.  Horizontal bars on a log axis: humpback whale (tag \"derived from breathing\"), eel, beluga, horse, human walking and running. Jellyfish as an annotation, not a bar."
+    ]
+   ]
+  },
+  {
+   "section": "s3",
+   "rows": [
+    [
+     "Mode",
+     "COT (own mass)",
+     "Food energy per km",
+     "Source"
+    ],
+    [
+     "Walking, fast (70 kg, ~6 km/h)",
+     "0.387",
+     "72 Wh (incremental, range 56-88)",
+     "Tucker via PNAS 1998; Wilson 2020"
+    ],
+    [
+     "Walking, net of standing",
+     "0.221",
+     "",
+     "J. Appl. Physiol. 2018"
+    ],
+    [
+     "Running",
+     "0.427",
+     "",
+     "McArdle & Katch"
+    ],
+    [
+     "Cycling, ~16 km/h",
+     "0.156-0.188",
+     "29 Wh",
+     "Sustainability 2020"
+    ]
+   ]
+  },
+  {
+   "section": "s3",
+   "rows": [
+    [
+     "VISUAL V05 — The human body: walk, run, cycle Data: Excel sheet 06_Human_Body.  Paired bars: COT and Wh of food energy per km for walking, running and cycling. Footnote: \"Food energy, not electricity.\""
+    ]
+   ]
+  },
+  {
+   "section": "s4",
+   "rows": [
+    [
+     "Robot",
+     "COT",
+     "Detail",
+     "Grade"
+    ],
+    [
+     "Cornell Ranger (legged robot)",
+     "0.280",
+     "65 km in 30 h 49 min without recharge, 16 W",
+     "A"
+    ],
+    [
+     "MIT Cheetah (quadruped)",
+     "0.500",
+     "Electrical energy recycling",
+     "B"
+    ],
+    [
+     "Cassie (bipedal robot)",
+     "0.680",
+     "30 kg, 1.0 m/s, 200 W",
+     "B"
+    ],
+    [
+     "Honda ASIMO (humanoid)",
+     "2.27",
+     "54 kg, 1.5 m/s, 1.8 kW",
+     "B"
+    ],
+    [
+     "WALK-MAN (humanoid)",
+     "2.80",
+     "Slow walk 0.2 m/s, total consumption",
+     "B"
+    ],
+    [
+     "BigDog (hydraulic quadruped)",
+     "15.0",
+     "110 kg, 15 l of fuel for 20 km",
+     "B"
+    ]
+   ]
+  },
+  {
+   "section": "s4",
+   "rows": [
+    [
+     "VISUAL V06 — Robots vs biology Data: Excel sheet 07_Robots.  Dot plot on a log axis with vertical reference lines for human walking (net) and a trotting horse. Leave the Unitree G1 as an empty marker labelled \"no distance data\"."
+    ]
+   ]
+  },
+  {
+   "section": "s5",
+   "rows": [
+    [
+     "Mode",
+     "Wh per person-km",
+     "COT per kg of passenger",
+     "Boundary",
+     "Grade"
+    ],
+    [
+     "Shell Eco-marathon prototype",
+     "1.9",
+     "0.0091",
+     "Electricity at the vehicle",
+     "B"
+    ],
+    [
+     "Shared e-scooter",
+     "15.9",
+     "0.078",
+     "Electricity at the vehicle",
+     "A"
+    ],
+    [
+     "Human on a bicycle (food energy)",
+     "29.2",
+     "0.143",
+     "Metabolic (food energy)",
+     "B"
+    ],
+    [
+     "Electric double-decker bus, 40 on board",
+     "44.2",
+     "0.217",
+     "Electricity at the vehicle",
+     "B"
+    ],
+    [
+     "Human walking (food energy)",
+     "72.1",
+     "0.273-0.432",
+     "Metabolic (food energy)",
+     "B"
+    ],
+    [
+     "Electric hydrofoil ferry (Candela P-12)",
+     "100.0",
+     "0.489",
+     "Electricity at the vessel",
+     "C"
+    ],
+    [
+     "Passenger rail, Great Britain average",
+     "124.4",
+     "0.609",
+     "Final energy",
+     "A"
+    ],
+    [
+     "Battery-electric car",
+     "210.0",
+     "0.257-1.03",
+     "Electricity at the vehicle",
+     "A"
+    ],
+    [
+     "eVTOL air taxi, 2 of 4 seats",
+     "260.0",
+     "1.27",
+     "Electricity at the aircraft",
+     "B"
+    ],
+    [
+     "Passenger aircraft (combustion)",
+     "297.0",
+     "1.03-1.73",
+     "Fuel energy",
+     "B"
+    ],
+    [
+     "Road passenger transport, UK average",
+     "395.4",
+     "1.94",
+     "Final energy",
+     "A"
+    ],
+    [
+     "Urban bus, Swedish cities",
+     "544.4",
+     "1.29-4.04",
+     "Operating energy",
+     "B"
+    ]
+   ]
+  },
+  {
+   "section": "s5",
+   "rows": [
+    [
+     "VISUAL V07 — Moving people: energy per person-km Data: Excel sheet 08_Moving_People.  Horizontal bars in Wh per person-km, sorted. Show occupancy ranges for car and bus as whiskers. Mark food-energy rows (walking, cycling) with a different texture."
+    ]
+   ]
+  },
+  {
+   "section": "s6",
+   "rows": [
+    [
+     "Mode",
+     "Wh per tonne-km",
+     "COT per kg of cargo",
+     "Grade"
+    ],
+    [
+     "Ocean freight ship",
+     "38",
+     "0.0062-0.021",
+     "A"
+    ],
+    [
+     "Freight train",
+     "67",
+     "0.019-0.029",
+     "A"
+    ],
+    [
+     "Battery-electric truck, long haul",
+     "118",
+     "0.043",
+     "B"
+    ],
+    [
+     "Truck freight, mode average",
+     "608",
+     "0.223",
+     "A"
+    ],
+    [
+     "Freighter aircraft",
+     "4,556",
+     "1.67",
+     "A"
+    ],
+    [
+     "Small delivery drone, 0.5 kg parcel",
+     "44,440",
+     "16.3",
+     "A"
+    ]
+   ]
+  },
+  {
+   "section": "s6",
+   "rows": [
+    [
+     "VISUAL V08 — Moving goods: energy per tonne-km Data: Excel sheet 09_Moving_Goods.  Horizontal bars on a log axis from ship to drone. Ship and train ranges as whiskers. Caption: A ship moves a kilo about 1,176 times more cheaply than a drone."
+    ]
+   ]
+  }
+ ],
+ "visuals": [],
+ "appendix": {
+  "A": [
+   [
+    "ID",
+    "Type",
+    "Title",
+    "Excel sheet",
+    "Section"
+   ],
+   [
+    "V01",
+    "Key figures strip",
+    "The champion of each class",
+    "02_Champions",
+    "1"
+   ],
+   [
+    "V09",
+    "Explainer diagram",
+    "How the cost of transport works",
+    "10_Formula",
+    "1"
+   ],
+   [
+    "V02",
+    "Log-scale dot ladder",
+    "Every mover on one scale",
+    "03_COT_Ladder",
+    "1"
+   ],
+   [
+    "V03",
+    "Log-log line",
+    "Size matters: mouse to elephant",
+    "04_Size_Matters",
+    "2"
+   ],
+   [
+    "V04",
+    "Horizontal bars (log)",
+    "The living podium",
+    "05_Living_Beings",
+    "2"
+   ],
+   [
+    "V05",
+    "Paired bars",
+    "The human body: walk, run, cycle",
+    "06_Human_Body",
+    "3"
+   ],
+   [
+    "V06",
+    "Dot plot",
+    "Robots vs biology",
+    "07_Robots",
+    "4"
+   ],
+   [
+    "V07",
+    "Horizontal bars with ranges",
+    "Moving people: energy per person-km",
+    "08_Moving_People",
+    "5"
+   ],
+   [
+    "V08",
+    "Horizontal bars (log)",
+    "Moving goods: energy per tonne-km",
+    "09_Moving_Goods",
+    "6"
+   ]
+  ],
+  "C": [
+   "Boundaries differ by row. Living beings and people on foot or pedals are measured in metabolic (food) energy, which includes the 75-78% that muscles lose as heat. Machines are measured in electricity or fuel delivered to the vehicle. Neither includes the energy to grow food, generate electricity or refine fuel. Check: Keep the boundary label on every bar. Do not present the bicycle and the e-scooter as like for like without it.",
+   "Two denominators are used and never mixed in one ranking: \"own mass\" (everything that moves: the animal, the robot, or the whole truck) and \"payload\" (only the person or cargo carried). A whale and a ship can only be compared as an illustration, not as a contest. Check: Visual V02 must colour or split by basis.",
+   "Passenger figures use a 75 kg person (the EU type-approval driver mass). Real passengers and Eco-marathon drivers can be lighter, which would raise the per-kg values. Check: Footnote the 75 kg convention.",
+   "The humpback whale value is derived from breath counts and assumed lung volume, not from measured oxygen use. It is the lowest number in the set and the least direct. Check: Show it with a \"derived from breathing\" tag; the eel and beluga values are measured.",
+   "The running-animal sizes (mouse to elephant) come from one published regression across 62 species, not from five measured animals. Net cost excludes the energy of standing still. Check: Label as \"model line\".",
+   "Bird flight has no number in this piece. The literature agrees that fliers sit between swimmers and runners (a sparrow's minimum cost is about ten times lower than a mouse's), but no comparable measured cost of transport could be extracted from an accessible source by the cut-off. Check: If wanted, extract Tucker (1975) or a wind-tunnel study and add one bird row.",
+   "The jellyfish (Aurelia aurita) is reported as the most efficient swimmer in its comparison, but the value is only in a chart; it is ND here. Its mass is ~96% water, which flatters a per-kg metric. Check: Use as a qualitative call-out only.",
+   "Humanoid robots: the editor's brief describes a workbook version with a Humanoid_Robots sheet and Fraunhofer power figures (154-283 W) for the Unitree G1. The attached file is the 20 October version without that sheet, and the public Fraunhofer page gives only battery life, with no speed or distance. No COT is computed for the G1. Check: Send the updated workbook or the Fraunhofer report to add a G1 row.",
+   "Many vehicle rows are scenarios or models (bus occupancy, eVTOL, long-haul electric truck, 40-t truck design) or manufacturer claims (Candela). Grades A/B/C are in the Excel. Check: Tag grade C and scenario rows visually.",
+   "The Eco-marathon prototype is a one-seat car built only to minimise energy on a closed track at low speed. It shows what is physically possible, not a usable vehicle. Check: Caption it as a \"physics limit\" example.",
+   "No AllMoving database entries are used; all figures are external [EXT]. Check: Nothing."
+  ]
+ },
+ "notes": [
+  "This is the base content for the visual piece: text, numbers and chart specifications. Each section ends with the visuals it needs and the Excel sheet that feeds them."
+ ]
+}

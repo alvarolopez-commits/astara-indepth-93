@@ -1,9 +1,9 @@
-# Astara Intelligence · In Depth #92 — More plugs than pumps
+# Astara Intelligence · In Depth #93 — The cheapest kilometre on Earth
 
-Public charging points, fuel stations and the fleets they serve in 40 markets.
+Whales, eels, cyclists, robots, ships and drones on one energy scale (cost of transport).
 
-- `index_92.html` — the published page (self-contained apart from `deploy/`). `index.html` is an identical copy written by the build so GitHub Pages serves it at the site root: https://alvarolopez-commits.github.io/astara-indepth-92/
-- `deploy/` — logo, D3, TopoJSON, the local world map, `img/` (cover: hero-1672/840.webp made from the supplied JPG, which is not deployed) and `flags/` (square flags from flag-icons 7.2.3, MIT, one per market).
+- `index_93.html` — the published page (self-contained apart from `deploy/`). `index.html` is an identical copy written by the build so GitHub Pages serves it at the site root.
+- `deploy/` — logo and D3. (`flags/`, `img/`, `countries-110m.js` and `topojson-client.min.js` are left over from #92 and are not used by #93.)
 - `DATA/` — the editor's docx (text) and Excel (chart data). Not published.
 - `_build/` — sources to regenerate the page (see `_build/README.md`).
-- `vercel.json` — serves `index_92.html` at the site root.
+- `vercel.json` — serves `index_93.html` at the site root.
