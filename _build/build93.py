@@ -16,6 +16,7 @@ HEAD = """<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="deploy/img/hero-1672.webp" imagesrcset="deploy/img/hero-840.webp 840w, deploy/img/hero-1672.webp 1672w" imagesizes="100vw">
 <style>
 """
 
@@ -96,11 +97,11 @@ for k in sorted((k for k in paras if k.startswith("src")), key=lambda k: int(k[3
 body = body.replace("[[SOURCES]]", "<ol>" + "".join(srcs) + "</ol>").replace("[[SOURCES_COUNT]]", str(len(srcs)))
 
 # ---- cover art: eight movers climbing the log COT scale (positions are computed from the data) ----
-# two compositions of the same drawing: a wide one for desktop (art on the right, title on the left) and a compact one that stacks above the title
+# two compositions of the same drawing, shown as a figure under the cover: a wide band for desktop and a compact one for phones
 L = {d["id"]: d for d in DATA["ladder"]}
 CHAIN = [("L01", "whale", "Whale", "live"), ("V01", "car", "Eco car", "people"), ("F01", "ship", "Ship", "goods"),
          ("L02", "eel", "Eel", "live"), ("H04", "bike", "Cyclist", "human"), ("H01", "walker", "Walker", "human"),
-         ("B04", "robot", "Robot", "robot"), ("F07", "drone", "Drone", "goods")]
+         ("B04", "robot", "ASIMO", "robot"), ("F07", "drone", "Drone", "goods")]
 COL = {"live": "#3EC6C6", "human": "#8BCDFF", "robot": "#B79CFF", "people": "#FFB935", "goods": "#FF8F9C"}
 ART_G = '<g fill="none" stroke="currentColor" stroke-width="%s" stroke-linecap="round" stroke-linejoin="round">'
 def cot_txt(v): return f"{v:.4f}" if v < .01 else (f"{v:.3f}" if v < 1 else (f"{v:.2f}" if v < 10 else f"{v:.1f}"))
@@ -113,7 +114,7 @@ def smooth(p):          # Catmull-Rom through the points, as cubic Beziers
 def cover_art(cls, W, H, x0, step, ybase, yb, ytop, r, k, fs, preserve, uid):
     lo, hi = math.log10(L["L01"]["cot"]), math.log10(L["F07"]["cot"])
     pts = [(x0 + i * step, yb - (math.log10(L[i_]["cot"]) - lo) / (hi - lo) * (yb - ytop)) for i, (i_, *_r) in enumerate(CHAIN)]
-    a = [f'<svg class="cover__art {cls}" viewBox="0 0 {W} {H}" preserveAspectRatio="{preserve}" role="img" aria-label="Eight movers on a rising curve of cost of transport, from the humpback whale at 0.003 to a delivery drone at 16">',
+    a = [f'<svg class="info__art {cls}" viewBox="0 0 {W} {H}" preserveAspectRatio="{preserve}" role="img" aria-label="Eight movers on a rising curve of cost of transport, from the humpback whale at 0.003 to a delivery drone at 16">',
          f'<defs><radialGradient id="cg1{uid}" cx="70%" cy="35%" r="60%"><stop offset="0" stop-color="#1A4D7A" stop-opacity=".55"/><stop offset="1" stop-color="#221E41" stop-opacity="0"/></radialGradient>'
          f'<linearGradient id="cg2{uid}" x1="0" x2="1"><stop offset="0" stop-color="#8BCDFF" stop-opacity=".2"/><stop offset=".3" stop-color="#8BCDFF" stop-opacity=".6"/><stop offset="1" stop-color="#FFB935" stop-opacity=".85"/></linearGradient></defs>',
          f'<rect width="{W}" height="{H}" fill="#221E41"/><rect width="{W}" height="{H}" fill="url(#cg1{uid})"/>']
@@ -130,11 +131,11 @@ def cover_art(cls, W, H, x0, step, ybase, yb, ytop, r, k, fs, preserve, uid):
         a.append(f'<circle cx="{px:.0f}" cy="{ybase}" r="{fs[0] / 5:.1f}" fill="{c}"/>')
         a.append(f'<text x="{px:.0f}" y="{ybase + fs[0] * 1.7:.0f}" text-anchor="middle" font-size="{fs[0]}" font-weight="700" fill="#FFFFFF">{cot_txt(L[id_]["cot"])}</text>')
         a.append(f'<text x="{px:.0f}" y="{ybase + fs[0] * 1.7 + fs[1] * 1.45:.0f}" text-anchor="middle" font-size="{fs[1]}" font-weight="500" fill="#A9BCCB">{nm}</text>')
-    a.append(f'<text x="{x0 - step / 2:.0f}" y="{ybase - fs[1] * .9:.0f}" font-size="{fs[2]}" font-weight="700" letter-spacing="2" fill="#89A1B4">COST OF TRANSPORT · LOG SCALE · LOWER IS BETTER</text>')
+    a.append(f'<text x="{W / 2:.0f}" y="{ybase + fs[0] * 1.7 + fs[1] * 1.45 + fs[2] * 2.3:.0f}" text-anchor="middle" font-size="{fs[2]}" font-weight="700" letter-spacing="2" fill="#89A1B4">COST OF TRANSPORT · LOG SCALE · LOWER IS BETTER</text>')
     return "".join(a) + '</svg>'
-body = body.replace("[[COVER_ART]]",
-    cover_art("cover__art--wide", 1672, 940, 800, 108, 600, 500, 190, 52, .72, (24, 17, 13), "xMaxYMid slice", "w") +
-    cover_art("cover__art--stack", 900, 620, 70, 108, 392, 330, 96, 38, .52, (22, 16, 11), "xMidYMid meet", "s"))
+body = body.replace("[[INFOGRAPHIC]]",
+    cover_art("info__art--band", 1672, 470, 241, 170, 352, 300, 96, 56, .78, (24, 17, 13), "xMidYMid meet", "b") +
+    cover_art("info__art--stack", 900, 620, 70, 108, 392, 330, 96, 38, .52, (22, 16, 11), "xMidYMid meet", "s"))
 
 used = set()
 def sub(m):

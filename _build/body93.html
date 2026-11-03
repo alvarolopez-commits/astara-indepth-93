@@ -4,7 +4,12 @@
     <div class="cover__divider"></div>
     <div class="cover__label">In Depth #93</div>
   </div>
-  <figure class="cover__photo">[[COVER_ART]]</figure>
+  <figure class="cover__photo">
+    <img src="deploy/img/hero-1672.webp"
+         srcset="deploy/img/hero-840.webp 840w, deploy/img/hero-1672.webp 1672w"
+         sizes="100vw" width="1672" height="940" fetchpriority="high" decoding="async"
+         alt="Row of glowing electric-vehicle fast chargers beside an old fuel station canopy at dusk, one car plugged in">
+  </figure>
   <div class="cover__content">
     <div class="cover__pill"><span>Whales · Eels · Cyclists · Robots · Ships · Drones</span></div>
     <h1 class="cover__title">The cheapest<br>kilometre <span>on Earth</span></h1>
@@ -15,6 +20,22 @@
     </div>
   </div>
 </header>
+
+<!-- INFOGRAPHIC -->
+<section class="sec sec--info">
+<div class="chapter wide">
+  <figure class="fig infog reveal" style="margin-top:0">
+    <div class="fig__frame">
+      <div class="fig__title">Eight movers, one scale</div>
+      <div class="fig__what">Cost of transport, from the humpback whale (0.003) to a delivery drone (16). Log scale, lower is better.</div>
+      [[INFOGRAPHIC]]
+    </div>
+    <figcaption>An illustration, not a contest. Whale, eel, cyclist, walker and ASIMO are measured per kg of themselves; the Eco-marathon prototype, the ship and the drone per kg of passenger or cargo. Height follows the cost on a log scale; the horizontal order is by cost, not to scale.</figcaption>
+  </figure>
+</div>
+</section>
+
+<div class="section-divider"></div>
 
 <!-- 00 SUMMARY -->
 <section class="sec">
