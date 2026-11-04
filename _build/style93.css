@@ -105,8 +105,8 @@ body{caret-color:var(--accent);}
   .cover__photo{position:absolute;inset:0;}
   .cover__photo img{height:100%;aspect-ratio:auto;object-position:center 52%;}
   .cover__photo::after{background:
-    linear-gradient(90deg,rgba(34,30,65,.92) 0%,rgba(34,30,65,.72) 34%,rgba(34,30,65,.40) 60%,rgba(34,30,65,.30) 100%),
-    linear-gradient(180deg,rgba(34,30,65,.50) 0%,rgba(34,30,65,0) 28%,rgba(34,30,65,.72) 80%,var(--bg) 100%);}
+    linear-gradient(90deg,rgba(34,30,65,.80) 0%,rgba(34,30,65,.50) 34%,rgba(34,30,65,.16) 60%,rgba(34,30,65,.06) 100%),
+    linear-gradient(180deg,rgba(34,30,65,.40) 0%,rgba(34,30,65,0) 28%,rgba(34,30,65,.60) 80%,var(--bg) 100%);}
   .cover__content{margin-top:auto;padding:0 var(--g) var(--sp-7);}
   .cover__title{font-size:clamp(34px,4.6vw,64px);max-width:min(40vw,560px);}
 }
@@ -538,3 +538,18 @@ body{caret-color:var(--accent);}
 .lang__b.is-on{background:var(--accent);color:var(--ink);}
 .lang__b:hover:not(.is-on){color:var(--txt);}
 .key-legend em{font-style:normal;}
+
+/* ---------- 11. PHONES AND TOUCH (360-430 px): legible text, touch targets, the compact illustration ---------- */
+.sources li small{font-size:12px;}
+.info__art--stack{max-width:640px;margin-left:auto;margin-right:auto;}
+@media(max-width:899px),(pointer:coarse){
+  .lang__b{min-height:44px;min-width:44px;}
+}
+@media(max-width:639px){
+  .cover__pill span{font-size:11px;letter-spacing:1.4px;}
+  .rows .row__v small{font-size:11px;}
+  .row__m small,.pan__h small{font-size:11px;}
+}
+@media(max-width:639px){
+  .lf__v{font-size:12px;}
+}

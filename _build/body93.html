@@ -1,24 +1,23 @@
 <header class="cover">
   <div class="cover__topbar">
-    <img src="deploy/logo clear.svg" alt="Astara Intelligence" style="height:16px;width:auto;">
+    <img src="deploy/logo clear.svg" alt="" data-i18n-attr="alt:brand.name" style="height:16px;width:auto;">
     <div class="cover__divider"></div>
-    <div class="cover__label">In Depth #93</div>
-    <div class="lang" role="group" aria-label="Language" data-aria="Language"><button type="button" class="lang__b is-on" data-lang="en" aria-pressed="true" lang="en">EN</button><button type="button" class="lang__b" data-lang="es" aria-pressed="false" lang="es">ES</button></div>
+    <div class="cover__label" data-i18n="cover.label"></div>
+    <div class="lang" role="group" aria-label="" data-i18n-attr="aria-label:ui.language"><button type="button" class="lang__b is-on" data-lang="en" aria-pressed="true" lang="en">EN</button><button type="button" class="lang__b" data-lang="es" aria-pressed="false" lang="es">ES</button></div>
   </div>
   <figure class="cover__photo">
-    <img src="deploy/img/hero-1672.webp"
-         srcset="deploy/img/hero-840.webp 840w, deploy/img/hero-1672.webp 1672w"
-         sizes="100vw" width="1672" height="940" fetchpriority="high" decoding="async"
-         alt="Row of glowing electric-vehicle fast chargers beside an old fuel station canopy at dusk, one car plugged in"
-         data-alt="Row of glowing electric-vehicle fast chargers beside an old fuel station canopy at dusk, one car plugged in">
+    <img src="deploy/img/hero93-1672.webp"
+         srcset="deploy/img/hero93-840.webp 840w, deploy/img/hero93-1672.webp 1672w"
+         sizes="100vw" width="1672" height="941" fetchpriority="high" decoding="async"
+         alt="" data-i18n-attr="alt:cover.alt">
   </figure>
   <div class="cover__content">
-    <div class="cover__pill"><span>Whales · Eels · Cyclists · Robots · Ships · Drones</span></div>
-    <h1 class="cover__title">The cheapest<br>kilometre <span>on Earth</span></h1>
-    <p class="cover__sub" data-src="cover_sub">{{cover_sub}}</p>
+    <div class="cover__pill"><span data-i18n="cover.pill"></span></div>
+    <h1 class="cover__title" data-i18n="cover.title"></h1>
+    <p class="cover__sub" data-i18n="doc.cover_sub"></p>
     <div class="cover__meta">
-      <span class="cover__date">Prepared 3 November 2026</span>
-      <span class="cover__tag">COT from 0.003 to 16</span>
+      <span class="cover__date" data-i18n="cover.date"></span>
+      <span class="cover__tag" data-i18n="cover.tag"></span>
     </div>
   </div>
 </header>
@@ -28,11 +27,11 @@
 <div class="chapter wide">
   <figure class="fig infog reveal" style="margin-top:0">
     <div class="fig__frame">
-      <div class="fig__title">Eight movers, one scale</div>
-      <div class="fig__what">Cost of transport, from the humpback whale (0.003) to a delivery drone (16). Log scale, lower is better.</div>
+      <div class="fig__title" data-i18n="fig.info.title"></div>
+      <div class="fig__what" data-i18n="fig.info.what"></div>
       [[INFOGRAPHIC]]
     </div>
-    <figcaption>An illustration, not a contest. Whale, eel, cyclist, walker and ASIMO are measured per kg of themselves; the Eco-marathon prototype, the ship and the drone per kg of passenger or cargo. Height follows the cost on a log scale; the horizontal order is by cost, not to scale.</figcaption>
+    <figcaption data-i18n="fig.info.caption"></figcaption>
   </figure>
 </div>
 </section>
@@ -43,34 +42,34 @@
 <section class="sec">
 <div class="chapter wide">
   <div class="chapter-head reveal">
-    <div class="chapter-label"><span class="chapter-num">00</span><span class="chapter-label-text">Summary</span></div>
-    <h2 class="chapter-title">There is no single <span>most efficient mover</span></h2>
+    <div class="chapter-label"><span class="chapter-num">00</span><span class="chapter-label-text" data-i18n="chapter.sum.label"></span></div>
+    <h2 class="chapter-title" data-i18n="chapter.sum.title"></h2>
   </div>
   <div class="reading">
-    <p class="body-text lead-para reveal" data-src="sum1">{{sum1}}</p>
-    <p class="body-text reveal" data-src="sum2">{{sum2}}</p>
-    <p class="body-text reveal" data-src="sum3">{{sum3}}</p>
-    <p class="body-text reveal" data-src="sum4">{{sum4}}</p>
+    <p class="body-text lead-para reveal" data-i18n="doc.sum1"></p>
+    <p class="body-text reveal" data-i18n="doc.sum2"></p>
+    <p class="body-text reveal" data-i18n="doc.sum3"></p>
+    <p class="body-text reveal" data-i18n="doc.sum4"></p>
   </div>
 
   <figure class="fig reveal">
     <div class="fig__frame">
-      <div class="fig__title">Lift a kilo by how much, for every metre you move it?</div>
-      <div class="fig__what">Cost of transport read as a lift: a COT of 0.1 costs the energy of raising 1 kg by 10 cm for each metre travelled. Height on a log scale.</div>
-      <div class="key-legend"><span><i style="background:var(--txt)"></i>Per kg of itself (own mass)</span><span><i class="ring" style="border-color:var(--txt)"></i>Per kg of passenger or cargo (payload)</span></div>
+      <div class="fig__title" data-i18n="fig.lift.title"></div>
+      <div class="fig__what" data-i18n="fig.lift.what"></div>
+      <div class="key-legend"><span><i style="background:var(--txt)"></i><em data-i18n="legend.lift.own"></em></span><span><i class="ring" style="border-color:var(--txt)"></i><em data-i18n="legend.lift.payload"></em></span></div>
       <div class="lift" id="lift"></div>
     </div>
-    <figcaption>An illustration, not a contest: the two bases are never ranked against each other. Whale, eel, cyclist (rider), walker and ASIMO are measured per kg of themselves; the Eco-marathon prototype, the ship and the drone per kg of passenger or cargo. COT = energy / (weight x distance). Lower is better.</figcaption>
+    <figcaption data-i18n="fig.lift.caption"></figcaption>
   </figure>
 
-  <blockquote class="excerpt reveal"><p class="excerpt-text">There is a winner for each thing you choose to count</p><cite>From the analysis</cite></blockquote>
+  <blockquote class="excerpt reveal"><p class="excerpt-text" data-i18n="excerpt.text"></p><cite data-i18n="excerpt.cite"></cite></blockquote>
 
   <figure class="fig reveal">
     <div class="fig__plain">
-      <div class="fig__title">The champion of each class</div>
+      <div class="fig__title" data-i18n="fig.champions.title"></div>
       [[KEY_FIGURES]]
     </div>
-    <figcaption>COT = energy / (weight x distance). Lower is better. Grades: A measured or official; B peer-reviewed model, synthesis or quoted review value; C manufacturer claim. The humpback whale value is derived from breathing, not from measured oxygen use.</figcaption>
+    <figcaption data-i18n="fig.champions.caption"></figcaption>
   </figure>
 </div>
 </section>
@@ -81,38 +80,38 @@
 <section class="sec sec--alt">
 <div class="chapter wide">
   <div class="chapter-head reveal">
-    <div class="chapter-label"><span class="chapter-num">01</span><span class="chapter-label-text">The Yardstick</span></div>
-    <h2 class="chapter-title">One number for <span>a whale and a ship</span></h2>
+    <div class="chapter-label"><span class="chapter-num">01</span><span class="chapter-label-text" data-i18n="chapter.s1.label"></span></div>
+    <h2 class="chapter-title" data-i18n="chapter.s1.title"></h2>
   </div>
   <div class="reading">
-    <p class="body-text lead-para reveal" data-src="s1p1">{{s1p1}}</p>
-    <p class="body-text reveal" data-src="s1p2">{{s1p2}}</p>
+    <p class="body-text lead-para reveal" data-i18n="doc.s1p1"></p>
+    <p class="body-text reveal" data-i18n="doc.s1p2"></p>
   </div>
 
   <figure class="fig reveal">
     <div class="fig__frame">
-      <div class="fig__title">One equation, no units</div>
-      <div class="fig__what">Cost of transport: the energy put in, divided by the weight moved and the distance</div>
+      <div class="fig__title" data-i18n="fig.equation.title"></div>
+      <div class="fig__what" data-i18n="fig.equation.what"></div>
       <div class="cot" id="cot"></div>
     </div>
-    <figcaption>Where a source gives energy and mass but not the cost of transport, the figure is computed from the inputs shown for each row. Oxygen is converted at 13.6 J per mg.</figcaption>
+    <figcaption data-i18n="fig.equation.caption"></figcaption>
   </figure>
 
   <div class="why why--4 reveal">
-    <article class="why__c"><div class="why__ic" aria-hidden="true">[[ICON:ruler]]</div><div class="why__k">Yardstick</div><p data-src="how1">{{how1}}</p></article>
-    <article class="why__c"><div class="why__ic" aria-hidden="true">[[ICON:bases]]</div><div class="why__k">Two bases</div><p data-src="how2">{{how2}}</p></article>
-    <article class="why__c"><div class="why__ic" aria-hidden="true">[[ICON:bolt]]</div><div class="why__k">Energy boundary</div><p data-src="how3">{{how3}}</p></article>
-    <article class="why__c"><div class="why__ic" aria-hidden="true">[[ICON:doc]]</div><div class="why__k">Sources</div><p data-src="how4">{{how4}}</p></article>
+    <article class="why__c"><div class="why__ic" aria-hidden="true">[[ICON:ruler]]</div><div class="why__k" data-i18n="reading.yardstick.label"></div><p data-i18n="doc.how1"></p></article>
+    <article class="why__c"><div class="why__ic" aria-hidden="true">[[ICON:bases]]</div><div class="why__k" data-i18n="reading.bases.label"></div><p data-i18n="doc.how2"></p></article>
+    <article class="why__c"><div class="why__ic" aria-hidden="true">[[ICON:bolt]]</div><div class="why__k" data-i18n="reading.boundary.label"></div><p data-i18n="doc.how3"></p></article>
+    <article class="why__c"><div class="why__ic" aria-hidden="true">[[ICON:doc]]</div><div class="why__k" data-i18n="reading.sources.label"></div><p data-i18n="doc.how4"></p></article>
   </div>
 
   <figure class="fig reveal">
     <div class="fig__frame">
-      <div class="fig__title">The scale runs across more than three orders of magnitude</div>
-      <div class="fig__what">Every mover on one log axis, from the humpback whale (0.003) to the delivery drone (16)</div>
+      <div class="fig__title" data-i18n="fig.ladder.title"></div>
+      <div class="fig__what" data-i18n="fig.ladder.what"></div>
       <div class="key-legend" id="v02-legend"></div>
       <div id="v02"></div>
     </div>
-    <figcaption>Bars show the range where a source gives one; the dot is the central value. Filled dots are per kg of the mover itself, hollow dots per kg of passenger or cargo: the two are never ranked against each other. Passenger figures use a 75 kg person (EU type-approval driver mass); real passengers and Eco-marathon drivers can be lighter, which would raise the per-kg values. <span id="v02-nd"></span></figcaption>
+    <figcaption data-i18n="fig.ladder.caption"></figcaption>
   </figure>
 </div>
 </section>
@@ -123,39 +122,39 @@
 <section class="sec">
 <div class="chapter wide">
   <div class="chapter-head reveal">
-    <div class="chapter-label"><span class="chapter-num">02</span><span class="chapter-label-text">Living Beings</span></div>
-    <h2 class="chapter-title">Living beings: <span>big swimmers win</span></h2>
+    <div class="chapter-label"><span class="chapter-num">02</span><span class="chapter-label-text" data-i18n="chapter.s2.label"></span></div>
+    <h2 class="chapter-title" data-i18n="chapter.s2.title"></h2>
   </div>
 
   <figure class="fig reveal" style="margin-top:0">
     <div class="fig__frame">
-      <div class="fig__title">The living podium</div>
-      <div class="fig__what">Cost of transport per kg of the animal itself, log scale. Lower is better.</div>
-      <div class="key-legend"><span><i class="sq" style="background:var(--g-live)"></i>Animals</span><span><i class="sq" style="background:var(--g-human)"></i>Human body</span><span><i class="sq" style="background:none;border:1px solid var(--txt-sec);width:2px;height:10px;border-radius:0"></i>Range</span></div>
+      <div class="fig__title" data-i18n="fig.podium.title"></div>
+      <div class="fig__what" data-i18n="fig.podium.what"></div>
+      <div class="key-legend"><span><i class="sq" style="background:var(--g-live)"></i><em data-i18n="legend.podium.animals"></em></span><span><i class="sq" style="background:var(--g-human)"></i><em data-i18n="legend.podium.human"></em></span><span><i class="sq" style="background:none;border:1px solid var(--txt-sec);width:2px;height:10px;border-radius:0"></i><em data-i18n="legend.podium.range"></em></span></div>
       <div id="v04"></div>
     </div>
-    <figcaption>The humpback whale is the lowest number and the least direct: it is derived from breath counts and an assumed lung volume. Eel and beluga are measured oxygen use. The horse is a value quoted in a robotics review. Human rows are metabolic (food) energy: walking net of standing, walking fast (gross) and running. <span id="v04-nd"></span></figcaption>
+    <figcaption data-i18n="fig.podium.caption"></figcaption>
   </figure>
 
   <ul class="facts facts--plain reveal">
-    <li data-src="s2b1">{{s2b1}}</li>
-    <li data-src="s2b2">{{s2b2}}</li>
-    <li data-src="s2b3">{{s2b3}}</li>
-    <li data-src="s2b4">{{s2b4}}</li>
-    <li data-src="s2b5">{{s2b5}}</li>
+    <li data-i18n="doc.s2b1" data-i18n-fmt="lead"></li>
+    <li data-i18n="doc.s2b2" data-i18n-fmt="lead"></li>
+    <li data-i18n="doc.s2b3" data-i18n-fmt="lead"></li>
+    <li data-i18n="doc.s2b4" data-i18n-fmt="lead"></li>
+    <li data-i18n="doc.s2b5" data-i18n-fmt="lead"></li>
   </ul>
 
   <div class="reading gap-top">
-    <p class="body-text lead-para reveal" data-src="s2p1">{{s2p1}}</p>
+    <p class="body-text lead-para reveal" data-i18n="doc.s2p1"></p>
   </div>
 
   <figure class="fig reveal">
     <div class="fig__frame">
-      <div class="fig__title">Size matters as much as medium</div>
-      <div class="fig__what">Net cost of running against body mass, both on log scales: mouse to elephant</div>
+      <div class="fig__title" data-i18n="fig.size.title"></div>
+      <div class="fig__what" data-i18n="fig.size.what"></div>
       <div class="scatter-wrap"><div id="v03"></div></div>
     </div>
-    <figcaption>A model line from one published regression across 62 running birds and mammals (Taylor, Heglund &amp; Maloiy 1982), not five measured animals. Net cost excludes the energy of standing still. Per kg, a mouse-sized runner spends about 47 times more than an elephant-sized one.</figcaption>
+    <figcaption data-i18n="fig.size.caption"></figcaption>
   </figure>
 </div>
 </section>
@@ -166,18 +165,18 @@
 <section class="sec sec--alt">
 <div class="chapter wide">
   <div class="chapter-head reveal">
-    <div class="chapter-label"><span class="chapter-num">03</span><span class="chapter-label-text">The Human Body</span></div>
-    <h2 class="chapter-title">The human body <span>and its best machine</span></h2>
+    <div class="chapter-label"><span class="chapter-num">03</span><span class="chapter-label-text" data-i18n="chapter.s3.label"></span></div>
+    <h2 class="chapter-title" data-i18n="chapter.s3.title"></h2>
   </div>
-  <div class="reading"><p class="body-text lead-para reveal" data-src="s3p1">{{s3p1}}</p></div>
+  <div class="reading"><p class="body-text lead-para reveal" data-i18n="doc.s3p1"></p></div>
 
   <figure class="fig reveal">
     <div class="fig__frame">
-      <div class="fig__title">The bicycle more than halves the energy of walking</div>
-      <div class="fig__what">Walk, run, cycle: cost of transport and food energy per km</div>
+      <div class="fig__title" data-i18n="fig.human.title"></div>
+      <div class="fig__what" data-i18n="fig.human.what"></div>
       <div id="v05"></div>
     </div>
-    <figcaption>Food energy, not electricity. Wh per km is food energy per person-km; for walking it is the incremental cost (range 56 to 88 Wh). ND: no defensible figure for that mode on the same basis. Muscles turn only about 22 to 25% of food energy into work.</figcaption>
+    <figcaption data-i18n="fig.human.caption"></figcaption>
   </figure>
 </div>
 </section>
@@ -188,22 +187,22 @@
 <section class="sec">
 <div class="chapter wide">
   <div class="chapter-head reveal">
-    <div class="chapter-label"><span class="chapter-num">04</span><span class="chapter-label-text">Robots</span></div>
-    <h2 class="chapter-title">Robots: <span>still far from biology</span></h2>
+    <div class="chapter-label"><span class="chapter-num">04</span><span class="chapter-label-text" data-i18n="chapter.s4.label"></span></div>
+    <h2 class="chapter-title" data-i18n="chapter.s4.title"></h2>
   </div>
-  <div class="reading"><p class="body-text lead-para reveal" data-src="s4p1">{{s4p1}}</p></div>
+  <div class="reading"><p class="body-text lead-para reveal" data-i18n="doc.s4p1"></p></div>
 
   <figure class="fig reveal">
     <div class="fig__frame">
-      <div class="fig__title">Humanoids still spend ten times more than a walking human</div>
-      <div class="fig__what">Robots against two biological references, per kg of the machine, log scale</div>
-      <div class="key-legend"><span><i style="background:var(--g-robot)"></i>Robot</span><span><i class="sq" style="background:var(--g-human);width:3px"></i>Human walking, net (0.22)</span><span><i class="sq" style="background:var(--g-live);width:3px"></i>Horse, trotting (0.20)</span></div>
+      <div class="fig__title" data-i18n="fig.robots.title"></div>
+      <div class="fig__what" data-i18n="fig.robots.what"></div>
+      <div class="key-legend"><span><i style="background:var(--g-robot)"></i><em data-i18n="legend.robots.robot"></em></span><span><i class="sq" style="background:var(--g-human);width:3px"></i><em data-i18n="legend.robots.refHuman"></em></span><span><i class="sq" style="background:var(--g-live);width:3px"></i><em data-i18n="legend.robots.refHorse"></em></span></div>
       <div id="v06"></div>
     </div>
-    <figcaption>All robot figures are total electrical energy, except BigDog (fuel). Cassie is a preliminary experiment. The Unitree G1 cannot be placed: Fraunhofer IPA publishes battery life but no distance or speed, so its cost of transport is ND.</figcaption>
+    <figcaption data-i18n="fig.robots.caption"></figcaption>
   </figure>
 
-  <div class="reading gap-top"><p class="body-text reveal" data-src="s4p2">{{s4p2}}</p></div>
+  <div class="reading gap-top"><p class="body-text reveal" data-i18n="doc.s4p2"></p></div>
 </div>
 </section>
 
@@ -213,19 +212,19 @@
 <section class="sec sec--alt">
 <div class="chapter wide">
   <div class="chapter-head reveal">
-    <div class="chapter-label"><span class="chapter-num">05</span><span class="chapter-label-text">Moving People</span></div>
-    <h2 class="chapter-title">Moving <span>people</span></h2>
+    <div class="chapter-label"><span class="chapter-num">05</span><span class="chapter-label-text" data-i18n="chapter.s5.label"></span></div>
+    <h2 class="chapter-title" data-i18n="chapter.s5.title"></h2>
   </div>
-  <div class="reading"><p class="body-text lead-para reveal" data-src="s5p1">{{s5p1}}</p></div>
+  <div class="reading"><p class="body-text lead-para reveal" data-i18n="doc.s5p1"></p></div>
 
   <figure class="fig reveal">
     <div class="fig__frame">
-      <div class="fig__title">A record prototype uses 1.9 Wh per person-km; the UK road average, 213 times more</div>
-      <div class="fig__what">Energy per person-km, sorted. Whiskers: car 1 to 4 occupants, double-decker 20 to 80 on board, and the spread across aircraft and Swedish city buses.</div>
-      <div class="key-legend"><span><i class="sq" style="background:var(--g-people)"></i>Electricity, fuel or final energy</span><span><i class="sq hatch-people"></i>Food energy (metabolic)</span></div>
+      <div class="fig__title" data-i18n="fig.people.title"></div>
+      <div class="fig__what" data-i18n="fig.people.what"></div>
+      <div class="key-legend"><span><i class="sq" style="background:var(--g-people)"></i><em data-i18n="legend.people.machine"></em></span><span><i class="sq hatch-people"></i><em data-i18n="legend.people.food"></em></span></div>
       <div id="v07"></div>
     </div>
-    <figcaption>Each bar keeps its energy boundary: do not read the bicycle and the e-scooter as like for like. The Eco-marathon prototype is a one-seat car built only to minimise energy on a closed track at low speed: a physics limit, not a usable vehicle. The Candela ferry is a manufacturer claim (grade C); the double-decker bus and the eVTOL are scenarios or design models. COT per kg of passenger uses 75 kg.</figcaption>
+    <figcaption data-i18n="fig.people.caption"></figcaption>
   </figure>
 </div>
 </section>
@@ -236,21 +235,21 @@
 <section class="sec">
 <div class="chapter wide">
   <div class="chapter-head reveal">
-    <div class="chapter-label"><span class="chapter-num">06</span><span class="chapter-label-text">Moving Goods</span></div>
-    <h2 class="chapter-title">Moving <span>goods</span></h2>
+    <div class="chapter-label"><span class="chapter-num">06</span><span class="chapter-label-text" data-i18n="chapter.s6.label"></span></div>
+    <h2 class="chapter-title" data-i18n="chapter.s6.title"></h2>
   </div>
-  <div class="reading"><p class="body-text lead-para reveal" data-src="s6p1">{{s6p1}}</p></div>
+  <div class="reading"><p class="body-text lead-para reveal" data-i18n="doc.s6p1"></p></div>
 
   <figure class="fig reveal">
     <div class="fig__frame">
-      <div class="fig__title">A ship moves a kilo about 1,176 times more cheaply than a drone</div>
-      <div class="fig__what">Energy per tonne-km of cargo, log scale</div>
+      <div class="fig__title" data-i18n="fig.goods.title"></div>
+      <div class="fig__what" data-i18n="fig.goods.what"></div>
       <div id="v08"></div>
     </div>
-    <figcaption>Per tonne of cargo carried. Whiskers: the 10th to 90th percentile for ship and train. The long-haul electric truck is a scenario estimate, not fleet data. <span id="v08-nd"></span></figcaption>
+    <figcaption data-i18n="fig.goods.caption"></figcaption>
   </figure>
 
-  <div class="reading gap-top"><p class="body-text reveal" data-src="s6p2">{{s6p2}}</p></div>
+  <div class="reading gap-top"><p class="body-text reveal" data-i18n="doc.s6p2"></p></div>
 </div>
 </section>
 
@@ -260,14 +259,14 @@
 <section class="sec sec--alt">
 <div class="chapter wide">
   <div class="chapter-head reveal">
-    <div class="chapter-label"><span class="chapter-num">07</span><span class="chapter-label-text">The Verdict</span></div>
-    <h2 class="chapter-title">So, <span>who wins?</span></h2>
+    <div class="chapter-label"><span class="chapter-num">07</span><span class="chapter-label-text" data-i18n="chapter.s7.label"></span></div>
+    <h2 class="chapter-title" data-i18n="chapter.s7.title"></h2>
   </div>
   <ol class="qseq">
-    <li class="q reveal"><div class="q__n">01</div><div class="q__body"><div class="q__tag">Living beings</div><p class="q__text" data-src="s7b1">{{s7b1}}</p></div></li>
-    <li class="q reveal"><div class="q__n">02</div><div class="q__body"><div class="q__tag">Moving a person</div><p class="q__text" data-src="s7b2">{{s7b2}}</p></div></li>
-    <li class="q reveal"><div class="q__n">03</div><div class="q__body"><div class="q__tag">Moving goods</div><p class="q__text" data-src="s7b3">{{s7b3}}</p></div></li>
-    <li class="q reveal"><div class="q__n">04</div><div class="q__body"><div class="q__tag">Walking robots</div><p class="q__text" data-src="s7b4">{{s7b4}}</p></div></li>
+    <li class="q reveal"><div class="q__n">01</div><div class="q__body"><div class="q__tag" data-i18n="verdict.tag.living"></div><p class="q__text" data-i18n="doc.s7b1"></p></div></li>
+    <li class="q reveal"><div class="q__n">02</div><div class="q__body"><div class="q__tag" data-i18n="verdict.tag.person"></div><p class="q__text" data-i18n="doc.s7b2"></p></div></li>
+    <li class="q reveal"><div class="q__n">03</div><div class="q__body"><div class="q__tag" data-i18n="verdict.tag.goods"></div><p class="q__text" data-i18n="doc.s7b3"></p></div></li>
+    <li class="q reveal"><div class="q__n">04</div><div class="q__body"><div class="q__tag" data-i18n="verdict.tag.robots"></div><p class="q__text" data-i18n="doc.s7b4"></p></div></li>
   </ol>
 </div>
 </section>
@@ -278,25 +277,25 @@
 <section class="sec">
 <div class="chapter wide">
   <div class="chapter-head reveal">
-    <div class="chapter-label"><span class="chapter-num">08</span><span class="chapter-label-text">What to Watch</span></div>
-    <h2 class="chapter-title">What <span>to watch</span></h2>
+    <div class="chapter-label"><span class="chapter-num">08</span><span class="chapter-label-text" data-i18n="chapter.s8.label"></span></div>
+    <h2 class="chapter-title" data-i18n="chapter.s8.title"></h2>
   </div>
   <ol class="qseq">
-    <li class="q reveal"><div class="q__n">01</div><div class="q__body"><div class="q__tag">Humanoids · Fraunhofer IPA</div><p class="q__text" data-src="s8b1">{{s8b1}}</p></div></li>
-    <li class="q reveal"><div class="q__n">02</div><div class="q__body"><div class="q__tag">Electric trucks and ships</div><p class="q__text" data-src="s8b2">{{s8b2}}</p></div></li>
-    <li class="q reveal"><div class="q__n">03</div><div class="q__body"><div class="q__tag">Bird flight · FLIGHT project</div><p class="q__text" data-src="s8b3">{{s8b3}}</p></div></li>
+    <li class="q reveal"><div class="q__n">01</div><div class="q__body"><div class="q__tag" data-i18n="watch.tag.humanoids"></div><p class="q__text" data-i18n="doc.s8b1"></p></div></li>
+    <li class="q reveal"><div class="q__n">02</div><div class="q__body"><div class="q__tag" data-i18n="watch.tag.trucksShips"></div><p class="q__text" data-i18n="doc.s8b2"></p></div></li>
+    <li class="q reveal"><div class="q__n">03</div><div class="q__body"><div class="q__tag" data-i18n="watch.tag.birds"></div><p class="q__text" data-i18n="doc.s8b3"></p></div></li>
   </ol>
 
   <details class="sources reveal">
-    <summary><span class="sources__k">Sources</span><span class="sources__n">[[SOURCES_COUNT]] sources · research cut-off 3 November 2026</span></summary>
+    <summary><span class="sources__k" data-i18n="sources.title"></span><span class="sources__n" data-i18n="sources.summary" data-i18n-args='{"n":[[SOURCES_COUNT]]}'></span></summary>
     [[SOURCES]]
   </details>
 </div>
 </section>
 
 <footer class="footer">
-  <img src="deploy/logo clear.svg" alt="Astara Intelligence" style="height:18px;width:auto;margin:0 auto;opacity:0.7;">
+  <img src="deploy/logo clear.svg" alt="" data-i18n-attr="alt:brand.name" style="height:18px;width:auto;margin:0 auto;opacity:0.7;">
   <div class="footer__divider"></div>
-  <p class="footer__text">Astara Intelligence In Depth is a periodic analysis of the automotive and mobility sector for professionals navigating strategic uncertainty.</p>
-  <p class="footer__disclaimer">Sources: peer-reviewed studies, national statistics, university and manufacturer releases (full list above). Cost of transport (COT) = energy put in / (mass x g x distance). Two bases are used and never ranked against each other: own mass (the animal, robot or whole vehicle) and payload (the passenger, counted as 75 kg, or the cargo). Living beings and human power are measured in food (metabolic) energy; machines in electricity or fuel delivered to the vehicle. Farming, power plants and refineries are not counted. ND means no defensible figure was found by the research cut-off; it never means zero, and nothing has been estimated. Prepared 3 November 2026; figures reflect published data as of that date and are subject to revision. This newsletter is produced for informational purposes only and does not constitute investment advice. © 2026 Astara Intelligence.</p>
+  <p class="footer__text" data-i18n="footer.about"></p>
+  <p class="footer__disclaimer" data-i18n="footer.disclaimer"></p>
 </footer>

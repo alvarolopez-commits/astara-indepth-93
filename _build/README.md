@@ -50,9 +50,40 @@ Editorial edits applied on top of the docx (all in `build93.py`):
 - The editor's workbook entries are left out of the public Sources list (27 of the 29 Appendix B entries are listed).
 - Not published: the designer's opening note, the visual notes, Appendix A and Appendix C.
 
-## Spanish version (EN | ES switch)
+## Text, languages and the EN | ES switch
 
-- `es93.py` — the Spanish text, a draft translation to be reviewed. `P` holds the docx blocks (same keys as the English ones); `UI` holds every other text, keyed by the exact English text it replaces. Edit this file and rebuild; nothing else changes.
-- `build93.py` tags every translatable element (`data-t`) and fails, listing what is missing in `es_missing.txt`, if any English text or docx block has no Spanish.
-- `app93.js` — `setLang()` swaps the texts, re-draws the charts with Spanish labels and decimal commas, remembers the choice (`localStorage`) and honours `?lang=es`. In Spanish, `window.__i18nMiss` lists any text still without translation (should be empty).
-- The Sources list stays in English (titles of papers and institutions).
+All text of the page lives in catalogs, by stable key (`chapter.s2.title`, `fig.ladder.caption`, `chart.goods.notCharted`...). The keys never depend on the wording, so a sentence can be rewritten in either language without touching code.
+
+| What | Where | Edit it here |
+|---|---|---|
+| Interface and editorial text, English | `i18n/en.json` | yes |
+| The same keys in Spanish | `i18n/es.json` | yes |
+| Docx blocks (`doc.*`) | English from the docx (`paras93.json`), Spanish in `es.json` | Spanish only; English comes from the docx |
+| Mover names (`mover.<id>`) | English from the Excel (`data93.json`), Spanish in `es.json` | Spanish only |
+| Page structure | `body93.html` (no text: elements carry `data-i18n="key"`, `data-i18n-attr="alt:key"`, `data-i18n-args`) | structure only |
+| Chart text | `app93.js` calls `t(key)` (html) and `tp(key)` (plain text, for attributes) | keys only |
+
+Rules: a value under `doc.*` or `mover.*` is plain text; every other value may carry inline html (`<b>`, `<br>`, `<span>`). Placeholders such as `{n}` must appear in both languages. Numbers are written the way each language writes them; chart numbers get the decimal comma in Spanish from the page script.
+
+`index_93.html` / `index.html` are generated (see the comment at the top): edit the sources and rebuild, never the html.
+
+`build93.py` stops without writing anything when:
+- a key is missing in either language, exists only in Spanish, is empty, is repeated inside a file, is defined but never used, or is used but not defined;
+- a translation drops a `{placeholder}`, a tag or an element id that the English text has;
+- `en.json` tries to define a generated key (`doc.*`, `mover.*`);
+- a `data-i18n` element in the template holds text, or a docx block is missing, repeated or altered.
+
+`python _build/build93.py _build . --check` (or `python _build/i18n_lib.py`) runs only these checks. The browser script keeps `window.__i18nMiss` (the keys it could not find in the language shown).
+
+Not translated on purpose: the Sources list (titles of papers and institutions; marked `lang="en"` so screen readers read it correctly), the names `ASIMO`, `Cassie`..., the abbreviation `COT` (key `abbr.cot`), the language buttons `EN` / `ES`.
+
+## Tests
+
+```bash
+python -X utf8 -m unittest discover -s tests -v     # catalog rules and the build gate (no browser)
+node tests/e2e_i18n.mjs                             # the real page in headless Chrome at 360, 390, 430 and 1280 px
+node tests/snapshot_text.mjs out.json 390           # visible text, labels and chart marks in EN and ES, to compare two builds
+node tests/shot.mjs es 360 "#lift" lift.png         # screenshot of one element at a phone width
+```
+
+Needs Python 3, Node 22+ and Chrome (set `CHROME_PATH` if it is not in a standard place). No packages to install.

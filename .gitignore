@@ -19,6 +19,13 @@ deploy/*
 !deploy/flags/*
 !_build/
 !_build/*
+!_build/i18n/
+!_build/i18n/*
+!tests/
+!tests/*
+!tests/lib/
+!tests/lib/*
 _build/__pycache__/
+tests/__pycache__/
 
 .vercel

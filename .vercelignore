@@ -10,3 +10,4 @@ _build
 .claude
 deploy/img/*.jpg
 index.html
+tests
