@@ -49,3 +49,10 @@ Editorial edits applied on top of the docx (all in `build93.py`):
 - References to the editor's files removed: "in Appendix B and in the Excel" (how4) and "in sheet 10_Formula" (s1p2).
 - The editor's workbook entries are left out of the public Sources list (27 of the 29 Appendix B entries are listed).
 - Not published: the designer's opening note, the visual notes, Appendix A and Appendix C.
+
+## Spanish version (EN | ES switch)
+
+- `es93.py` — the Spanish text, a draft translation to be reviewed. `P` holds the docx blocks (same keys as the English ones); `UI` holds every other text, keyed by the exact English text it replaces. Edit this file and rebuild; nothing else changes.
+- `build93.py` tags every translatable element (`data-t`) and fails, listing what is missing in `es_missing.txt`, if any English text or docx block has no Spanish.
+- `app93.js` — `setLang()` swaps the texts, re-draws the charts with Spanish labels and decimal commas, remembers the choice (`localStorage`) and honours `?lang=es`. In Spanish, `window.__i18nMiss` lists any text still without translation (should be empty).
+- The Sources list stays in English (titles of papers and institutions).
